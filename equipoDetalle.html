@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Starter Template - Materialize</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/telemonitoreo-web/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="/telemonitoreo-web/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Telemonitoreo</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">Pacientes</a></li>
+            <li><a href="#">Equipos Medicos</a></li>
+            <li><a href="#">Patrones Patológicos</a></li>
+            <li><a href="#">Regresar</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="#">Pacientes</a></li>
+            <li><a href="#">Equipos Medicos</a></li>
+            <li><a href="#">Patrones Patológicos</a></li>
+            <li><a href="#">Regresar</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <h4 class="header center orange-text">Equipo Detalle</h4>
+        <br><br>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="nombre" value="estetoscopio" id="name" type="text" class="validate">
+                    <label>Nombre</label>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="marca" value="bionet" id="marca" type="text" class="validate">
+                    <label>Msrca</label>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="modelo" value="v2" id="model" type="text" class="validate">
+                    <label>Modelo</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <select id="type">
+                        <option value="" disabled>Elija una opción</option>
+                        <option value="1">Electrocardiógrafo</option>
+                        <option value="2" selected>Estetoscopio</option>
+                        <option value="3">Espirómetro</option>
+                    </select>
+                    <label>Tipo</label>
+                </div>
+                <div class="input-field col s4">
+                    <select id="typeConnection">
+                        <option value="" disabled>Elija una opción</option>
+                        <option value="1">Síncrona</option>
+                        <option value="2" selected>Asíncrona</option>
+                    </select>
+                    <label>Tipo Conexión</label>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="URL" value="http://10.1.201.10:8080" id="url" type="text" class="validate">
+                    <label>URL</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="modulo conexión" value="modulo de conexion de estetoscopios" id="connectionModule" type="text" class="validate">
+                    <label>Módulo de conexión</label>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Aceptar
+                    <i class="material-icons right">send</i>
+                </button>
+                <button class="btn waves-effect waves-light red" type="button" name="cancel">cancelar
+                    <i class="material-icons right">cancel</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer class="page-footer orange">
+    <div class="container">
+        <h5 class="white-text">Universidad de Carabobo</h5>
+        <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="/telemonitoreo-web/js/jquery-2.1.1.min.js"></script>
+<script src="/telemonitoreo-web/js/materialize.min.js"></script>
+<script src="/telemonitoreo-web/js/init.js"></script>
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
+</body>
+</html>
