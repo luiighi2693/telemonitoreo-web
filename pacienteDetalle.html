@@ -16,150 +16,96 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="#">Pacientes</a></li>
             <li><a href="#">Equipos Medicos</a></li>
+            <li><a href="#">Patrones Patológicos</a></li>
+            <li><a href="#">Regresar</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
             <li><a href="#">Pacientes</a></li>
             <li><a href="#">Equipos Medicos</a></li>
+            <li><a href="#">Patrones Patológicos</a></li>
+            <li><a href="#">Regresar</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav>
-<div class="section no-pad-bot" id="index-banner">
 
-    <div class="container" style="overflow-y: scroll; height: 450px;">
-        <h4 class="header center orange-text">Paciente</h4>
+<main>
+    <div class="container">
+        <h4 class="header center orange-text">Paciente Edición</h4>
         <br><br>
+        <div class="row">
+            <div class="input-field col s4">
+                <input value="pedro alzurut" id="name" type="text" class="validate">
+                <label>Nombre</label>
+            </div>
+            <div class="input-field col s4">
+                <input value="22334465" id="cedula" type="text" class="validate">
+                <label>Cédula</label>
+            </div>
+            <div class="input-field col s4">
+                <input value="128y3238y" id="hcNumber" type="text" class="validate">
+                <label>Número historia clínica</label>
+            </div>
+        </div>
+    </div>
 
-        <h5 class="header orange-text">Nombre:</h5>
-        <h6 class="header black-text" style="padding-left: 30px;">Augusto Matheus</h6>
-        <h5 class="header orange-text">Numero historia clínica:</h5>
-        <h6 class="header black-text" style="padding-left: 30px;">EVB13245DFF</h6>
-        <h5 class="header orange-text">Salud actual:</h5>
-        <h6 class="header black-text" style="padding-left: 30px;">Estable</h6>
-
+    <div class="container" >
+        <h4 class="header center orange-text">Equipos Médicos</h4>
+        <a class="btn-floating btn-small waves-effect waves-light green right"><i class="material-icons">add</i></a>
         <br><br>
-        <h5 class="header orange-text">Equipos Médicos</h5>
-
-        <table class="striped centered">
-            <thead>
-            <tr>
-                <th data-field="type">Tipo</th>
-                <th data-field="name">Nombre</th>
-                <th data-field="brand">Marca</th>
-                <th data-field="model">Modelo</th>
-                <th data-field="ip">IP</th>
-                <th data-field="¨moduleName">Módulo</th>
-                <th data-field="typeConnection">Tipo de Conexión</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr>
-                <td>Estetoscopio Digital</td>
-                <td>Ausculette</td>
-                <td>Cardionics</td>
-                <td>718-0102</td>
-                <td>170.190.168.7:8884</td>
-                <td>scopeModule</td>
-                <td><a href="#">Síncrona</a></td>
-            </tr>
-            <tr>
-                <td>Electrocardiografo</td>
-                <td>Cardiocare 2000</td>
-                <td>Bionet</td>
-                <td>2000</td>
-                <td>172.190.167.4:8884</td>
-                <td>ecgDataTransmition</td>
-                <td>Asíncrona</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <br><br>
-        <h5 class="header orange-text">Registros Diferidos</h5>
-
         <table class="striped centered">
             <thead>
             <tr>
                 <th data-field="delete"></th>
-                <th data-field="equipament">Equipo Asociado</th>
-                <th data-field="see">Ver</th>
-                <th data-field="date">Fecha</th>
-                <th data-field="duration">Duración</th>
-                <th data-field="typeFile">Tipo de archivo</th>
-                <th data-field="¨visualizationModule">Módulo de Visualización</th>
-                <th data-field="irregularities">Irregularidades</th>
+                <th data-field="edit"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="type">Tipo</th>
+                <th data-field="ip">IP</th>
+                <th data-field="typeConnection">Tipo Conexión</th>
             </tr>
             </thead>
 
             <tbody>
             <tr>
-                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-                <td>Ausculette 718-0102</td>
-                <td><a href="#modal1" class="modal-trigger"><i class="material-icons">visibility</i></a></td>
-                <td>07/05/2016</td>
-                <td>3:30</td>
-                <td>.ssp</td>
-                <td>scopeModuleVisualization</td>
-                <td><a href="#">2 pendientes</a></td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
+                <td>estetoscopio digital</td>
+                <td>estetoscopio</td>
+                <td>10.1.201.10</td>
+                <td>asincrona</td>
             </tr>
             <tr>
-                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-                <td>Ausculette 718-0102</td>
-                <td><a href="#modal2" class="modal-trigger"><i class="material-icons">visibility</i></a></td>
-                <td>07/05/2016</td>
-                <td>3:10</td>
-                <td>.ssp</td>
-                <td>scopeModuleVisualization</td>
-                <td>Sin irregularidades</td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
+                <td>1234567</td>
+                <td>name 2</td>
+                <td>12345678</td>
+            </tr>
+            <tr>
+                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
+                <td>1234515456</td>
+                <td>name 3</td>
+                <td>12345678</td>
+            </tr>
+            <tr>
+                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
+                <td>123asdasd456</td>
+                <td>name 4</td>
+                <td>12345678</td>
             </tr>
             </tbody>
         </table>
-        <br><br>
 
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Viaualización</h4>
-
-                <button class="btn waves-effect waves-light" type="button" name="action">Variables</button>
-                <br><br>
-                <img class="responsive-img" src="{{ asset('bundles/telemonitoreo/images/ecgExample.png') }}">
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat center">Cerrar</a>
-            </div>
-        </div>
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <h4>Viaualización</h4>
-
-                <button class="btn waves-effect waves-light" type="button" name="action">Gráfica</button>
-                <br><br>
-                <h5>Var1:</h5>
-                <h6 style="padding-left: 30px;">30:</h6>
-                <h5>Var2:</h5>
-                <h6 style="padding-left: 30px;">45:</h6>
-                <h5>Var3:</h5>
-                <h6 style="padding-left: 30px;">70.5:</h6>
-                <h5>Var4:</h5>
-                <h6 style="padding-left: 30px;">40:</h6>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat center">Cerrar</a>
-            </div>
-        </div>
     </div>
-</div>
+</main>
 
-<footer class="page-footer footer orange">
+<footer class="page-footer orange">
     <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Universidad de Carabobo</h5>
-                <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
-            </div>
-        </div>
+        <h5 class="white-text">Universidad de Carabobo</h5>
+        <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
     </div>
 </footer>
 
@@ -168,10 +114,6 @@
 <script src="/telemonitoreo-web/js/jquery-2.1.1.min.js"></script>
 <script src="/telemonitoreo-web/js/materialize.min.js"></script>
 <script src="/telemonitoreo-web/js/init.js"></script>
-<script>
-    $(document).ready(function(){
-        $('.modal-trigger').leanModal();
-    });
-</script>
+
 </body>
 </html>
