@@ -154,11 +154,19 @@
 
 <div id="modal1" class="modal">
     <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <h4>Agregar Equipo</h4>
+        <br><br>
+        <label>Equipo médico</label>
+        <select id="type">
+            <option value="" disabled selected>Elija una opción</option>
+            <option value="1">Electrocardiógrafo</option>
+            <option value="2">Estetoscopio</option>
+            <option value="3">Espirómetro</option>
+        </select>
     </div>
     <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
 </div>
 
@@ -169,6 +177,7 @@
 <script>
     $(document).ready(function() {
         $('.modal-trigger').leanModal();
+        $('select').material_select();
     });
 </script>
 
