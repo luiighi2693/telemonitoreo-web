@@ -53,7 +53,7 @@
 
     <div class="container" >
         <h4 class="header center orange-text">Equipos Médicos</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right"><i class="material-icons">add</i></a>
+        <a class="btn-floating btn-small waves-effect waves-light green right modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
         <br><br>
         <table class="striped centered">
             <thead>
@@ -152,11 +152,25 @@
     </div>
 </footer>
 
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
 
 <!--  Scripts-->
 <script src="/telemonitoreo-web/js/jquery-2.1.1.min.js"></script>
 <script src="/telemonitoreo-web/js/materialize.min.js"></script>
 <script src="/telemonitoreo-web/js/init.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.modal-trigger').leanModal();
+    });
+</script>
 
 </body>
 </html>
