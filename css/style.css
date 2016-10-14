@@ -7,8 +7,22 @@
  */
 
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 .icon-block .material-icons {
-	font-size: inherit;
+    font-size: inherit;
+}
+
+body {
+    -webkit-display: flex;
+    -webkit-flex-direction: column;
+    -webkit-min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+}
+
+main {
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
 }
