@@ -41,6 +41,7 @@
                 <th data-field="delete"></th>
                 <th data-field="edit"></th>
                 <th data-field="name">Nombre</th>
+                <th data-field="serial">Serial</th>
                 <th data-field="type">Tipo Equipo</th>
                 <th data-field="typeConnection">Tipo Conexión</th>
                 <th data-field="url">URL</th>
@@ -48,44 +49,7 @@
             </tr>
             </thead>
 
-            <tbody>
-            <tr>
-                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
-                <td>estetoscopio cardiocare V2</td>
-                <td>estetoscopio</td>
-                <td>Sincrona</td>
-                <td>http://10.1.201.10:8080</td>
-                <td>modulo de conexcion de estetoscopios</td>
-            </tr>
-            <tr>
-                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
-                <td>estetoscopio cardiocare V2</td>
-                <td>estetoscopio</td>
-                <td>Sincrona</td>
-                <td>http://10.1.201.10:8080</td>
-                <td>modulo de conexcion de estetoscopios</td>
-            </tr>
-            <tr>
-                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
-                <td>estetoscopio cardiocare V2</td>
-                <td>estetoscopio</td>
-                <td>Sincrona</td>
-                <td>http://10.1.201.10:8080</td>
-                <td>modulo de conexcion de estetoscopios</td>
-            </tr>
-            <tr>
-                <td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-                <td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
-                <td>estetoscopio cardiocare V2</td>
-                <td>estetoscopio</td>
-                <td>Sincrona</td>
-                <td>http://10.1.201.10:8080</td>
-                <td>modulo de conexcion de estetoscopios</td>
-            </tr>
-            </tbody>
+            <tbody id="cuerpoTabla"></tbody>
         </table>
     </div>
 </main>
@@ -102,6 +66,78 @@
 <script src="/telemonitoreo-web/js/jquery-2.1.1.min.js"></script>
 <script src="/telemonitoreo-web/js/materialize.min.js"></script>
 <script src="/telemonitoreo-web/js/init.js"></script>
+<script>
+    $( document ).ready(function() {
+        listTable();
+    });
 
+    function listTable() {
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/equipomedico",
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var tabla = document.getElementById("cuerpoTabla");
+                tabla.innerHTML = '';
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("tr");
+
+                    var removeRow = document.createElement("td");
+                    var removeLink = document.createElement("a");
+                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red");
+                    removeLink.setAttribute("onclick", "eliminar("+object.id+")");
+                    var removeIcon = document.createElement("i");
+                    removeIcon.setAttribute("class", "material-icons");
+                    removeIcon.appendChild(document.createTextNode("remove"));
+                    removeLink.appendChild(removeIcon);
+                    removeRow.appendChild(removeLink);
+                    nodo.appendChild(removeRow);
+
+                    var editRow = document.createElement("td");
+                    var editLink = document.createElement("a");
+                    editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+                    var editIcon = document.createElement("i");
+                    editIcon.setAttribute("class", "material-icons");
+                    editIcon.appendChild(document.createTextNode("edit"));
+                    editLink.appendChild(editIcon);
+                    editRow.appendChild(editLink);
+                    nodo.appendChild(editRow);
+
+                    var nombre = document.createElement("td");
+                    nombre.appendChild(document.createTextNode(object.nombre+" "+object.marca+" "+object.modelo));
+                    nodo.appendChild(nombre);
+
+                    var serial = document.createElement("td");
+                    serial.appendChild(document.createTextNode(object.serial));
+                    nodo.appendChild(serial);
+
+                    var tipoequipo = document.createElement("td");
+                    tipoequipo.appendChild(document.createTextNode(object.tipoequipo));
+                    nodo.appendChild(tipoequipo);
+
+                    var tipoconexion = document.createElement("td");
+                    tipoconexion.appendChild(document.createTextNode(object.tipoconexion));
+                    nodo.appendChild(tipoconexion);
+
+                    var ip = document.createElement("td");
+                    ip.appendChild(document.createTextNode(object.ip));
+                    nodo.appendChild(ip);
+
+                    var moduloconexion = document.createElement("td");
+                    moduloconexion.appendChild(document.createTextNode(object.moduloconexion));
+                    nodo.appendChild(moduloconexion);
+
+                    tabla.appendChild(nodo);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
 </body>
 </html>
