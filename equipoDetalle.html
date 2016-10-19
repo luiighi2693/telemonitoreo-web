@@ -60,9 +60,8 @@
                 </div>
                 <div class="input-field col s4">
                     <select id="typeConnection">
-                        <option value="" disabled>Elija una opción</option>
                         <option value="1">SINCRONA</option>
-                        <option value="2" selected>ASINCRONA</option>
+                        <option value="2">ASINCRONA</option>
                     </select>
                     <label>Tipo Conexión</label>
                 </div>
@@ -121,10 +120,20 @@
                     idTipoEquipo="3";
                 }
 
-//                document.getElementById('tipo').getElementsByTagName('option')[2].getAttribute("selected");
                 var $selectDropdown = $("#tipo");
                 $selectDropdown.val(idTipoEquipo).change();
                 $selectDropdown.trigger('contentChanged');
+
+                var idTipoConexion;
+                if(data.tipoconexion=="SINCRONA"){
+                    idTipoConexion=1;
+                }else{
+                    idTipoConexion=2;
+                }
+
+                var $selectDropdown2 = $("#typeConnection");
+                $selectDropdown2.val(idTipoConexion).change();
+                $selectDropdown2.trigger('contentChanged');
             },
             error: function (error) {
                 console.log(error);
@@ -134,7 +143,6 @@
 
 
     $('select').on('contentChanged', function() {
-        // re-initialize (update)
         $(this).material_select();
     });
 </script>
