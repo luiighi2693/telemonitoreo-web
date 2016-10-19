@@ -34,7 +34,7 @@
     <div class="container">
         <h4 class="header center orange-text">Equipo Detalle</h4>
         <br><br>
-        <form class="col s12">
+        <div class="col s12">
             <div class="row">
                 <div class="input-field col s4">
                     <input placeholder="nombre" id="name" type="text" class="validate">
@@ -73,20 +73,24 @@
                 </div>
             </div>
             <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="serial" id="serial" type="text" class="validate">
+                    <label>Serial</label>
+                </div>
                 <div class="input-field col s8">
                     <input placeholder="modulo conexión" id="connectionModule" type="text" class="validate">
                     <label>Módulo de conexión</label>
                 </div>
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Aceptar
+                <button class="btn waves-effect waves-light" onclick="aceptar()" name="action">Aceptar
                     <i class="material-icons right">send</i>
                 </button>
-                <button class="btn waves-effect waves-light red" type="button" name="cancel">cancelar
+                <button class="btn waves-effect waves-light red" type="button" onclick="cancelar()" name="cancel">cancelar
                     <i class="material-icons right">cancel</i>
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 </main>
 
@@ -103,9 +107,10 @@
 <script src="/telemonitoreo-web/js/materialize.min.js"></script>
 <script src="/telemonitoreo-web/js/init.js"></script>
 <script>
+    var id;
     $(document).ready(function() {
         $('select').material_select();
-        var id = document.location.href.split('?id=')[1];
+        id = document.location.href.split('?id=')[1];
 
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+id,
@@ -120,6 +125,7 @@
                 document.getElementById("model").value = data.modelo;
                 document.getElementById("url").value = data.ip;
                 document.getElementById("connectionModule").value = data.moduloconexion;
+                document.getElementById("serial").value = data.serial;
 
                 var idTipoEquipo;
                 if(data.tipoequipo=="Electrocardiografo"){
@@ -151,10 +157,48 @@
         });
     });
 
-
     $('select').on('contentChanged', function() {
         $(this).material_select();
     });
+
+    function cancelar() {
+        window.location= "equipoListado.html";
+    }
+
+    function aceptar() {
+        var nombre = document.getElementById("name");
+        var marca = document.getElementById("marca");
+        var modelo = document.getElementById("model");
+        var tipoEquipo = document.getElementById("tipo");
+        var tipoConexion = document.getElementById("typeConnection");
+        var url = document.getElementById("url");
+        var moduloConexion = document.getElementById("connectionModule");
+        var serial = document.getElementById("serial");
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+id,
+            type: 'PUT',
+            dataType: 'json',
+            headers: {
+                'nombre': nombre.value,
+                'marca': marca.value,
+                'modelo': modelo.value,
+                'tipoEquipo': tipoEquipo[tipoEquipo.value].text,
+                'tipoConexion': tipoConexion[tipoConexion.value].text,
+                'ip': url.value,
+                'moduloConexion': moduloConexion.value,
+                'serial': serial.value
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                console.log(data);
+                window.location= "equipoListado.html";
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
 </script>
 </body>
 </html>
