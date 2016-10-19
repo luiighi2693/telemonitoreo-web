@@ -37,21 +37,22 @@
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s4">
-                    <input placeholder="nombre" value="estetoscopio" id="name" type="text" class="validate">
+                    <input placeholder="nombre" id="name" type="text" class="validate">
                     <label>Nombre</label>
                 </div>
                 <div class="input-field col s4">
-                    <input placeholder="marca" value="bionet" id="marca" type="text" class="validate">
+                    <input placeholder="marca" id="marca" type="text" class="validate">
                     <label>Msrca</label>
                 </div>
                 <div class="input-field col s4">
-                    <input placeholder="modelo" value="v2" id="model" type="text" class="validate">
+                    <input placeholder="modelo" id="model" type="text" class="validate">
                     <label>Modelo</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s4">
                     <select id="tipo">
+                        <option value="" disabled selected>Elija una opción</option>
                         <option value="1">Electrocardiografo</option>
                         <option value="2">Estetoscopio</option>
                         <option value="3">Espirometro</option>
@@ -60,19 +61,20 @@
                 </div>
                 <div class="input-field col s4">
                     <select id="typeConnection">
+                        <option value="" disabled selected>Elija una opción</option>
                         <option value="1">SINCRONA</option>
                         <option value="2">ASINCRONA</option>
                     </select>
                     <label>Tipo Conexión</label>
                 </div>
                 <div class="input-field col s4">
-                    <input placeholder="URL" value="http://10.1.201.10:8080" id="url" type="text" class="validate">
+                    <input placeholder="URL" id="url" type="text" class="validate">
                     <label>URL</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s8">
-                    <input placeholder="modulo conexión" value="modulo de conexion de estetoscopios" id="connectionModule" type="text" class="validate">
+                    <input placeholder="modulo conexión" id="connectionModule" type="text" class="validate">
                     <label>Módulo de conexión</label>
                 </div>
             </div>
@@ -111,6 +113,14 @@
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                console.log(data);
+
+                document.getElementById("name").value = data.nombre;
+                document.getElementById("marca").value = data.marca;
+                document.getElementById("model").value = data.modelo;
+                document.getElementById("url").value = data.ip;
+                document.getElementById("connectionModule").value = data.moduloconexion;
+
                 var idTipoEquipo;
                 if(data.tipoequipo=="Electrocardiografo"){
                     idTipoEquipo="1";
