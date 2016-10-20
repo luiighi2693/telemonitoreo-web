@@ -34,38 +34,38 @@
     <div class="container">
         <h4 class="header center orange-text">Patrón Detalle</h4>
         <br><br>
-        <form class="col s12">
+        <div class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <select id="type">
+                    <select id="tipo">
                         <option value="" disabled>Elija una opción</option>
-                        <option value="1">Electrocardiógrafo</option>
+                        <option value="1">Electrocardiografo</option>
                         <option value="2" selected>Estetoscopio</option>
-                        <option value="3">Espirómetro</option>
+                        <option value="3">Espirometro</option>
                     </select>
                     <label>Equipo médico</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="variables" value="10-60" id="variables" type="text" class="validate">
+                    <input placeholder="variables" id="variables" type="text" class="validate">
                     <label>Variables</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="descripcion" value="ejemplo de patron patologico" id="description" type="text" class="validate">
+                    <input placeholder="descripcion" id="description" type="text" class="validate">
                     <label>Descripción</label>
                 </div>
             </div>
 
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Aceptar
+                <button class="btn waves-effect waves-light" onclick="aceptar()" name="action">Aceptar
                     <i class="material-icons right">send</i>
                 </button>
-                <button class="btn waves-effect waves-light red" type="button" name="cancel">cancelar
+                <button class="btn waves-effect waves-light red" type="button" name="cancel" onclick="cancelar()">cancelar
                     <i class="material-icons right">cancel</i>
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 </main>
 
@@ -84,7 +84,69 @@
 <script>
     $(document).ready(function() {
         $('select').material_select();
+        id = document.location.href.split('?id=')[1];
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/patronpatologico/"+id,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                console.log(data);
+                document.getElementById("description").value = data.descripcion;
+                document.getElementById("variables").value = data.variables;
+
+                var idTipoEquipo;
+                if(data.tipoequipo=="Electrocardiografo"){
+                    idTipoEquipo="1";
+                }else if(data.tipoequipo=="Estetoscopio"){
+                    idTipoEquipo="2";
+                }else{
+                    idTipoEquipo="3";
+                }
+
+                var $selectDropdown = $("#tipo");
+                $selectDropdown.val(idTipoEquipo).change();
+                $selectDropdown.trigger('contentChanged');
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     });
+
+    $('select').on('contentChanged', function() {
+        $(this).material_select();
+    });
+
+    function cancelar() {
+        window.location= "patronListado.html";
+    }
+
+    function aceptar() {
+        var descripcion = document.getElementById("description");
+        var variables = document.getElementById("variables");
+        var tipoEquipo = document.getElementById("tipo");
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/patronpatologico/"+id,
+            type: 'PUT',
+            dataType: 'json',
+            headers: {
+                'descripcion': descripcion.value,
+                'variables': variables.value,
+                'tipoEquipo': tipoEquipo[tipoEquipo.value].text
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                console.log(data);
+                window.location= "patronListado.html";
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
 </script>
 
 </body>
