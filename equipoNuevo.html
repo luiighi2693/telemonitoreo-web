@@ -55,9 +55,9 @@
                 <div class="input-field col s4">
                     <select id="type">
                         <option value="" disabled selected>Elija una opción</option>
-                        <option value="1">Electrocardiografo</option>
-                        <option value="2">Estetoscopio</option>
-                        <option value="3">Espirometro</option>
+                        <!--<option value="1">Electrocardiografo</option>-->
+                        <!--<option value="2">Estetoscopio</option>-->
+                        <!--<option value="3">Espirometro</option>-->
                     </select>
                     <label>Tipo</label>
                 </div>
@@ -111,6 +111,37 @@
 <script>
     $(document).ready(function() {
         $('select').material_select();
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/parametro",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'codigo': 'Equipo_Medico'
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var tipoEquipo = document.getElementById("type");
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("option");
+                    nodo.setAttribute("value", object.valor);
+                    nodo.appendChild(document.createTextNode(object.nombre));
+                    tipoEquipo.appendChild(nodo);
+                }
+
+                var $selectDropdown = $("#type");
+                $selectDropdown.trigger('contentChanged');
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $('select').on('contentChanged', function() {
+        $(this).material_select();
     });
 
     function cancelar() {
