@@ -55,9 +55,6 @@
                 <div class="input-field col s4">
                     <select id="tipo">
                         <option value="" disabled selected>Elija una opción</option>
-                        <!--<option value="1">Electrocardiografo</option>-->
-                        <!--<option value="2">Estetoscopio</option>-->
-                        <!--<option value="3">Espirometro</option>-->
                     </select>
                     <label>Tipo</label>
                 </div>
@@ -80,7 +77,9 @@
                     <label>Serial</label>
                 </div>
                 <div class="input-field col s8">
-                    <input placeholder="modulo conexión" id="connectionModule" type="text" class="validate">
+                    <select id="connectionModule">
+                        <option value="" disabled selected>Elija una opción</option>
+                    </select>
                     <label>Módulo de conexión</label>
                 </div>
             </div>
@@ -140,6 +139,33 @@
             }
         });
 
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/parametro",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'codigo': 'Modulo_Conexion'
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var moduloConexion = document.getElementById("connectionModule");
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("option");
+                    nodo.setAttribute("value", object.valor);
+                    nodo.appendChild(document.createTextNode(object.nombre));
+                    moduloConexion.appendChild(nodo);
+                }
+
+                var $selectDropdown = $("#connectionModule");
+                $selectDropdown.trigger('contentChanged');
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
         id = document.location.href.split('?id=')[1];
 
         $.ajax({
@@ -152,9 +178,10 @@
                 document.getElementById("marca").value = data.marca;
                 document.getElementById("model").value = data.modelo;
                 document.getElementById("url").value = data.ip;
-                document.getElementById("connectionModule").value = data.moduloconexion;
+//                document.getElementById("connectionModule").value = data.moduloconexion;
                 document.getElementById("serial").value = data.serial;
 
+                getConnectionModule(data.moduloconexion);
                getValueMedicalEquipment(data.tipoequipo);
 
 
@@ -205,7 +232,7 @@
                 'tipoEquipo': tipoEquipo[tipoEquipo.value].text,
                 'tipoConexion': tipoConexion[tipoConexion.value].text,
                 'ip': url.value,
-                'moduloConexion': moduloConexion.value,
+                'moduloConexion': moduloConexion[moduloConexion.value].text,
                 'serial': serial.value
             },
             contentType: 'application/json; charset=utf-8',
@@ -230,6 +257,26 @@
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 var $selectDropdown = $("#tipo");
+                $selectDropdown.val(data[0].valor).change();
+                $selectDropdown.trigger('contentChanged');
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function getConnectionModule(moduloConexion) {
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/parametro",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'nombre': moduloConexion
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var $selectDropdown = $("#connectionModule");
                 $selectDropdown.val(data[0].valor).change();
                 $selectDropdown.trigger('contentChanged');
             },
