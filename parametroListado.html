@@ -40,7 +40,7 @@
     </div>
     <div class="container" >
         <h4 class="header center orange-text">Tipos de Equipo</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
+        <a class="btn-floating btn-small waves-effect waves-light green right" href="parametroNuevo.html"><i class="material-icons">add</i></a>
         <br><br>
         <table class="striped centered">
             <thead>
@@ -60,7 +60,7 @@
 
     <div class="container" >
         <h4 class="header center orange-text">Módulos de Conexión</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
+        <a class="btn-floating btn-small waves-effect waves-light green right" href="parametroNuevo.html"><i class="material-icons">add</i></a>
         <br><br>
         <table class="striped centered">
             <thead>
@@ -80,7 +80,7 @@
 
     <div class="container" >
         <h4 class="header center orange-text">Módulos de Visualización</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
+        <a class="btn-floating btn-small waves-effect waves-light green right" href="parametroNuevo.html"><i class="material-icons">add</i></a>
         <br><br>
         <table class="striped centered">
             <thead>
@@ -147,7 +147,7 @@
                     var editRow = document.createElement("td");
                     var editLink = document.createElement("a");
                     editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                    editLink.setAttribute("href", "pacienteDetalle.html?id="+object.id);
+                    editLink.setAttribute("href", "parametroDetalle.html?id="+object.id);
                     var editIcon = document.createElement("i");
                     editIcon.setAttribute("class", "material-icons");
                     editIcon.appendChild(document.createTextNode("edit"));
@@ -169,9 +169,11 @@
 
                     if(object.codigo == "Equipo_Medico"){
                         tablaTiposEquipo.appendChild(nodo);
-                    }else if(object.codigo == "Modulo_Conexion"){
+                    }
+                    if(object.codigo == "Modulo_Conexion"){
                         tablaModuloConexion.appendChild(nodo);
-                    }else{
+                    }
+                    if(object.codigo == "Modulo_Visualizacion"){
                         tablaModuloVisualizacion.appendChild(nodo);
                     }
                 }
