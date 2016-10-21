@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/telemonitoreo-web/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="/telemonitoreo-web/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
 </head>
 <body>
 <nav class="light-blue lighten-1" role="navigation">
@@ -33,9 +35,12 @@
 </nav>
 
 <main>
+    <div class="container row" >
+        <h3 class="header center orange-text">Parámetros Generales</h3>
+    </div>
     <div class="container" >
-        <h4 class="header center orange-text">Equipos Médicos</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right" href="equipoNuevo.html"><i class="material-icons">add</i></a>
+        <h4 class="header center orange-text">Tipos de Equipo</h4>
+        <a class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
         <br><br>
         <table class="striped centered">
             <thead>
@@ -43,15 +48,52 @@
                 <th data-field="delete"></th>
                 <th data-field="edit"></th>
                 <th data-field="name">Nombre</th>
-                <th data-field="serial">Serial</th>
-                <th data-field="type">Tipo Equipo</th>
-                <th data-field="typeConnection">Tipo Conexión</th>
-                <th data-field="url">URL</th>
-                <th data-field="connectionModule">Módulo conexión</th>
+                <th data-field="code">Código</th>
+                <th data-field="value">Valor</th>
             </tr>
             </thead>
 
-            <tbody id="cuerpoTabla"></tbody>
+            <tbody id="cuerpoTablaTiposEquipo"></tbody>
+        </table>
+    </div>
+    <br><br>
+
+    <div class="container" >
+        <h4 class="header center orange-text">Módulos de Conexión</h4>
+        <a class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
+        <br><br>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="delete"></th>
+                <th data-field="edit"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="code">Código</th>
+                <th data-field="value">Valor</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaModuloConexion"></tbody>
+        </table>
+    </div>
+    <br><br>
+
+    <div class="container" >
+        <h4 class="header center orange-text">Módulos de Visualización</h4>
+        <a class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
+        <br><br>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="delete"></th>
+                <th data-field="edit"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="code">Código</th>
+                <th data-field="value">Valor</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaModuloVisualizacion"></tbody>
         </table>
     </div>
 </main>
@@ -75,13 +117,17 @@
 
     function listTable() {
         $.ajax({
-            url: "/telemonitoreo-core/web/app_dev.php/equipomedico",
+            url: "/telemonitoreo-core/web/app_dev.php/parametro",
             type: 'GET',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
-                var tabla = document.getElementById("cuerpoTabla");
-                tabla.innerHTML = '';
+                var tablaTiposEquipo = document.getElementById("cuerpoTablaTiposEquipo");
+                tablaTiposEquipo.innerHTML = '';
+                var tablaModuloConexion = document.getElementById("cuerpoTablaModuloConexion");
+                tablaModuloConexion.innerHTML = '';
+                var tablaModuloVisualizacion = document.getElementById("cuerpoTablaModuloVisualizacion");
+                tablaModuloVisualizacion.innerHTML = '';
 
                 for (var i=0; i<data.length; i++){
                     var object = data[i];
@@ -101,7 +147,7 @@
                     var editRow = document.createElement("td");
                     var editLink = document.createElement("a");
                     editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                    editLink.setAttribute("href", "equipoDetalle.html?id="+object.id);
+                    editLink.setAttribute("href", "pacienteDetalle.html?id="+object.id);
                     var editIcon = document.createElement("i");
                     editIcon.setAttribute("class", "material-icons");
                     editIcon.appendChild(document.createTextNode("edit"));
@@ -110,30 +156,24 @@
                     nodo.appendChild(editRow);
 
                     var nombre = document.createElement("td");
-                    nombre.appendChild(document.createTextNode(object.nombre+" "+object.marca+" "+object.modelo));
+                    nombre.appendChild(document.createTextNode(object.nombre));
                     nodo.appendChild(nombre);
 
-                    var serial = document.createElement("td");
-                    serial.appendChild(document.createTextNode(object.serial));
-                    nodo.appendChild(serial);
+                    var codigo = document.createElement("td");
+                    codigo.appendChild(document.createTextNode(object.codigo));
+                    nodo.appendChild(codigo);
 
-                    var tipoequipo = document.createElement("td");
-                    tipoequipo.appendChild(document.createTextNode(object.tipoequipo));
-                    nodo.appendChild(tipoequipo);
+                    var valor = document.createElement("td");
+                    valor.appendChild(document.createTextNode(object.valor));
+                    nodo.appendChild(valor);
 
-                    var tipoconexion = document.createElement("td");
-                    tipoconexion.appendChild(document.createTextNode(object.tipoconexion));
-                    nodo.appendChild(tipoconexion);
-
-                    var ip = document.createElement("td");
-                    ip.appendChild(document.createTextNode(object.ip));
-                    nodo.appendChild(ip);
-
-                    var moduloconexion = document.createElement("td");
-                    moduloconexion.appendChild(document.createTextNode(object.moduloconexion));
-                    nodo.appendChild(moduloconexion);
-
-                    tabla.appendChild(nodo);
+                    if(object.codigo == "Equipo_Medico"){
+                        tablaTiposEquipo.appendChild(nodo);
+                    }else if(object.codigo == "Modulo_Conexion"){
+                        tablaModuloConexion.appendChild(nodo);
+                    }else{
+                        tablaModuloVisualizacion.appendChild(nodo);
+                    }
                 }
             },
             error: function (error) {
@@ -144,7 +184,7 @@
 
     function eliminar(id) {
         $.ajax({
-            url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+id,
+            url: "/telemonitoreo-core/web/app_dev.php/parametro/"+id,
             type: 'DELETE',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
