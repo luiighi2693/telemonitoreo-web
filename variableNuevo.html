@@ -12,18 +12,18 @@
 </head>
 <body>
 <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="pacienteListado.html" class="brand-logo">Telemonitoreo</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Telemonitoreo</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
-            <li><a href="patronListado.html">Patrones Patológicos</a></li>
+            <li><a href="variableListado.html">Variables Clínicas</a></li>
             <li><a href="#">Regresar</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
-            <li><a href="patronListado.html">Patrones Patológicos</a></li>
+            <li><a href="variableListado.html">Variables Clínicas</a></li>
             <li><a href="#">Regresar</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -32,28 +32,32 @@
 
 <main>
     <div class="container">
-        <h4 class="header center orange-text">Patrón Nuevo</h4>
+        <h4 class="header center orange-text">Variable Clínica Nueva</h4>
         <br><br>
         <div class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <select id="type">
+                    <select id="pacientes">
                         <option value="" disabled selected>Elija una opción</option>
                         <option value="1">Electrocardiografo</option>
                         <option value="2">Estetoscopio</option>
                         <option value="3">Espirometro</option>
                     </select>
-                    <label>Equipo médico</label>
+                    <label>Pacientes</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="variables" id="variables" type="text" class="validate">
-                    <label>Variables</label>
+                    <input placeholder="nombre" id="name" type="text" class="validate">
+                    <label>Nombre</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="descripcion" id="description" type="text" class="validate">
-                    <label>Descripción</label>
+                <div class="input-field col s6">
+                    <input placeholder="rango" id="range" type="text" class="validate">
+                    <label>Rango</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="rango particular" id="particularRange" type="text" class="validate">
+                    <label>Rango Particular</label>
                 </div>
             </div>
 
@@ -87,27 +91,27 @@
     });
 
     function cancelar() {
-        window.location= "patronListado.html";
+        window.location= "variableListado.html";
     }
 
     function aceptar() {
-        var equipoMedico = document.getElementById("type");
-        var variables = document.getElementById("variables");
-        var description = document.getElementById("description");
+        var nombre = document.getElementById("name");
+        var rango = document.getElementById("range");
+        var rangoParticular = document.getElementById("particularRange");
 
         $.ajax({
-            url: "/telemonitoreo-core/web/app_dev.php/patronpatologico/",
+            url: "/telemonitoreo-core/web/app_dev.php/variableclinica/",
             type: 'POST',
             dataType: 'json',
             headers: {
-                'tipoEquipo': equipoMedico[equipoMedico.value].text,
-                'descripcion': description.value,
-                'variables': variables.value
+                'nombre': nombre.value,
+                'rango': rango.value,
+                'rangoparticular': rangoParticular.value
             },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 console.log(data);
-                window.location= "patronListado.html";
+                window.location= "variableListado.html";
             },
             error: function (error) {
                 console.log(error);
