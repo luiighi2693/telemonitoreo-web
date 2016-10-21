@@ -103,7 +103,7 @@
                     var object = data[i];
                     var nodo = document.createElement("option");
                     nodo.setAttribute("value", object.id);
-                    nodo.appendChild(document.createTextNode(object.nombre_paciente+" "+object.cedula_paciente));
+                    nodo.appendChild(document.createTextNode(object.nombre_paciente+" C.I:"+object.cedula_paciente));
                     pacientes.appendChild(nodo);
                 }
 

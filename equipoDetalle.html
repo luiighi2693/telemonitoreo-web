@@ -178,13 +178,10 @@
                 document.getElementById("marca").value = data.marca;
                 document.getElementById("model").value = data.modelo;
                 document.getElementById("url").value = data.ip;
-//                document.getElementById("connectionModule").value = data.moduloconexion;
                 document.getElementById("serial").value = data.serial;
 
                 getConnectionModule(data.moduloconexion);
-               getValueMedicalEquipment(data.tipoequipo);
-
-
+                getValueMedicalEquipment(data.tipoequipo);
 
                 var idTipoConexion;
                 if(data.tipoconexion=="SINCRONA"){
