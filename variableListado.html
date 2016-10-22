@@ -44,6 +44,7 @@
                 <th data-field="medicalEquipment">Variable Clínica</th>
                 <th data-field="description">Rango</th>
                 <th data-field="variables">rango Particular</th>
+                <th data-field="otros">otros</th>
             </tr>
             </thead>
 
@@ -118,6 +119,21 @@
                         rango_particular.appendChild(document.createTextNode(object.rango_particular));
                     }
                     nodo.appendChild(rango_particular);
+
+                    var algo = document.createElement("td");
+                    var subalgo = document.createElement("ul");
+                    subalgo.setAttribute("class", "collection");
+                    var subsubalgo = document.createElement("li");
+                    subsubalgo.setAttribute("class", "collection-item");
+                    subsubalgo.appendChild(document.createTextNode("luis rodriguez C.I:24995059"));
+                    var subsubalgo2 = document.createElement("li");
+                    subsubalgo2.setAttribute("class", "collection-item");
+                    subsubalgo2.appendChild(document.createTextNode("Alvin2"));
+                    subalgo.appendChild(subsubalgo);
+                    subalgo.appendChild(subsubalgo2);
+                    algo.appendChild(subalgo);
+                    nodo.appendChild(algo);
+
 
                     tabla.appendChild(nodo);
                 }
