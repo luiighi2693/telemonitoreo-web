@@ -90,26 +90,7 @@
             </tr>
             </thead>
 
-            <tbody id="cuerpoTablaRegistros">
-            <!--<tr>-->
-                <!--<td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>-->
-                <!--<td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">visibility</i></a></td>-->
-                <!--<td>estetoscopio cardioCare V2</td>-->
-                <!--<td>10/10/2016</td>-->
-                <!--<td>3:03</td>-->
-                <!--<td>wav</td>-->
-                <!--<td>visualizador estetoscopios</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td> <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>-->
-                <!--<td> <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">visibility</i></a></td>-->
-                <!--<td>estetoscopio cardioCare V2</td>-->
-                <!--<td>10/10/2016</td>-->
-                <!--<td>3:03</td>-->
-                <!--<td>wav</td>-->
-                <!--<td>visualizador estetoscopios</td>-->
-            <!--</tr>-->
-            </tbody>
+            <tbody id="cuerpoTablaRegistros"></tbody>
         </table>
     </div>
 
@@ -117,27 +98,18 @@
 
     <div class="container" >
         <h4 class="header center orange-text">Históricos</h4>
-        <br><br>
+        <a class="waves-effect waves-light btn tooltipped right" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores"><i class="material-icons right">info_outline</i>H</a>
+        <br>
         <table class="striped centered">
             <thead>
             <tr>
                 <th data-field="name">Nombre de Usuario</th>
                 <th data-field="action">Acción</th>
                 <th data-field="date">Fecha</th>
+                <th data-field="observation">Observacionese</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td>luis</td>
-                <td>CREATE</td>
-                <td>10/10/2016</td>
-            </tr>
-            <tr>
-                <td>luis</td>
-                <td>CREATE</td>
-                <td>10/10/2016</td>
-            </tr>
-            </tbody>
+            <tbody id="cuerpoTablaHistoricos"></tbody>
         </table>
     </div>
 </main>
@@ -298,6 +270,48 @@
                     var nodo = document.createElement("tr");
 
                     getNombreEquipo(object, nodo, cuerpoTablaRegistros);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/historicos",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'idhistoriaclinica': id
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                console.log(data);
+
+                var tablaHistoricos = document.getElementById("cuerpoTablaHistoricos");
+                tablaHistoricos.innerHTML = '';
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("tr");
+
+                    var nombreusuario = document.createElement("td");
+                    nombreusuario.appendChild(document.createTextNode(object.nombreusuario));
+                    nodo.appendChild(nombreusuario);
+
+                    var accion = document.createElement("td");
+                    accion.appendChild(document.createTextNode(object.accion));
+                    nodo.appendChild(accion);
+
+                    var fecha = document.createElement("td");
+                    fecha.appendChild(document.createTextNode(object.fecha));
+                    nodo.appendChild(fecha);
+
+                    var observacion_paciente = document.createElement("td");
+                    observacion_paciente.appendChild(document.createTextNode(object.observacion_paciente));
+                    nodo.appendChild(observacion_paciente);
+
+                    tablaHistoricos.appendChild(nodo);
                 }
             },
             error: function (error) {
