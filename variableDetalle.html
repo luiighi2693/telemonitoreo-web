@@ -39,11 +39,8 @@
         <div class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <select id="pacientes">
-                        <option value="" disabled selected>Elija una opción</option>
-                        <option value="1">Electrocardiografo</option>
-                        <option value="2">Estetoscopio</option>
-                        <option value="3">Espirometro</option>
+                    <select multiple id="pacientes">
+                        <option value="" disabled selected>Elija los pacientes</option>
                     </select>
                     <label>Pacientes</label>
                 </div>
@@ -91,6 +88,53 @@
     $(document).ready(function() {
         $('select').material_select();
         id = document.location.href.split('?id=')[1];
+        var listaPacientes = [];
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/historiaclinica",
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var pacientes = document.getElementById("pacientes");
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("option");
+                    nodo.setAttribute("value", object.id);
+                    nodo.appendChild(document.createTextNode(object.nombre_paciente+" C.I:"+object.cedula_paciente));
+                    pacientes.appendChild(nodo);
+                }
+
+                var $selectDropdown = $("#pacientes");
+                $selectDropdown.trigger('contentChanged');
+
+                $.ajax({
+                    url: "/telemonitoreo-core/web/app_dev.php/variablehaspaciente",
+                    type: 'GET',
+                    dataType: 'json',
+                    headers: {
+                        'idvariableclinica': id
+                    },
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        console.log(data);
+                        for (var i=0; i<data.length; i++){
+                            listaPacientes.push(data[i].id_historia_clinica);
+                        }
+                        var $selectDropdown = $("#pacientes");
+                        $selectDropdown.val(listaPacientes);
+                        $selectDropdown.trigger('contentChanged');
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
 
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/variableclinica/"+id,
@@ -106,6 +150,10 @@
                 console.log(error);
             }
         });
+    });
+
+    $('select').on('contentChanged', function() {
+        $(this).material_select();
     });
 
     function cancelar() {
@@ -128,8 +176,33 @@
             },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
-                console.log(data);
+                var $selectDropdown = $("#pacientes");
+                var pacientes = $selectDropdown.val();
+                if(pacientes!=null){
+                    for (var i=0; i<pacientes.length; i++){
+                        setVariableToPatient(data.id, pacientes[i]);
+                    }
+                }
                 window.location= "variableListado.html";
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function setVariableToPatient(idVariableClinica, idHistoriaClinica) {
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/variablehaspaciente/",
+            type: 'POST',
+            dataType: 'json',
+            headers: {
+                'idhistoriaclinica': idHistoriaClinica,
+                'idvariableclinica': idVariableClinica
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                console.log(data);
             },
             error: function (error) {
                 console.log(error);

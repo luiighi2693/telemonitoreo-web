@@ -98,7 +98,7 @@
 
     <div class="container" >
         <h4 class="header center orange-text">Históricos</h4>
-        <br><br>
+        <a class="waves-effect waves-light btn tooltipped right" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores"><i class="material-icons right">info_outline</i>H</a>
         <table class="striped centered">
             <thead>
             <tr>
@@ -393,7 +393,6 @@
                 nodo.appendChild(editRow);
 
                 var nombre = document.createElement("td");
-//                    nombre.appendChild(document.createTextNode(getNombreEquipo(object.id).nombre));
                 nombre.appendChild(document.createTextNode(data.nombre+" "+data.marca+" "+data.modelo+" "+data.serial));
                 nodo.appendChild(nombre);
 

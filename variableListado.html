@@ -42,9 +42,9 @@
                 <th data-field="delete"></th>
                 <th data-field="edit"></th>
                 <th data-field="medicalEquipment">Variable Clínica</th>
+                <th data-field="pacientes">Pacientes</th>
                 <th data-field="description">Rango</th>
                 <th data-field="variables">rango Particular</th>
-                <th data-field="otros">otros</th>
             </tr>
             </thead>
 
@@ -59,6 +59,21 @@
         <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
     </div>
 </footer>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Pacientes Asociados</h4>
+        <br><br>
+        <ul id="pacientesAsociados" class="collection">
+            <!--<li class="collection-item">luis</li>-->
+            <!--<li class="collection-item">pedro</li>-->
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
 
 
 <!--  Scripts-->
@@ -79,7 +94,6 @@
             success: function (data) {
                 var tabla = document.getElementById("cuerpoTabla");
                 tabla.innerHTML = '';
-                console.log(data);
                 for (var i=0; i<data.length; i++){
                     var object = data[i];
                     var nodo = document.createElement("tr");
@@ -110,6 +124,15 @@
                     nombre.appendChild(document.createTextNode(object.nombre));
                     nodo.appendChild(nombre);
 
+                    var pacientes = document.createElement("td");
+                    var linkPacientes = document.createElement("a");
+                    linkPacientes.setAttribute("class", "modal-trigger");
+                    linkPacientes.setAttribute("href", "#modal1");
+                    linkPacientes.setAttribute("onclick", "listarPacientesAsociados("+object.id+")");
+                    linkPacientes.appendChild(document.createTextNode("Pacientes"));
+                    pacientes.appendChild(linkPacientes);
+                    nodo.appendChild(pacientes);
+
                     var rango = document.createElement("td");
                     rango.appendChild(document.createTextNode(object.rango));
                     nodo.appendChild(rango);
@@ -120,23 +143,9 @@
                     }
                     nodo.appendChild(rango_particular);
 
-                    var algo = document.createElement("td");
-                    var subalgo = document.createElement("ul");
-                    subalgo.setAttribute("class", "collection");
-                    var subsubalgo = document.createElement("li");
-                    subsubalgo.setAttribute("class", "collection-item");
-                    subsubalgo.appendChild(document.createTextNode("luis rodriguez C.I:24995059"));
-                    var subsubalgo2 = document.createElement("li");
-                    subsubalgo2.setAttribute("class", "collection-item");
-                    subsubalgo2.appendChild(document.createTextNode("Alvin2"));
-                    subalgo.appendChild(subsubalgo);
-                    subalgo.appendChild(subsubalgo2);
-                    algo.appendChild(subalgo);
-                    nodo.appendChild(algo);
-
-
                     tabla.appendChild(nodo);
                 }
+                $('.modal-trigger').leanModal();
             },
             error: function (error) {
                 console.log(error);
@@ -153,6 +162,48 @@
             success: function (data) {
                 console.log(data);
                 listTable();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function listarPacientesAsociados(idVariableClinica) {
+        var paciente = document.getElementById("pacientesAsociados");
+        paciente.innerHTML = '';
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/variablehaspaciente",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'idvariableclinica': idVariableClinica
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                for (var i=0; i<data.length; i++){
+                    getPaciente(data[i].id_historia_clinica);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function getPaciente(idPaciente) {
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/historiaclinica/"+idPaciente,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                console.log(data);
+                var paciente = document.getElementById("pacientesAsociados");
+                var pacienteLi = document.createElement("li");
+                pacienteLi.setAttribute("class", "collection-item");
+                pacienteLi.appendChild(document.createTextNode(data.nombre_paciente +" CI:"+data.cedula_paciente));
+                paciente.appendChild(pacienteLi);
             },
             error: function (error) {
                 console.log(error);
