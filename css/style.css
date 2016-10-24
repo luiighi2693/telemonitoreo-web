@@ -26,3 +26,7 @@ main {
     -webkit-flex: 1 0 auto;
     flex: 1 0 auto;
 }
+
+.fix-size{
+    overflow: auto;
+}

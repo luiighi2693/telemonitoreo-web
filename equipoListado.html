@@ -37,22 +37,24 @@
         <h4 class="header center orange-text">Equipos Médicos</h4>
         <a class="btn-floating btn-small waves-effect waves-light green right" href="equipoNuevo.html"><i class="material-icons">add</i></a>
         <br><br>
-        <table class="striped centered">
-            <thead>
-            <tr>
-                <th data-field="delete"></th>
-                <th data-field="edit"></th>
-                <th data-field="name">Nombre</th>
-                <th data-field="serial">Serial</th>
-                <th data-field="type">Tipo Equipo</th>
-                <th data-field="typeConnection">Tipo Conexión</th>
-                <th data-field="url">URL</th>
-                <th data-field="connectionModule">Módulo conexión</th>
-            </tr>
-            </thead>
+        <div class="fix-size">
+            <table class="striped centered">
+                <thead>
+                <tr>
+                    <th data-field="delete"></th>
+                    <th data-field="edit"></th>
+                    <th data-field="name">Nombre</th>
+                    <th data-field="serial">Serial</th>
+                    <th data-field="type">Tipo Equipo</th>
+                    <th data-field="typeConnection">Tipo Conexión</th>
+                    <th data-field="url">URL</th>
+                    <th data-field="connectionModule">Módulo conexión</th>
+                </tr>
+                </thead>
 
-            <tbody id="cuerpoTabla"></tbody>
-        </table>
+                <tbody id="cuerpoTabla"></tbody>
+            </table>
+        </div>
     </div>
 </main>
 
