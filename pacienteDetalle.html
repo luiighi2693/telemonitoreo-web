@@ -98,7 +98,6 @@
 
     <div class="container" >
         <h4 class="header center orange-text">Históricos</h4>
-        <a class="waves-effect waves-light btn tooltipped right" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores"><i class="material-icons right">info_outline</i>H</a>
         <table class="striped centered">
             <thead>
             <tr>
@@ -135,11 +134,34 @@
     </div>
 </div>
 
+<div id="modalVinculoDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarVinculo()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<div id="modalRegistroDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarRegistro()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
 <!--  Scripts-->
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
 <script>
+    var idVinculoSelectedForDelete;
+    var idRegistroSelectedForDelete;
+
     $(document).ready(function() {
         $('.modal-trigger').leanModal();
 
@@ -179,9 +201,10 @@
 
                     var removeRow = document.createElement("td");
                     var removeLink = document.createElement("a");
-                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red");
-                    removeLink.setAttribute("onclick", "eliminarVinculo("+object.id+")");
+                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                    removeLink.setAttribute("onclick", "selectVinculoForDelete("+object.id+")");
                     var removeIcon = document.createElement("i");
+                    removeLink.setAttribute("href", "#modalVinculoDelete");
                     removeIcon.setAttribute("class", "material-icons");
                     removeIcon.appendChild(document.createTextNode("remove"));
                     removeLink.appendChild(removeIcon);
@@ -219,6 +242,7 @@
 
                     tablaEquipos.appendChild(nodo);
                 }
+                $('.modal-trigger').leanModal();
             },
             error: function (error) {
                 console.log(error);
@@ -344,9 +368,14 @@
         }
     }
 
-    function eliminarVinculo(idEquipo) {
+    function selectVinculoForDelete(id) {
+        idVinculoSelectedForDelete = id;
+        console.log(idVinculoSelectedForDelete);
+    }
+
+    function eliminarVinculo() {
         $.ajax({
-            url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+idEquipo,
+            url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+idVinculoSelectedForDelete,
             type: 'PUT',
             dataType: 'json',
             headers: {
@@ -372,8 +401,9 @@
             success: function (data) {
                 var removeRow = document.createElement("td");
                 var removeLink = document.createElement("a");
-                removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red");
-                removeLink.setAttribute("onclick", "eliminarRegistro("+object.id+")");
+                removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                removeLink.setAttribute("onclick", "selectForDeleteRegistro("+object.id+")");
+                removeLink.setAttribute("href", "#modalRegistroDelete");
                 var removeIcon = document.createElement("i");
                 removeIcon.setAttribute("class", "material-icons");
                 removeIcon.appendChild(document.createTextNode("remove"));
@@ -384,7 +414,6 @@
                 var editRow = document.createElement("td");
                 var editLink = document.createElement("a");
                 editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-//                    editLink.setAttribute("href", "equipoDetalle.html?id="+object.id);
                 var editIcon = document.createElement("i");
                 editIcon.setAttribute("class", "material-icons");
                 editIcon.appendChild(document.createTextNode("visibility"));
@@ -413,6 +442,8 @@
                 nodo.appendChild(moduloVisualizacion);
 
                 cuerpoTablaRegistros.appendChild(nodo);
+
+                $('.modal-trigger').leanModal();
             },
             error: function (error) {
                 console.log(error);
@@ -420,9 +451,14 @@
         });
     }
 
-    function eliminarRegistro(id) {
+    function selectForDeleteRegistro(id) {
+        idRegistroSelectedForDelete = id;
+        console.log(idRegistroSelectedForDelete);
+    }
+
+    function eliminarRegistro() {
         $.ajax({
-            url: "/telemonitoreo-core/web/app_dev.php/registro/"+id,
+            url: "/telemonitoreo-core/web/app_dev.php/registro/"+idRegistroSelectedForDelete,
             type: 'DELETE',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',

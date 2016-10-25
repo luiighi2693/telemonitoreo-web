@@ -66,23 +66,30 @@
     <div class="modal-content">
         <h4>Pacientes Asociados</h4>
         <br><br>
-        <ul id="pacientesAsociados" class="collection">
-            <!--<li class="collection-item">luis</li>-->
-            <!--<li class="collection-item">pedro</li>-->
-        </ul>
+        <ul id="pacientesAsociados" class="collection"></ul>
     </div>
     <div class="modal-footer">
         <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
 </div>
 
-
+<div id="modalDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminar()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
 
 <!--  Scripts-->
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
 <script>
+    var idSelectedForDelete;
+
     $( document ).ready(function() {
         listTable();
     });
@@ -102,8 +109,9 @@
 
                     var removeRow = document.createElement("td");
                     var removeLink = document.createElement("a");
-                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red");
-                    removeLink.setAttribute("onclick", "eliminar("+object.id+")");
+                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                    removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
+                    removeLink.setAttribute("href", "#modalDelete");
                     var removeIcon = document.createElement("i");
                     removeIcon.setAttribute("class", "material-icons");
                     removeIcon.appendChild(document.createTextNode("remove"));
@@ -155,9 +163,14 @@
         });
     }
 
-    function eliminar(id) {
+    function selectForDelete(id) {
+        idSelectedForDelete = id;
+        console.log(idSelectedForDelete);
+    }
+
+    function eliminar() {
         $.ajax({
-            url: "/telemonitoreo-core/web/app_dev.php/variableclinica/"+id,
+            url: "/telemonitoreo-core/web/app_dev.php/variableclinica/"+idSelectedForDelete,
             type: 'DELETE',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
