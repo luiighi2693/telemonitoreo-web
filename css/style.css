@@ -30,3 +30,7 @@ main {
 .fix-size{
     overflow: auto;
 }
+
+nav .nav-wrapper form, nav .nav-wrapper form .input-field{
+    height: 100%;
+}
