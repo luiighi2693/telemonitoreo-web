@@ -84,7 +84,6 @@
                 <th data-field="see"></th>
                 <th data-field="name">Nombre</th>
                 <th data-field="date">Fecha</th>
-                <th data-field="time">Duración</th>
                 <th data-field="typeFile">Tipo Archivo</th>
                 <th data-field="visualModule">Módulo visualización</th>
             </tr>
@@ -437,10 +436,6 @@
                 fecha.appendChild(document.createTextNode(object.fecha));
                 nodo.appendChild(fecha);
 
-                var duracion = document.createElement("td");
-                duracion.appendChild(document.createTextNode(object.duracion));
-                nodo.appendChild(duracion);
-
                 var tipoarchivo = document.createElement("td");
                 tipoarchivo.appendChild(document.createTextNode(object.tipoarchivo));
                 nodo.appendChild(tipoarchivo);
@@ -469,6 +464,10 @@
             url: "/telemonitoreo-core/web/app_dev.php/registro/"+idRegistroSelectedForDelete,
             type: 'DELETE',
             dataType: 'json',
+            headers: {
+                'usuario': sessionStorage.getItem("usuario"),
+                'fecha': getFecha()
+            },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 console.log(data);
