@@ -86,6 +86,10 @@
 <script src="js/init.js"></script>
 <script>
     $(document).ready(function() {
+        if (sessionStorage.getItem("usuario")==null){
+            window.location = "login.html";
+        }
+
         $('select').material_select();
         id = document.location.href.split('?id=')[1];
         var listaPacientes = [];

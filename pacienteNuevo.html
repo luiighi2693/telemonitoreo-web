@@ -76,6 +76,12 @@
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
 <script>
+    $( document ).ready(function() {
+        if (sessionStorage.getItem("usuario")==null){
+            window.location = "login.html";
+        }
+    });
+
     function cancelar() {
         window.location= "pacienteListado.html";
     }

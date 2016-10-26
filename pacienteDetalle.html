@@ -163,6 +163,10 @@
     var idRegistroSelectedForDelete;
 
     $(document).ready(function() {
+        if (sessionStorage.getItem("usuario")==null){
+            window.location = "login.html";
+        }
+
         $('.modal-trigger').leanModal();
 
         $('select').material_select();

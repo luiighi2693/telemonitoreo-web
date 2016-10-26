@@ -109,6 +109,10 @@
 <script src="js/init.js"></script>
 <script>
     $(document).ready(function() {
+        if (sessionStorage.getItem("usuario")==null){
+            window.location = "login.html";
+        }
+
         $('select').material_select();
 
         $.ajax({

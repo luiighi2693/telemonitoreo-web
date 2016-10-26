@@ -91,6 +91,10 @@
     var idSelectedForDelete;
 
     $( document ).ready(function() {
+        if (sessionStorage.getItem("usuario")==null){
+            window.location = "login.html";
+        }
+
         listTable();
     });
 
