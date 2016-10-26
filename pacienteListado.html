@@ -160,6 +160,10 @@
             url: "/telemonitoreo-core/web/app_dev.php/historiaclinica/"+idSelectedForDelete,
             type: 'DELETE',
             dataType: 'json',
+            headers: {
+                'usuario': sessionStorage.getItem("usuario"),
+                'fecha': getFecha()
+            },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 console.log(data);
@@ -169,6 +173,11 @@
                 console.log(error);
             }
         });
+    }
+
+    function getFecha() {
+        var fecha = new Date();
+        return fecha.getDate()+"/"+fecha.getMonth()+1+"/"+fecha.getFullYear()+"  "+fecha.getHours()+":"+(fecha.getMinutes() < 10 ? "0"+fecha.getMinutes() : fecha.getMinutes())+":"+fecha.getSeconds();
     }
 
     function exit() {
