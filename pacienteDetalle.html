@@ -163,7 +163,10 @@
 
     $(document).ready(function() {
         if (sessionStorage.getItem("usuario")==null){
-            window.location = "login.html";
+            setTimeout(function(){
+                alert("Usted no ha iniciado sesión");
+                window.location = "login.html";
+            }, 1500);
         }
 
         $('.modal-trigger').leanModal();
