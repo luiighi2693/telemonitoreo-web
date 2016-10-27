@@ -53,20 +53,12 @@
 <script src="js/util.js"></script>
 <script>
     $( document ).ready(function() {
-        $("#nav").load("nav.html");
-        $("#footer").load("footer.html");
-
-        if (sessionStorage.getItem("usuario")==null){
-            setTimeout(function(){
-                alert("Usted no ha iniciado sesión");
-                window.location = "login.html";
-            }, 1500);
-        }
-
-        if(sessionStorage.getItem("rol")!="Administrador"){
-            document.getElementById("params").setAttribute("style", "display:none");
-            document.getElementById("paramsMobile").setAttribute("style", "display:none");
-        }
+        setTimeout(function(){
+            if(sessionStorage.getItem("rol")!="Administrador"){
+                document.getElementById("params").setAttribute("style", "display:none");
+                document.getElementById("paramsMobile").setAttribute("style", "display:none");
+            }
+        }, 500);
     });
 </script>
 </body>
