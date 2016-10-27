@@ -68,6 +68,20 @@
                     <i class="material-icons right">cancel</i>
                 </button>
             </div>
+            <div id="spinner" class="spinnerHidden">
+                <div  class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-red-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
@@ -85,6 +99,8 @@
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
 <script>
+    var contDisplaySpinner = 0;
+
     $(document).ready(function() {
         if (sessionStorage.getItem("usuario")==null){
             setTimeout(function(){
@@ -96,6 +112,7 @@
         $('select').material_select();
         id = document.location.href.split('?id=')[1];
         var listaPacientes = [];
+        document.getElementById("spinner").setAttribute("class", "");
 
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/historiaclinica",
@@ -125,6 +142,7 @@
                     },
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
+                        displaySpinner();
                         console.log(data);
                         for (var i=0; i<data.length; i++){
                             listaPacientes.push(data[i].id_historia_clinica);
@@ -149,6 +167,7 @@
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                displaySpinner();
                 document.getElementById("name").value = data.nombre;
                 document.getElementById("range").value = data.rango;
                 document.getElementById("particularRange").value = data.rango_particular;
@@ -172,6 +191,8 @@
         var rango =document.getElementById("range");
         var rangoParticular =document.getElementById("particularRange");
 
+        document.getElementById("spinner").setAttribute("class", "");
+
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/variableclinica/"+id,
             type: 'PUT',
@@ -189,6 +210,8 @@
                     for (var i=0; i<pacientes.length; i++){
                         setVariableToPatient(data.id, pacientes[i]);
                     }
+                }else{
+                    document.getElementById("spinner").setAttribute("class", "spinnerHidden");
                 }
                 window.location= "variableListado.html";
             },
@@ -209,6 +232,7 @@
             },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
                 console.log(data);
             },
             error: function (error) {
@@ -221,6 +245,13 @@
         sessionStorage.removeItem("usuario");
         sessionStorage.removeItem("rol");
         window.location = "login.html";
+    }
+
+    function displaySpinner() {
+        contDisplaySpinner++;
+        if (contDisplaySpinner==2){
+            document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+        }
     }
 </script>
 </body>

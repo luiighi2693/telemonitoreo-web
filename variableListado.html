@@ -52,6 +52,20 @@
                 <tbody id="cuerpoTabla"></tbody>
             </table>
         </div>
+        <div id="spinner" class="spinnerHidden">
+            <div  class="preloader-wrapper active">
+                <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
@@ -102,12 +116,14 @@
     });
 
     function listTable() {
+        document.getElementById("spinner").setAttribute("class", "");
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/variableclinica",
             type: 'GET',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
                 var tabla = document.getElementById("cuerpoTabla");
                 tabla.innerHTML = '';
                 for (var i=0; i<data.length; i++){
@@ -176,12 +192,14 @@
     }
 
     function eliminar() {
+        document.getElementById("spinner").setAttribute("class", "");
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/variableclinica/"+idSelectedForDelete,
             type: 'DELETE',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
                 console.log(data);
                 listTable();
             },
@@ -192,6 +210,7 @@
     }
 
     function listarPacientesAsociados(idVariableClinica) {
+        document.getElementById("spinner").setAttribute("class", "");
         var paciente = document.getElementById("pacientesAsociados");
         paciente.innerHTML = '';
         $.ajax({
@@ -203,6 +222,10 @@
             },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                if(data.length==0){
+                    document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+                }
+
                 for (var i=0; i<data.length; i++){
                     getPaciente(data[i].id_historia_clinica);
                 }
@@ -220,6 +243,7 @@
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
                 console.log(data);
                 var paciente = document.getElementById("pacientesAsociados");
                 var pacienteLi = document.createElement("li");
