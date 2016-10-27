@@ -55,6 +55,7 @@
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
+<script src="js/util.js"></script>
 <script>
     $( document ).ready(function() {
         $("#nav").load("nav.html");
@@ -110,12 +111,6 @@
     function getFecha() {
         var fecha = new Date();
         return fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()+"  "+fecha.getHours()+":"+(fecha.getMinutes() < 10 ? "0"+fecha.getMinutes() : fecha.getMinutes())+":"+(fecha.getSeconds() < 10 ? "0"+fecha.getSeconds() : fecha.getSeconds());
-    }
-
-    function exit() {
-        sessionStorage.removeItem("usuario");
-        sessionStorage.removeItem("rol");
-        window.location = "login.html";
     }
 </script>
 </body>

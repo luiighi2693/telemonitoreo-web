@@ -59,6 +59,7 @@
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
+<script src="js/util.js"></script>
 <script>
     $( document ).ready(function() {
         $("#nav").load("nav.html");
@@ -207,12 +208,6 @@
             listTableAll();
         }
         document.getElementById("cedula").value = "";
-    }
-
-    function exit() {
-        sessionStorage.removeItem("usuario");
-        sessionStorage.removeItem("rol");
-        window.location = "login.html";
     }
 </script>
 </body>
