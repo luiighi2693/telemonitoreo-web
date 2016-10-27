@@ -17,7 +17,7 @@
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li><a href="parametroListado.html">Parámetros</a></li>
+            <li id="params"><a href="parametroListado.html">Parámetros</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
 
@@ -25,7 +25,7 @@
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li><a href="parametroListado.html">Parámetros</a></li>
+            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -107,6 +107,11 @@
                 alert("Usted no ha iniciado sesión");
                 window.location = "login.html";
             }, 1500);
+        }
+
+        if(sessionStorage.getItem("rol")!="Administrador"){
+            document.getElementById("params").setAttribute("style", "display:none");
+            document.getElementById("paramsMobile").setAttribute("style", "display:none");
         }
 
         $('select').material_select();

@@ -19,7 +19,7 @@
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li><a href="parametroListado.html">Parámetros</a></li>
+            <li id="params"><a href="parametroListado.html">Parámetros</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
 
@@ -27,7 +27,7 @@
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li><a href="parametroListado.html">Parámetros</a></li>
+            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -37,7 +37,7 @@
 <main>
     <div class="container" >
         <h4 class="header center orange-text">Pacientes</h4>
-        <a id="addMedicalEquip" class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
+        <a id="addPatient" class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
         <a id="historical" class="waves-effect waves-light btn tooltipped left" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores" href="historicos.html"><i class="material-icons right">info_outline</i>H</a>
         <br><br>
         <div class="fix-size">
@@ -105,7 +105,7 @@
         }
 
         if(sessionStorage.getItem("rol")=="Administrador" || sessionStorage.getItem("rol")=="Estudiante"){
-            document.getElementById("addMedicalEquip").setAttribute("style", "display:none");
+            document.getElementById("addPatient").setAttribute("style", "display:none");
             document.getElementById("editRow").setAttribute("style", "display:none");
             document.getElementById("deleteRow").setAttribute("style", "display:none");
 
@@ -113,6 +113,12 @@
                 document.getElementById("historical").setAttribute("style", "display:none");
             }
         }
+
+        if(sessionStorage.getItem("rol")!="Administrador"){
+            document.getElementById("params").setAttribute("style", "display:none");
+            document.getElementById("paramsMobile").setAttribute("style", "display:none");
+        }
+
 
         listTable();
     });

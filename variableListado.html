@@ -17,7 +17,7 @@
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li><a href="parametroListado.html">Parámetros</a></li>
+            <li id="params"><a href="parametroListado.html">Parámetros</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
 
@@ -25,7 +25,7 @@
             <li><a href="pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li><a href="parametroListado.html">Parámetros</a></li>
+            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -34,14 +34,14 @@
 <main>
     <div class="container" >
         <h4 class="header center orange-text">Variables Clínicas</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right" href="variableNuevo.html"><i class="material-icons">add</i></a>
+        <a id="addVariable" class="btn-floating btn-small waves-effect waves-light green right" href="variableNuevo.html"><i class="material-icons">add</i></a>
         <br><br>
         <div class="fix-size">
             <table class="striped centered">
                 <thead>
                 <tr>
-                    <th data-field="delete"></th>
-                    <th data-field="edit"></th>
+                    <th id="deleteRow" data-field="delete"></th>
+                    <th id="editRow" data-field="edit"></th>
                     <th data-field="medicalEquipment">Variable Clínica</th>
                     <th data-field="pacientes">Pacientes</th>
                     <th data-field="description">Rango</th>
@@ -112,6 +112,17 @@
             }, 1500);
         }
 
+        if(sessionStorage.getItem("rol")=="Administrador" || sessionStorage.getItem("rol")=="Estudiante"){
+            document.getElementById("addVariable").setAttribute("style", "display:none");
+            document.getElementById("editRow").setAttribute("style", "display:none");
+            document.getElementById("deleteRow").setAttribute("style", "display:none");
+        }
+
+        if(sessionStorage.getItem("rol")!="Administrador"){
+            document.getElementById("params").setAttribute("style", "display:none");
+            document.getElementById("paramsMobile").setAttribute("style", "display:none");
+        }
+
         listTable();
     });
 
@@ -130,28 +141,31 @@
                     var object = data[i];
                     var nodo = document.createElement("tr");
 
-                    var removeRow = document.createElement("td");
-                    var removeLink = document.createElement("a");
-                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
-                    removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
-                    removeLink.setAttribute("href", "#modalDelete");
-                    var removeIcon = document.createElement("i");
-                    removeIcon.setAttribute("class", "material-icons");
-                    removeIcon.appendChild(document.createTextNode("remove"));
-                    removeLink.appendChild(removeIcon);
-                    removeRow.appendChild(removeLink);
-                    nodo.appendChild(removeRow);
+                    if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
+                        var removeRow = document.createElement("td");
+                        var removeLink = document.createElement("a");
+                        removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                        removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
+                        removeLink.setAttribute("href", "#modalDelete");
+                        var removeIcon = document.createElement("i");
+                        removeIcon.setAttribute("class", "material-icons");
+                        removeIcon.appendChild(document.createTextNode("remove"));
+                        removeLink.appendChild(removeIcon);
+                        removeRow.appendChild(removeLink);
+                        nodo.appendChild(removeRow);
 
-                    var editRow = document.createElement("td");
-                    var editLink = document.createElement("a");
-                    editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                    editLink.setAttribute("href", "variableDetalle.html?id="+object.id);
-                    var editIcon = document.createElement("i");
-                    editIcon.setAttribute("class", "material-icons");
-                    editIcon.appendChild(document.createTextNode("edit"));
-                    editLink.appendChild(editIcon);
-                    editRow.appendChild(editLink);
-                    nodo.appendChild(editRow);
+                        var editRow = document.createElement("td");
+                        var editLink = document.createElement("a");
+                        editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+                        editLink.setAttribute("href", "variableDetalle.html?id="+object.id);
+                        var editIcon = document.createElement("i");
+                        editIcon.setAttribute("class", "material-icons");
+                        editIcon.appendChild(document.createTextNode("edit"));
+                        editLink.appendChild(editIcon);
+                        editRow.appendChild(editLink);
+                        nodo.appendChild(editRow);
+
+                    }
 
                     var nombre = document.createElement("td");
                     nombre.appendChild(document.createTextNode(object.nombre));
