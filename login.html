@@ -41,12 +41,27 @@
       </div>
     </form>
   </div>
+  <div id="spinner" class="spinnerHidden">
+    <div  class="preloader-wrapper active">
+      <div class="spinner-layer spinner-red-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.js"></script>
 <script>
   function verifyUser() {
+    document.getElementById("spinner").setAttribute("class", "");
     $.ajax({
       url: "/telemonitoreo-core/web/app_dev.php/usuario",
       type: 'GET',
@@ -57,6 +72,8 @@
       },
       contentType: 'application/json; charset=utf-8',
       success: function (data) {
+        document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+
         document.getElementById("username").value = '';
         document.getElementById("password").value = '';
 
