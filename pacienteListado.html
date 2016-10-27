@@ -37,15 +37,15 @@
 <main>
     <div class="container" >
         <h4 class="header center orange-text">Pacientes</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
-        <a class="waves-effect waves-light btn tooltipped left" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores" href="historicos.html"><i class="material-icons right">info_outline</i>H</a>
+        <a id="addMedicalEquip" class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
+        <a id="historical" class="waves-effect waves-light btn tooltipped left" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores" href="historicos.html"><i class="material-icons right">info_outline</i>H</a>
         <br><br>
         <div class="fix-size">
             <table class="striped centered">
                 <thead>
                 <tr>
-                    <th data-field="delete"></th>
-                    <th data-field="edit"></th>
+                    <th id="deleteRow" data-field="delete"></th>
+                    <th id="editRow" data-field="edit"></th>
                     <th data-field="hcNumber">Número historia clínica</th>
                     <th data-field="name">Nombre</th>
                     <th data-field="actualHealth">Cédula</th>
@@ -104,6 +104,16 @@
             }, 1500);
         }
 
+        if(sessionStorage.getItem("rol")=="Administrador" || sessionStorage.getItem("rol")=="Estudiante"){
+            document.getElementById("addMedicalEquip").setAttribute("style", "display:none");
+            document.getElementById("editRow").setAttribute("style", "display:none");
+            document.getElementById("deleteRow").setAttribute("style", "display:none");
+
+            if(sessionStorage.getItem("rol")=="Estudiante"){
+                document.getElementById("historical").setAttribute("style", "display:none");
+            }
+        }
+
         listTable();
     });
 
@@ -123,28 +133,31 @@
                     var object = data[i];
                     var nodo = document.createElement("tr");
 
-                    var removeRow = document.createElement("td");
-                    var removeLink = document.createElement("a");
-                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
-                    removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
-                    removeLink.setAttribute("href", "#modalDelete");
-                    var removeIcon = document.createElement("i");
-                    removeIcon.setAttribute("class", "material-icons");
-                    removeIcon.appendChild(document.createTextNode("remove"));
-                    removeLink.appendChild(removeIcon);
-                    removeRow.appendChild(removeLink);
-                    nodo.appendChild(removeRow);
+                    if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
+                        var removeRow = document.createElement("td");
+                        var removeLink = document.createElement("a");
+                        removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                        removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
+                        removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
+                        removeLink.setAttribute("href", "#modalDelete");
+                        var removeIcon = document.createElement("i");
+                        removeIcon.setAttribute("class", "material-icons");
+                        removeIcon.appendChild(document.createTextNode("remove"));
+                        removeLink.appendChild(removeIcon);
+                        removeRow.appendChild(removeLink);
+                        nodo.appendChild(removeRow);
 
-                    var editRow = document.createElement("td");
-                    var editLink = document.createElement("a");
-                    editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                    editLink.setAttribute("href", "pacienteDetalle.html?id="+object.id);
-                    var editIcon = document.createElement("i");
-                    editIcon.setAttribute("class", "material-icons");
-                    editIcon.appendChild(document.createTextNode("edit"));
-                    editLink.appendChild(editIcon);
-                    editRow.appendChild(editLink);
-                    nodo.appendChild(editRow);
+                        var editRow = document.createElement("td");
+                        var editLink = document.createElement("a");
+                        editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+                        editLink.setAttribute("href", "pacienteDetalle.html?id="+object.id);
+                        var editIcon = document.createElement("i");
+                        editIcon.setAttribute("class", "material-icons");
+                        editIcon.appendChild(document.createTextNode("edit"));
+                        editLink.appendChild(editIcon);
+                        editRow.appendChild(editLink);
+                        nodo.appendChild(editRow);
+                    }
 
                     var codigo = document.createElement("td");
                     codigo.appendChild(document.createTextNode(object.codigo));
@@ -198,7 +211,7 @@
 
     function getFecha() {
         var fecha = new Date();
-        return fecha.getDate()+"/"+fecha.getMonth()+1+"/"+fecha.getFullYear()+"  "+fecha.getHours()+":"+(fecha.getMinutes() < 10 ? "0"+fecha.getMinutes() : fecha.getMinutes())+":"+(fecha.getSeconds() < 10 ? "0"+fecha.getSeconds() : fecha.getSeconds());
+        return fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()+"  "+fecha.getHours()+":"+(fecha.getMinutes() < 10 ? "0"+fecha.getMinutes() : fecha.getMinutes())+":"+(fecha.getSeconds() < 10 ? "0"+fecha.getSeconds() : fecha.getSeconds());
     }
 
     function exit() {

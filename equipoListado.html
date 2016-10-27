@@ -35,14 +35,14 @@
 <main>
     <div class="container" >
         <h4 class="header center orange-text">Equipos Médicos</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right" href="equipoNuevo.html"><i class="material-icons">add</i></a>
+        <a id="addMedicalEquip" class="btn-floating btn-small waves-effect waves-light green right" href="equipoNuevo.html"><i class="material-icons">add</i></a>
         <br><br>
         <div class="fix-size">
             <table class="striped centered">
                 <thead>
                 <tr>
-                    <th data-field="delete"></th>
-                    <th data-field="edit"></th>
+                    <th id="deleteRow" data-field="delete"></th>
+                    <th id="editRow" data-field="edit"></th>
                     <th data-field="name">Nombre</th>
                     <th data-field="serial">Serial</th>
                     <th data-field="type">Tipo Equipo</th>
@@ -104,6 +104,12 @@
             }, 1500);
         }
 
+        if(sessionStorage.getItem("rol")=="Medico" || sessionStorage.getItem("rol")=="Estudiante"){
+            document.getElementById("addMedicalEquip").setAttribute("style", "display:none");
+            document.getElementById("editRow").setAttribute("style", "display:none");
+            document.getElementById("deleteRow").setAttribute("style", "display:none");
+        }
+
         listTable();
     });
 
@@ -124,28 +130,31 @@
                     var object = data[i];
                     var nodo = document.createElement("tr");
 
-                    var removeRow = document.createElement("td");
-                    var removeLink = document.createElement("a");
-                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
-                    removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
-                    removeLink.setAttribute("href", "#modalDelete");
-                    var removeIcon = document.createElement("i");
-                    removeIcon.setAttribute("class", "material-icons");
-                    removeIcon.appendChild(document.createTextNode("remove"));
-                    removeLink.appendChild(removeIcon);
-                    removeRow.appendChild(removeLink);
-                    nodo.appendChild(removeRow);
+                    if(sessionStorage.getItem("rol")!="Medico" && sessionStorage.getItem("rol")!="Estudiante"){
+                        var removeRow = document.createElement("td");
+                        var removeLink = document.createElement("a");
+                        removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                        removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
+                        removeLink.setAttribute("href", "#modalDelete");
+                        var removeIcon = document.createElement("i");
+                        removeIcon.setAttribute("class", "material-icons");
+                        removeIcon.appendChild(document.createTextNode("remove"));
+                        removeLink.appendChild(removeIcon);
+                        removeRow.appendChild(removeLink);
+                        nodo.appendChild(removeRow);
 
-                    var editRow = document.createElement("td");
-                    var editLink = document.createElement("a");
-                    editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                    editLink.setAttribute("href", "equipoDetalle.html?id="+object.id);
-                    var editIcon = document.createElement("i");
-                    editIcon.setAttribute("class", "material-icons");
-                    editIcon.appendChild(document.createTextNode("edit"));
-                    editLink.appendChild(editIcon);
-                    editRow.appendChild(editLink);
-                    nodo.appendChild(editRow);
+                        var editRow = document.createElement("td");
+                        var editLink = document.createElement("a");
+                        editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+                        editLink.setAttribute("href", "equipoDetalle.html?id="+object.id);
+                        var editIcon = document.createElement("i");
+                        editIcon.setAttribute("class", "material-icons");
+                        editIcon.appendChild(document.createTextNode("edit"));
+                        editLink.appendChild(editIcon);
+                        editRow.appendChild(editLink);
+                        nodo.appendChild(editRow);
+                    }
+
 
                     var nombre = document.createElement("td");
                     nombre.appendChild(document.createTextNode(object.nombre+" "+object.marca+" "+object.modelo));
