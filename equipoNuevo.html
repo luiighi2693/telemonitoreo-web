@@ -91,6 +91,20 @@
                     <i class="material-icons right">cancel</i>
                 </button>
             </div>
+            <div id="spinner" class="spinnerHidden">
+                <div  class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-red-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
@@ -108,6 +122,8 @@
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
 <script>
+    var contDisplaySpinner = 0;
+
     $(document).ready(function() {
         if (sessionStorage.getItem("usuario")==null){
             setTimeout(function(){
@@ -117,6 +133,7 @@
         }
 
         $('select').material_select();
+        document.getElementById("spinner").setAttribute("class", "");
 
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/parametro",
@@ -127,6 +144,7 @@
             },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                displaySpinner();
                 var tipoEquipo = document.getElementById("type");
 
                 for (var i=0; i<data.length; i++){
@@ -154,6 +172,7 @@
             },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                displaySpinner();
                 var moduloConexion = document.getElementById("connectionModule");
 
                 for (var i=0; i<data.length; i++){
@@ -191,6 +210,8 @@
         var moduloConexion = document.getElementById("connectionModule");
         var serial = document.getElementById("serial");
 
+        document.getElementById("spinner").setAttribute("class", "");
+
         $.ajax({
             url: "/telemonitoreo-core/web/app_dev.php/equipomedico/",
             type: 'POST',
@@ -207,6 +228,7 @@
             },
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
                 console.log(data);
                 window.location= "equipoListado.html";
             },
@@ -220,6 +242,13 @@
         sessionStorage.removeItem("usuario");
         sessionStorage.removeItem("rol");
         window.location = "login.html";
+    }
+
+    function displaySpinner() {
+        contDisplaySpinner++;
+        if (contDisplaySpinner==2){
+            document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+        }
     }
 </script>
 </body>
