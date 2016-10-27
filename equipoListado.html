@@ -11,26 +11,7 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Telemonitoreo</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="pacienteListado.html">Pacientes</a></li>
-            <li><a href="equipoListado.html">Equipos Medicos</a></li>
-            <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li id="params"><a href="parametroListado.html">Parámetros</a></li>
-            <li><a href="#" onclick="exit()">Salir</a></li>
-        </ul>
-
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="pacienteListado.html">Pacientes</a></li>
-            <li><a href="equipoListado.html">Equipos Medicos</a></li>
-            <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
-            <li><a href="#" onclick="exit()">Salir</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
+<div id="nav"></div>
 
 <main>
     <div class="container" >
@@ -63,12 +44,7 @@
     </div>
 </main>
 
-<footer class="page-footer orange">
-    <div class="container">
-        <h5 class="white-text">Universidad de Carabobo</h5>
-        <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
-    </div>
-</footer>
+<div id="footer"></div>
 
 <div id="modalDelete" class="modal">
     <div class="modal-content">
@@ -88,6 +64,9 @@
     var idSelectedForDelete;
 
     $( document ).ready(function() {
+        $("#nav").load("nav.html");
+        $("#footer").load("footer.html");
+
         if (sessionStorage.getItem("usuario")==null){
             setTimeout(function(){
                 alert("Usted no ha iniciado sesión");
