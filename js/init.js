@@ -2,7 +2,13 @@
   $(function(){
 
     $('.button-collapse').sideNav();
-    console.log("hola");
+
+    if (sessionStorage.getItem("usuario")==null){
+      setTimeout(function(){
+        alert("Usted no ha iniciado sesión");
+        window.location = "login.html";
+      }, 1500);
+    }
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
