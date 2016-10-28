@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Starter Template - Materialize</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Telemonitoreo</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="pacienteListado.html">Pacientes</a></li>
+            <li><a href="equipoListado.html">Equipos Medicos</a></li>
+            <li><a href="variableListado.html">Variables Clínicas</a></li>
+            <li id="params"><a href="parametroListado.html">Parámetros</a></li>
+            <li><a href="#" onclick="exit()">Salir</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="pacienteListado.html">Pacientes</a></li>
+            <li><a href="equipoListado.html">Equipos Medicos</a></li>
+            <li><a href="variableListado.html">Variables Clínicas</a></li>
+            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
+            <li><a href="#" onclick="exit()">Salir</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<main>
+    <div class="container" >
+        <h4 class="header center orange-text">Variables Clínicas</h4>
+        <a id="addVariable" class="btn-floating btn-small waves-effect waves-light green right" href="variableNuevo.html"><i class="material-icons">add</i></a>
+        <br><br>
+        <div class="fix-size">
+            <table class="striped centered">
+                <thead>
+                <tr>
+                    <th id="deleteRow" data-field="delete"></th>
+                    <th id="editRow" data-field="edit"></th>
+                    <th data-field="medicalEquipment">Variable Clínica</th>
+                    <th data-field="pacientes">Pacientes</th>
+                    <th data-field="description">Rango</th>
+                    <th data-field="variables">rango Particular</th>
+                </tr>
+                </thead>
+
+                <tbody id="cuerpoTabla"></tbody>
+            </table>
+        </div>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="page-footer orange">
+    <div class="container">
+        <h5 class="white-text">Universidad de Carabobo</h5>
+        <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
+    </div>
+</footer>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Pacientes Asociados</h4>
+        <br><br>
+        <ul id="pacientesAsociados" class="collection"></ul>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<div id="modalDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminar()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<!--  Scripts-->
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/init.js"></script>
+<script>
+    var idSelectedForDelete;
+
+    $( document ).ready(function() {
+        if (sessionStorage.getItem("usuario")==null){
+            setTimeout(function(){
+                alert("Usted no ha iniciado sesión");
+                window.location = "login.html";
+            }, 1500);
+        }
+
+        if(sessionStorage.getItem("rol")=="Administrador" || sessionStorage.getItem("rol")=="Estudiante"){
+            document.getElementById("addVariable").setAttribute("style", "display:none");
+            document.getElementById("editRow").setAttribute("style", "display:none");
+            document.getElementById("deleteRow").setAttribute("style", "display:none");
+        }
+
+        if(sessionStorage.getItem("rol")!="Administrador"){
+            document.getElementById("params").setAttribute("style", "display:none");
+            document.getElementById("paramsMobile").setAttribute("style", "display:none");
+        }
+
+        listTable();
+    });
+
+    function listTable() {
+        document.getElementById("spinner").setAttribute("class", "");
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/variableclinica",
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+                var tabla = document.getElementById("cuerpoTabla");
+                tabla.innerHTML = '';
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("tr");
+
+                    if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
+                        var removeRow = document.createElement("td");
+                        var removeLink = document.createElement("a");
+                        removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                        removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
+                        removeLink.setAttribute("href", "#modalDelete");
+                        var removeIcon = document.createElement("i");
+                        removeIcon.setAttribute("class", "material-icons");
+                        removeIcon.appendChild(document.createTextNode("remove"));
+                        removeLink.appendChild(removeIcon);
+                        removeRow.appendChild(removeLink);
+                        nodo.appendChild(removeRow);
+
+                        var editRow = document.createElement("td");
+                        var editLink = document.createElement("a");
+                        editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+                        editLink.setAttribute("href", "variableDetalle.html?id="+object.id);
+                        var editIcon = document.createElement("i");
+                        editIcon.setAttribute("class", "material-icons");
+                        editIcon.appendChild(document.createTextNode("edit"));
+                        editLink.appendChild(editIcon);
+                        editRow.appendChild(editLink);
+                        nodo.appendChild(editRow);
+
+                    }
+
+                    var nombre = document.createElement("td");
+                    nombre.appendChild(document.createTextNode(object.nombre));
+                    nodo.appendChild(nombre);
+
+                    var pacientes = document.createElement("td");
+                    var linkPacientes = document.createElement("a");
+                    linkPacientes.setAttribute("class", "modal-trigger");
+                    linkPacientes.setAttribute("href", "#modal1");
+                    linkPacientes.setAttribute("onclick", "listarPacientesAsociados("+object.id+")");
+                    linkPacientes.appendChild(document.createTextNode("Pacientes"));
+                    pacientes.appendChild(linkPacientes);
+                    nodo.appendChild(pacientes);
+
+                    var rango = document.createElement("td");
+                    rango.appendChild(document.createTextNode(object.rango));
+                    nodo.appendChild(rango);
+
+                    var rango_particular = document.createElement("td");
+                    if(object.rango_particular!=undefined){
+                        rango_particular.appendChild(document.createTextNode(object.rango_particular));
+                    }
+                    nodo.appendChild(rango_particular);
+
+                    tabla.appendChild(nodo);
+                }
+                $('.modal-trigger').leanModal();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function selectForDelete(id) {
+        idSelectedForDelete = id;
+        console.log(idSelectedForDelete);
+    }
+
+    function eliminar() {
+        document.getElementById("spinner").setAttribute("class", "");
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/variableclinica/"+idSelectedForDelete,
+            type: 'DELETE',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+                console.log(data);
+                listTable();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function listarPacientesAsociados(idVariableClinica) {
+        document.getElementById("spinner").setAttribute("class", "");
+        var paciente = document.getElementById("pacientesAsociados");
+        paciente.innerHTML = '';
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/variablehaspaciente",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'idvariableclinica': idVariableClinica
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if(data.length==0){
+                    document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+                }
+
+                for (var i=0; i<data.length; i++){
+                    getPaciente(data[i].id_historia_clinica);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function getPaciente(idPaciente) {
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/historiaclinica/"+idPaciente,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+                console.log(data);
+                var paciente = document.getElementById("pacientesAsociados");
+                var pacienteLi = document.createElement("li");
+                pacienteLi.setAttribute("class", "collection-item");
+                pacienteLi.appendChild(document.createTextNode(data.nombre_paciente +" CI:"+data.cedula_paciente));
+                paciente.appendChild(pacienteLi);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function exit() {
+        sessionStorage.removeItem("usuario");
+        sessionStorage.removeItem("rol");
+        window.location = "login.html";
+    }
+</script>
+</body>
+</html>

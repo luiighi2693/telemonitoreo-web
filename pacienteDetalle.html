@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Starter Template - Materialize</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Telemonitoreo</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="pacienteListado.html">Pacientes</a></li>
+            <li><a href="equipoListado.html">Equipos Medicos</a></li>
+            <li><a href="variableListado.html">Variables Clínicas</a></li>
+            <li id="params"><a href="parametroListado.html">Parámetros</a></li>
+            <li><a href="#" onclick="exit()">Salir</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="pacienteListado.html">Pacientes</a></li>
+            <li><a href="equipoListado.html">Equipos Medicos</a></li>
+            <li><a href="variableListado.html">Variables Clínicas</a></li>
+            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
+            <li><a href="#" onclick="exit()">Salir</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <h4 class="header center orange-text">Paciente Edición</h4>
+        <br><br>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4">
+                <input placeholder="nombre" id="name" type="text" class="validate" disabled>
+                <label>Nombre</label>
+            </div>
+            <div class="input-field col s4">
+                <input placeholder="cedula" id="cedula" type="text" class="validate" disabled>
+                <label>Cédula</label>
+            </div>
+            <div class="input-field col s4">
+                <input placeholder="numero HC" id="hcNumber" type="text" class="validate" disabled>
+                <label>Número historia clínica</label>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container" >
+        <h4 class="header center orange-text">Equipos Médicos</h4>
+        <a class="btn-floating btn-small waves-effect waves-light green right modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+        <br><br>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="delete"></th>
+                <th data-field="see"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="type">Tipo</th>
+                <th data-field="ip">IP</th>
+                <th data-field="typeConnection">Tipo Conexión</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaEquipos"></tbody>
+        </table>
+        <div id="spinnerEquipos" class="spinnerHidden">
+            <div  class="preloader-wrapper active">
+                <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="container" >
+        <h4 class="header center orange-text">Registros</h4>
+        <br><br>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="delete"></th>
+                <th data-field="see"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="date">Fecha</th>
+                <th data-field="typeFile">Tipo Archivo</th>
+                <th data-field="visualModule">Módulo visualización</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaRegistros"></tbody>
+        </table>
+        <div id="spinnerRegistros" class="spinnerHidden">
+            <div  class="preloader-wrapper active">
+                <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container" >
+        <h4 class="header center orange-text">Históricos</h4>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="name">Nombre de Usuario</th>
+                <th data-field="action">Acción</th>
+                <th data-field="date">Fecha</th>
+                <th data-field="observation">Observaciones</th>
+            </tr>
+            </thead>
+            <tbody id="cuerpoTablaHistoricos"></tbody>
+        </table>
+    </div>
+</main>
+
+<footer class="page-footer orange">
+    <div class="container">
+        <h5 class="white-text">Universidad de Carabobo</h5>
+        <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
+    </div>
+</footer>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Agregar Equipo</h4>
+        <br><br>
+        <label>Equipos médicos Disponibles:</label>
+        <select id="type">
+            <option value="" disabled selected>Elija una opción</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="aceptarModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<div id="modalVinculoDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarVinculo()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<div id="modalRegistroDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarRegistro()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<!--  Scripts-->
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/init.js"></script>
+<script>
+    var idVinculoSelectedForDelete;
+    var idRegistroSelectedForDelete;
+    var contDisplaySpinner = 0;
+
+    $(document).ready(function() {
+        if (sessionStorage.getItem("usuario")==null){
+            setTimeout(function(){
+                alert("Usted no ha iniciado sesión");
+                window.location = "login.html";
+            }, 1500);
+        }
+
+        if(sessionStorage.getItem("rol")!="Administrador"){
+            document.getElementById("params").setAttribute("style", "display:none");
+            document.getElementById("paramsMobile").setAttribute("style", "display:none");
+        }
+
+        $('.modal-trigger').leanModal();
+
+        $('select').material_select();
+        id = document.location.href.split('?id=')[1];
+
+        document.getElementById("spinner").setAttribute("class", "");
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/historiaclinica/"+id,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                displaySpinner();
+                document.getElementById("name").value = data.nombre_paciente;
+                document.getElementById("cedula").value = data.cedula_paciente;
+                document.getElementById("hcNumber").value = data.codigo;
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/equipomedico",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'idhistoriaclinica': id
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                displaySpinner();
+
+                var tablaEquipos = document.getElementById("cuerpoTablaEquipos");
+                tablaEquipos.innerHTML = '';
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("tr");
+
+                    var removeRow = document.createElement("td");
+                    var removeLink = document.createElement("a");
+                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                    removeLink.setAttribute("onclick", "selectVinculoForDelete("+object.id+")");
+                    var removeIcon = document.createElement("i");
+                    removeLink.setAttribute("href", "#modalVinculoDelete");
+                    removeIcon.setAttribute("class", "material-icons");
+                    removeIcon.appendChild(document.createTextNode("remove"));
+                    removeLink.appendChild(removeIcon);
+                    removeRow.appendChild(removeLink);
+                    nodo.appendChild(removeRow);
+
+                    var editRow = document.createElement("td");
+                    if(object.tipoconexion=="SINCRONA"){
+                        var editLink = document.createElement("a");
+                        editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+//                    editLink.setAttribute("href", "equipoDetalle.html?id="+object.id);
+                        var editIcon = document.createElement("i");
+                        editIcon.setAttribute("class", "material-icons");
+                        editIcon.appendChild(document.createTextNode("visibility"));
+                        editLink.appendChild(editIcon);
+                        editRow.appendChild(editLink);
+                    }
+                    nodo.appendChild(editRow);
+
+                    var nombre = document.createElement("td");
+                    nombre.appendChild(document.createTextNode(object.nombre+" "+object.marca+" "+object.modelo+" "+object.serial));
+                    nodo.appendChild(nombre);
+
+                    var tipoequipo = document.createElement("td");
+                    tipoequipo.appendChild(document.createTextNode(object.tipoequipo));
+                    nodo.appendChild(tipoequipo);
+
+                    var ip = document.createElement("td");
+                    ip.appendChild(document.createTextNode(object.ip));
+                    nodo.appendChild(ip);
+
+                    var tipoconexion = document.createElement("td");
+                    tipoconexion.appendChild(document.createTextNode(object.tipoconexion));
+                    nodo.appendChild(tipoconexion);
+
+                    tablaEquipos.appendChild(nodo);
+                }
+                $('.modal-trigger').leanModal();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/equipomedico",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'idhistoriaclinica': 'all'
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                displaySpinner();
+
+                var equiposDisponibles = document.getElementById("type");
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("option");
+                    nodo.setAttribute("value", object.id);
+                    nodo.appendChild(document.createTextNode(object.nombre+" "+object.marca+" "+object.modelo+" "+object.serial));
+                    equiposDisponibles.appendChild(nodo);
+
+                    var $selectDropdown = $("#type");
+                    $selectDropdown.trigger('contentChanged');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/registro",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'idhistoriaclinica': id
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                displaySpinner();
+
+                var cuerpoTablaRegistros = document.getElementById("cuerpoTablaRegistros");
+                cuerpoTablaRegistros.innerHTML = '';
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("tr");
+
+                    getNombreEquipo(object, nodo, cuerpoTablaRegistros);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/historicos",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'idhistoriaclinica': id
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                displaySpinner();
+
+                var tablaHistoricos = document.getElementById("cuerpoTablaHistoricos");
+                tablaHistoricos.innerHTML = '';
+
+                for (var i=0; i<data.length; i++){
+                    var object = data[i];
+                    var nodo = document.createElement("tr");
+
+                    var nombreusuario = document.createElement("td");
+                    nombreusuario.appendChild(document.createTextNode(object.nombreusuario));
+                    nodo.appendChild(nombreusuario);
+
+                    var accion = document.createElement("td");
+                    accion.appendChild(document.createTextNode(object.accion));
+                    nodo.appendChild(accion);
+
+                    var fecha = document.createElement("td");
+                    fecha.appendChild(document.createTextNode(object.fecha));
+                    nodo.appendChild(fecha);
+
+                    var observacion_paciente = document.createElement("td");
+                    observacion_paciente.appendChild(document.createTextNode(object.observacion_paciente));
+                    nodo.appendChild(observacion_paciente);
+
+                    tablaHistoricos.appendChild(nodo);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $('select').on('contentChanged', function() {
+        $(this).material_select();
+    });
+
+    function aceptarModal() {
+        if(document.getElementById("type").value!=""){
+            document.getElementById("spinnerEquipos").setAttribute("class", "");
+            $.ajax({
+                url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+document.getElementById("type").value,
+                type: 'PUT',
+                dataType: 'json',
+                headers: {
+                    'idhistoriaclinica': id,
+                    'usuario': sessionStorage.getItem("usuario"),
+                    'fecha': getFecha()
+                },
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    document.getElementById("spinnerEquipos").setAttribute("class", "spinnerHidden");
+                    window.location.reload();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    }
+
+    function selectVinculoForDelete(id) {
+        idVinculoSelectedForDelete = id;
+        console.log(idVinculoSelectedForDelete);
+    }
+
+    function eliminarVinculo() {
+        document.getElementById("spinnerEquipos").setAttribute("class", "");
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+idVinculoSelectedForDelete,
+            type: 'PUT',
+            dataType: 'json',
+            headers: {
+                'idhistoriaclinica': "null",
+                'usuario': sessionStorage.getItem("usuario"),
+                'fecha': getFecha()
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                document.getElementById("spinnerEquipos").setAttribute("class", "spinnerHidden");
+                window.location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function getNombreEquipo(object, nodo, cuerpoTablaRegistros) {
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+object.id,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var removeRow = document.createElement("td");
+                var removeLink = document.createElement("a");
+                removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+                removeLink.setAttribute("onclick", "selectForDeleteRegistro("+object.id+")");
+                removeLink.setAttribute("href", "#modalRegistroDelete");
+                var removeIcon = document.createElement("i");
+                removeIcon.setAttribute("class", "material-icons");
+                removeIcon.appendChild(document.createTextNode("remove"));
+                removeLink.appendChild(removeIcon);
+                removeRow.appendChild(removeLink);
+                nodo.appendChild(removeRow);
+
+                var editRow = document.createElement("td");
+                var editLink = document.createElement("a");
+                editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+                var editIcon = document.createElement("i");
+                editIcon.setAttribute("class", "material-icons");
+                editIcon.appendChild(document.createTextNode("visibility"));
+                editLink.appendChild(editIcon);
+                editRow.appendChild(editLink);
+                nodo.appendChild(editRow);
+
+                var nombre = document.createElement("td");
+                nombre.appendChild(document.createTextNode(data.nombre+" "+data.marca+" "+data.modelo+" "+data.serial));
+                nodo.appendChild(nombre);
+
+                var fecha = document.createElement("td");
+                fecha.appendChild(document.createTextNode(object.fecha));
+                nodo.appendChild(fecha);
+
+                var tipoarchivo = document.createElement("td");
+                tipoarchivo.appendChild(document.createTextNode(object.tipoarchivo));
+                nodo.appendChild(tipoarchivo);
+
+                var moduloVisualizacion = document.createElement("td");
+                moduloVisualizacion.appendChild(document.createTextNode(object.modulovisualizacion));
+                nodo.appendChild(moduloVisualizacion);
+
+                cuerpoTablaRegistros.appendChild(nodo);
+
+                $('.modal-trigger').leanModal();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function selectForDeleteRegistro(id) {
+        idRegistroSelectedForDelete = id;
+        console.log(idRegistroSelectedForDelete);
+    }
+
+    function eliminarRegistro() {
+        document.getElementById("spinnerRegistros").setAttribute("class", "");
+        $.ajax({
+            url: "/telemonitoreo-core/web/app_dev.php/registro/"+idRegistroSelectedForDelete,
+            type: 'DELETE',
+            dataType: 'json',
+            headers: {
+                'usuario': sessionStorage.getItem("usuario"),
+                'fecha': getFecha()
+            },
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                document.getElementById("spinnerRegistros").setAttribute("class", "spinnerHidden");
+                window.location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function getFecha() {
+        var fecha = new Date();
+        return fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()+"  "+fecha.getHours()+":"+(fecha.getMinutes() < 10 ? "0"+fecha.getMinutes() : fecha.getMinutes())+":"+(fecha.getSeconds() < 10 ? "0"+fecha.getSeconds() : fecha.getSeconds());
+    }
+
+    function exit() {
+        sessionStorage.removeItem("usuario");
+        sessionStorage.removeItem("rol");
+        window.location = "login.html";
+    }
+
+    function displaySpinner() {
+        contDisplaySpinner++;
+        if (contDisplaySpinner==5){
+            document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+        }
+    }
+</script>
+</body>
+</html>
