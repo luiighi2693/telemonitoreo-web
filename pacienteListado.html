@@ -129,7 +129,6 @@
                         var removeLink = document.createElement("a");
                         removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
                         removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
-                        removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
                         removeLink.setAttribute("href", "#modalDelete");
                         var removeIcon = document.createElement("i");
                         removeIcon.setAttribute("class", "material-icons");
@@ -175,7 +174,6 @@
     
     function selectForDelete(id) {
         idSelectedForDelete = id;
-        console.log(idSelectedForDelete);
     }
 
     function eliminar() {
@@ -199,12 +197,6 @@
             }
         });
     }
-
-    function getFecha() {
-        var fecha = new Date();
-        return fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()+"  "+fecha.getHours()+":"+(fecha.getMinutes() < 10 ? "0"+fecha.getMinutes() : fecha.getMinutes())+":"+(fecha.getSeconds() < 10 ? "0"+fecha.getSeconds() : fecha.getSeconds());
-    }
-
 </script>
 </body>
 </html>
