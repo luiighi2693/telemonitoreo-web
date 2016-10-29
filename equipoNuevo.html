@@ -201,30 +201,20 @@
 
         document.getElementById("spinner").setAttribute("class", "");
 
-        $.ajax({
-            url: "/telemonitoreo-core/web/app_dev.php/equipomedico/",
-            type: 'POST',
-            dataType: 'json',
-            headers: {
-                'nombre': nombre.value,
-                'marca': marca.value,
-                'modelo': modelo.value,
-                'tipoEquipo': tipoEquipo[tipoEquipo.value].text,
-                'tipoConexion': tipoConexion[tipoConexion.value].text,
-                'ip': url.value,
-                'moduloConexion': moduloConexion[moduloConexion.value].text,
-                'serial': serial.value
-            },
-            contentType: 'application/json; charset=utf-8',
-            success: function (data) {
-                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
-                console.log(data);
-                window.location= "equipoListado.html";
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
+        var uri = "/telemonitoreo-core/web/app_dev.php/equipomedico/";
+        var headers = {
+            'nombre': nombre.value,
+            'marca': marca.value,
+            'modelo': modelo.value,
+            'tipoEquipo': tipoEquipo[tipoEquipo.value].text,
+            'tipoConexion': tipoConexion[tipoConexion.value].text,
+            'ip': url.value,
+            'moduloConexion': moduloConexion[moduloConexion.value].text,
+            'serial': serial.value
+        };
+        var urlRollBack = "equipoListado.html";
+
+        save(uri, headers,urlRollBack, 'POST');
     }
 
     function displaySpinner() {
