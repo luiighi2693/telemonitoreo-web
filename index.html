@@ -9,11 +9,11 @@
     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
+<body ng-app="routerApp">
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Telemonitoreo</a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="pacienteListado.html">Pacientes</a></li>
+            <li><a ui-sref="pacienteListado">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
             <li id="params"><a href="parametroListado.html">Parámetros</a></li>
@@ -21,7 +21,7 @@
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="pacienteListado.html">Pacientes</a></li>
+            <li><a href="paciente/pacienteListado.html">Pacientes</a></li>
             <li><a href="equipoListado.html">Equipos Medicos</a></li>
             <li><a href="variableListado.html">Variables Clínicas</a></li>
             <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
@@ -31,46 +31,7 @@
     </div>
 </nav>
 
-<main>
-    <div class="container" >
-        <h1 class="header center orange-text">Módulo Telemonitoreo</h1>
-    </div>
-    <div class="container">
-        <div class="section">
-
-            <!--   Icon Section   -->
-            <div class="row">
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <a href="pacienteListado.html"><h2 class="center light-blue-text"><i class="material-icons">group</i></h2></a>
-                        <h5 class="center">Pacientes</h5>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <a href="equipoListado.html"><h2 class="center light-blue-text"><i class="material-icons">perm_device_information</i></h2></a>
-                        <h5 class="center">Equipos Médicos</h5>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <a href="variableListado.html"><h2 class="center light-blue-text"><i class="material-icons">settings</i></h2></a>
-                        <h5 class="center">Variables Clínicas</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <br><br>
-
-        <div class="section">
-
-        </div>
-    </div>
-
-</main>
+<div id="content" ui-view></div>
 
 <footer class="page-footer orange">
     <div class="container">
@@ -84,13 +45,14 @@
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
-<script>
-    $( document ).ready(function() {
-        if(sessionStorage.getItem("rol")!="Administrador"){
-            document.getElementById("params").setAttribute("style", "display:none");
-            document.getElementById("paramsMobile").setAttribute("style", "display:none");
-        }
-    });
-</script>
+
+<script src="angular.min.js"></script>
+<script src="angular-ui-router.min.js"></script>
+<script src="app.js"></script>
+<script src="mainController.js"></script>
+<script src="paciente/pacienteListadoController.js"></script>
+<script src="paciente/pacienteDetalleController.js"></script>
+<script src="paciente/pacienteNuevoController.js"></script>
+
 </body>
 </html>

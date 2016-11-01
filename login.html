@@ -71,7 +71,7 @@
         if(data != null){
           sessionStorage.setItem('usuario', data[0].nombre);
           sessionStorage.setItem('rol', data[0].rol);
-          window.location = "index.html";
+          window.location = "http://localhost/telemonitoreo-web/";
         }else{
           Materialize.toast('Usuario o Clave Incorrecto', 4000);
         }

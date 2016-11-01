@@ -1,43 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Starter Template - Materialize</title>
-
-    <link href="css/icon.css" rel="stylesheet">
-    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-
-</head>
-<body>
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Telemonitoreo</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="pacienteListado.html">Pacientes</a></li>
-            <li><a href="equipoListado.html">Equipos Medicos</a></li>
-            <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li id="params"><a href="parametroListado.html">Parámetros</a></li>
-            <li><a href="#" onclick="exit()">Salir</a></li>
-        </ul>
-
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="pacienteListado.html">Pacientes</a></li>
-            <li><a href="equipoListado.html">Equipos Medicos</a></li>
-            <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
-            <li><a href="#" onclick="exit()">Salir</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
-
-<main>
     <div class="container" >
         <h4 class="header center orange-text">Pacientes</h4>
-        <a id="addPatient" class="btn-floating btn-small waves-effect waves-light green right" href="pacienteNuevo.html"><i class="material-icons">add</i></a>
-        <a id="historical" class="waves-effect waves-light btn tooltipped left" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores" href="historicos.html"><i class="material-icons right">info_outline</i>H</a>
+        <a id="addPatient" class="btn-floating btn-small waves-effect waves-light green right" ui-sref="pacienteNuevo"><i class="material-icons">add</i></a>
+        <a id="historical" class="waves-effect waves-light btn tooltipped left" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores" href="../historicos.html"><i class="material-icons right">info_outline</i>H</a>
         <br><br>
         <div class="fix-size">
             <table class="striped centered">
@@ -60,14 +24,6 @@
             </div>
         </div>
     </div>
-</main>
-
-<footer class="page-footer orange">
-    <div class="container">
-        <h5 class="white-text">Universidad de Carabobo</h5>
-        <h6 class="white-text">Hecho por <a class="orange-text text-lighten-3" href="#">Luis Rodriguez</a></h6>
-    </div>
-</footer>
 
 <div id="modalDelete" class="modal">
     <div class="modal-content">
@@ -79,10 +35,6 @@
     </div>
 </div>
 
-<!--  Scripts-->
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/init.js"></script>
 <script>
     var idSelectedForDelete;
 
@@ -138,7 +90,8 @@
                         var editRow = document.createElement("td");
                         var editLink = document.createElement("a");
                         editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                        editLink.setAttribute("href", "pacienteDetalle.html?id="+object.id);
+                        editLink.setAttribute("ui-sref", "pacienteDetalle?id="+object.id);
+                        editLink.setAttribute("href", "#/pacienteDetalle?id="+object.id);
                         var editIcon = document.createElement("i");
                         editIcon.setAttribute("class", "material-icons");
                         editIcon.appendChild(document.createTextNode("edit"));
@@ -169,7 +122,7 @@
             }
         });
     }
-    
+
     function selectForDelete(id) {
         idSelectedForDelete = id;
     }
@@ -196,5 +149,3 @@
         });
     }
 </script>
-</body>
-</html>
