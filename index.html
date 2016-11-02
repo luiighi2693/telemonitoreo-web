@@ -9,7 +9,7 @@
     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body ng-app="routerApp">
+<body ng-app="routerApp" ng-controller="indexController">
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Telemonitoreo</a>
         <ul class="right hide-on-med-and-down">
@@ -21,10 +21,10 @@
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="paciente/pacienteListado.html">Pacientes</a></li>
-            <li><a href="equipoListado.html">Equipos Medicos</a></li>
-            <li><a href="variableListado.html">Variables Clínicas</a></li>
-            <li id="paramsMobile"><a href="parametroListado.html">Parámetros</a></li>
+            <li><a ng-click="changeState('pacienteListado')">Pacientes</a></li>
+            <li><a ng-click="changeState('equipoListado')">Equipos Medicos</a></li>
+            <li><a ng-click="changeState('variableListado')">Variables Clínicas</a></li>
+            <li id="paramsMobile"><a ng-click="changeState('parametroListado')">Parámetros</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>

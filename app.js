@@ -30,3 +30,9 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         });
 });
 
+routerApp.controller('indexController', function($scope, $state) {
+   $scope.changeState = function(state){
+       $state.go(state);
+       $('#nav-mobile').sideNav('hide');
+   }
+});
