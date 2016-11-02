@@ -1,7 +1,7 @@
 /**
  * Created by luisc on 1/11/2016.
  */
-routerApp.controller('pacienteListadoController', function($scope, $state, $compile, $rootScope) {
+routerApp.controller('pacienteListadoController', function($scope, $state, $compile, $rootScope, $location) {
 
     $rootScope.idSelectedForDelete = undefined;
 
@@ -55,12 +55,13 @@ routerApp.controller('pacienteListadoController', function($scope, $state, $comp
                         var editRow = document.createElement("td");
                         var editLink = document.createElement("a");
                         editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                        editLink.setAttribute("href", "#/pacienteDetalle?id="+object.id);
+                        editLink.setAttribute("ng-click", "changeState('pacienteDetalle','"+object.id+"')");
                         var editIcon = document.createElement("i");
                         editIcon.setAttribute("class", "material-icons");
                         editIcon.appendChild(document.createTextNode("edit"));
                         editLink.appendChild(editIcon);
                         editRow.appendChild(editLink);
+                        $compile(editRow)($scope);
                         nodo.appendChild(editRow);
                     }
 
@@ -110,6 +111,11 @@ routerApp.controller('pacienteListadoController', function($scope, $state, $comp
                 console.log(error);
             }
         });
+    };
+
+    $scope.changeState = function(state, id){
+        $rootScope.idPaciente = id;
+        $location.url(state);
     };
 
     $scope.listTable();
