@@ -1,0 +1,37 @@
+<div class="container" >
+    <h4 class="header center orange-text">Pacientes</h4>
+    <a id="addPatient" class="btn-floating btn-small waves-effect waves-light green right" onclick="loadModule('paciente','paciente', 'Nuevo', null)"><i class="material-icons">add</i></a>
+    <a id="historical" class="waves-effect waves-light btn tooltipped left" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores" onclick="loadModule('paciente','paciente', 'Historicos', null)"><i class="material-icons right">info_outline</i>H</a>
+    <br><br>
+    <div class="fix-size">
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th id="deleteRow" data-field="delete"></th>
+                <th id="editRow" data-field="edit"></th>
+                <th data-field="hcNumber">Número historia clínica</th>
+                <th data-field="name">Nombre</th>
+                <th data-field="actualHealth">Cédula</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTabla"></tbody>
+        </table>
+    </div>
+    <div id="spinner" class="spinnerHidden">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+</div>
+
+<div id="modalDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminar()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+

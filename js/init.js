@@ -1,7 +1,11 @@
+var idDetail;
+
 (function($){
   $(function(){
 
     $('.button-collapse').sideNav();
+
+    $('#mainContent').load('main.html');
 
     if (sessionStorage.getItem("usuario")==null){
       setTimeout(function(){
@@ -9,6 +13,13 @@
         window.location = "login.html";
       }, 1500);
     }
+
+    if(sessionStorage.getItem("rol")!="Administrador"){
+      document.getElementById("params").setAttribute("style", "display:none");
+      document.getElementById("paramsMobile").setAttribute("style", "display:none");
+    }
+
+    idDetail=null;
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
@@ -33,11 +44,39 @@ function save(uri, headers, urlRollBack, type){
     success: function (data) {
       document.getElementById("spinner").setAttribute("class", "spinnerHidden");
       if(urlRollBack!=null){
-        window.location= urlRollBack;
+        loadModule('paciente',urlRollBack, 'Listado', null);
       }
     },
     error: function (error) {
       console.log(error);
     }
   });
+}
+
+/**
+ * Carga Script dinamicamente y los almacena temporalmente en cache
+ * @param url
+ * @param options
+ * @returns {*}
+ */
+jQuery.cachedScript = function( url, options ) {
+
+  // Allow user to set any option except for dataType, cache, and url
+  options = $.extend( options || {}, {
+    dataType: "script",
+    cache: false,
+    url: url
+  });
+  return jQuery.ajax( options );
+};
+
+function loadModule(modulo,nombre, accion, id) {
+  if(id != null){
+    idDetail = id;
+  }else{
+    idDetail = null;
+  }
+  $('#mainContent').load(modulo+"/"+nombre+accion+".html");
+  $.cachedScript(modulo+"/"+nombre+accion+"Controller.js").done(function (script, textStatus) {});
+
 }

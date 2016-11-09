@@ -1,0 +1,144 @@
+    <div class="container">
+        <h4 class="header center orange-text">Paciente Edición</h4>
+        <br><br>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4">
+                <input placeholder="nombre" id="name" type="text" class="validate" disabled>
+                <label>Nombre</label>
+            </div>
+            <div class="input-field col s4">
+                <input placeholder="cedula" id="cedula" type="text" class="validate" disabled>
+                <label>Cédula</label>
+            </div>
+            <div class="input-field col s4">
+                <input placeholder="numero HC" id="hcNumber" type="text" class="validate" disabled>
+                <label>Número historia clínica</label>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container" >
+        <h4 class="header center orange-text">Equipos Médicos</h4>
+        <a class="btn-floating btn-small waves-effect waves-light green right modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+        <br><br>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="delete"></th>
+                <th data-field="see"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="type">Tipo</th>
+                <th data-field="ip">IP</th>
+                <th data-field="typeConnection">Tipo Conexión</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaEquipos"></tbody>
+        </table>
+        <div id="spinnerEquipos" class="spinnerHidden">
+            <div  class="preloader-wrapper active">
+                <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="container" >
+        <h4 class="header center orange-text">Registros</h4>
+        <br><br>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="delete"></th>
+                <th data-field="see"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="date">Fecha</th>
+                <th data-field="typeFile">Tipo Archivo</th>
+                <th data-field="visualModule">Módulo visualización</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaRegistros"></tbody>
+        </table>
+        <div id="spinnerRegistros" class="spinnerHidden">
+            <div  class="preloader-wrapper active">
+                <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container" >
+        <h4 class="header center orange-text">Históricos</h4>
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="name">Nombre de Usuario</th>
+                <th data-field="action">Acción</th>
+                <th data-field="date">Fecha</th>
+                <th data-field="observation">Observaciones</th>
+            </tr>
+            </thead>
+            <tbody id="cuerpoTablaHistoricos"></tbody>
+        </table>
+    </div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Agregar Equipo</h4>
+        <br><br>
+        <label>Equipos médicos Disponibles:</label>
+        <select id="type">
+            <option value="" disabled selected>Elija una opción</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="aceptarModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<div id="modalVinculoDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarVinculo()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<div id="modalRegistroDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarRegistro()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
