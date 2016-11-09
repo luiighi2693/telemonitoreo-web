@@ -39,3 +39,30 @@ function setTable(id,ids, names, nameBodyTable) {
 
     tableFormDiv.appendChild(tableForm);
 }
+
+function getRemoveButton(id) {
+    var removeRow = document.createElement("td");
+    var removeLink = document.createElement("a");
+    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
+    removeLink.setAttribute("onclick", "selectForDelete("+id+")");
+    removeLink.setAttribute("href", "#modalDelete");
+    var removeIcon = document.createElement("i");
+    removeIcon.setAttribute("class", "material-icons");
+    removeIcon.appendChild(document.createTextNode("remove"));
+    removeLink.appendChild(removeIcon);
+    removeRow.appendChild(removeLink);
+    return removeRow;
+}
+
+function getEditButton(module, id) {
+    var editRow = document.createElement("td");
+    var editLink = document.createElement("a");
+    editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+    editLink.setAttribute("onclick", "loadModule('"+module+"','"+module+"', 'Detalle', "+id+")");
+    var editIcon = document.createElement("i");
+    editIcon.setAttribute("class", "material-icons");
+    editIcon.appendChild(document.createTextNode("edit"));
+    editLink.appendChild(editIcon);
+    editRow.appendChild(editLink);
+    return editRow;
+}

@@ -45,27 +45,10 @@ function listTable() {
                 var nodo = document.createElement("tr");
 
                 if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
-                    var removeRow = document.createElement("td");
-                    var removeLink = document.createElement("a");
-                    removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
-                    removeLink.setAttribute("onclick", "selectForDelete("+object.id+")");
-                    removeLink.setAttribute("href", "#modalDelete");
-                    var removeIcon = document.createElement("i");
-                    removeIcon.setAttribute("class", "material-icons");
-                    removeIcon.appendChild(document.createTextNode("remove"));
-                    removeLink.appendChild(removeIcon);
-                    removeRow.appendChild(removeLink);
+                    var removeRow = getRemoveButton(object.id);
                     nodo.appendChild(removeRow);
 
-                    var editRow = document.createElement("td");
-                    var editLink = document.createElement("a");
-                    editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
-                    editLink.setAttribute("onclick", "loadModule('paciente','paciente', 'Detalle', "+object.id+")");
-                    var editIcon = document.createElement("i");
-                    editIcon.setAttribute("class", "material-icons");
-                    editIcon.appendChild(document.createTextNode("edit"));
-                    editLink.appendChild(editIcon);
-                    editRow.appendChild(editLink);
+                    var editRow = getEditButton("paciente", object.id);
                     nodo.appendChild(editRow);
                 }
 
