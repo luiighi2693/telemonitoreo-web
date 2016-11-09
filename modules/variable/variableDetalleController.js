@@ -4,6 +4,7 @@
 var contDisplaySpinner = 0;
 
 $(document).ready(function() {
+    $('#submitFormButtons').load('submitFormButton.html');
 
     if(sessionStorage.getItem("rol")!="Administrador"){
         document.getElementById("params").setAttribute("style", "display:none");
