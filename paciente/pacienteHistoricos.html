@@ -1,0 +1,37 @@
+<div class="container" >
+    <h4 class="header center orange-text">Históricos</h4>
+    <a class="waves-effect waves-light btn right modal-trigger" href="#modal"><i class="material-icons right">search</i>Buscar</a>
+    <br><br>
+    <div class="fix-size">
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th data-field="cedula">Cédula paciente</th>
+                <th data-field="action">Acción</th>
+                <th data-field="date">Fecha</th>
+                <th data-field="observation">Observaciones</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTabla"></tbody>
+        </table>
+    </div>
+    <div id="spinner" class="spinnerHidden">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h4>Ingrese la Cédula</h4>
+        <div class="input-field">
+            <input placeholder="cédula" id="cedula" type="text">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="buscar()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
