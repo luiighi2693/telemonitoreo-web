@@ -220,7 +220,7 @@ function aceptarModal() {
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 document.getElementById("spinnerEquipos").setAttribute("class", "spinnerHidden");
-                window.location.reload();
+                loadModule('paciente','paciente', 'Detalle', id);
             },
             error: function (error) {
                 console.log(error);
@@ -248,7 +248,7 @@ function eliminarVinculo() {
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             document.getElementById("spinnerEquipos").setAttribute("class", "spinnerHidden");
-            window.location.reload();
+            loadModule('paciente','paciente', 'Detalle', id);
         },
         error: function (error) {
             console.log(error);
@@ -329,7 +329,7 @@ function eliminarRegistro() {
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             document.getElementById("spinnerRegistros").setAttribute("class", "spinnerHidden");
-            window.location.reload();
+            loadModule('paciente','paciente', 'Detalle', id);
         },
         error: function (error) {
             console.log(error);
