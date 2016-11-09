@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e37ce2b-a879-4ef8-86d8-ac643a432923" name="Default" comment="detalles de la plantilla de materialize">
+    <list default="true" id="0e37ce2b-a879-4ef8-86d8-ac643a432923" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modalDelete.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/equipo/equipoListado.html" afterPath="$PROJECT_DIR$/modules/equipo/equipoListado.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/equipo/equipoListadoController.js" afterPath="$PROJECT_DIR$/modules/equipo/equipoListadoController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteListado.html" afterPath="$PROJECT_DIR$/modules/paciente/pacienteListado.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" afterPath="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parametro/parametroListado.html" afterPath="$PROJECT_DIR$/modules/parametro/parametroListado.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parametro/parametroListadoController.js" afterPath="$PROJECT_DIR$/modules/parametro/parametroListadoController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/variable/variableListado.html" afterPath="$PROJECT_DIR$/modules/variable/variableListado.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/variable/variableListadoController.js" afterPath="$PROJECT_DIR$/modules/variable/variableListadoController.js" />
     </list>
     <ignored path="telemonitoreo-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +27,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="pacienteListado.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="pacienteListado.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListado.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="447">
-                  <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="init.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/init.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="490">
-                  <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+                <state relative-caret-position="85">
+                  <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -59,6 +41,16 @@
       </split-first>
       <split-second>
         <leaf>
+          <file leaf-file-name="equipoListado.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListado.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="parametroListado.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListado.html">
               <provider selected="true" editor-type-id="text-editor">
@@ -72,8 +64,8 @@
           <file leaf-file-name="variableListado.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/variable/variableListado.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="481">
-                  <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+                <state relative-caret-position="646">
+                  <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
@@ -137,11 +129,11 @@
         <option value="$PROJECT_DIR$/modules/paciente/pacienteListado.html" />
         <option value="$PROJECT_DIR$/modules/equipo/equipoListado.html" />
         <option value="$PROJECT_DIR$/modules/parametro/parametroListado.html" />
-        <option value="$PROJECT_DIR$/modules/variable/variableListado.html" />
         <option value="$PROJECT_DIR$/modules/equipo/equipoListadoController.js" />
         <option value="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
         <option value="$PROJECT_DIR$/modules/parametro/parametroListadoController.js" />
         <option value="$PROJECT_DIR$/modules/variable/variableListadoController.js" />
+        <option value="$PROJECT_DIR$/modules/variable/variableListado.html" />
       </list>
     </option>
   </component>
@@ -390,7 +382,7 @@
       <workItem from="1478659374032" duration="31000" />
       <workItem from="1478671248731" duration="319000" />
       <workItem from="1478699553206" duration="10913000" />
-      <workItem from="1478721247099" duration="1175000" />
+      <workItem from="1478721247099" duration="1360000" />
     </task>
     <task id="LOCAL-00001" summary="sincronizacion de los selects">
       <created>1476901373962</created>
@@ -441,17 +433,24 @@
       <option name="project" value="LOCAL" />
       <updated>1478720219947</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactorizacion de modals">
+      <created>1478722447152</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1478722447152</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20965000" />
+    <option name="totallyTimeSpent" value="21150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.189375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1684073" sideWeight="0.52125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1684073" sideWeight="0.47875" order="7" side_tool="false" content_ui="tabs" />
@@ -490,7 +489,8 @@
     <MESSAGE value="merge" />
     <MESSAGE value="integracion modular del resto de los componentes" />
     <MESSAGE value="detalles de la plantilla de materialize" />
-    <option name="LAST_COMMIT_MESSAGE" value="detalles de la plantilla de materialize" />
+    <MESSAGE value="refactorizacion de modals" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactorizacion de modals" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -609,6 +609,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2094">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -766,42 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modalDelete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -824,16 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListadoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/variable/variableListadoController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -844,10 +803,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/variable/variableListado.html">
+    <entry file="file://$PROJECT_DIR$/js/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListadoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListado.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/variable/variableListado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding />
         </state>
       </provider>
