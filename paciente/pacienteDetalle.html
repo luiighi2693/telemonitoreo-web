@@ -1,4 +1,3 @@
-<div ng-controller="pacienteDetalleController">
     <div class="container">
         <h4 class="header center orange-text">Paciente Edición</h4>
         <br><br>
@@ -10,13 +9,16 @@
 
         <div class="row">
             <div class="input-field col s4">
-                <input placeholder="Nombre" id="name" type="text" class="validate" disabled>
+                <input placeholder="nombre" id="name" type="text" class="validate" disabled>
+                <label>Nombre</label>
             </div>
             <div class="input-field col s4">
-                <input placeholder="Cedula" id="cedula" type="text" class="validate" disabled>
+                <input placeholder="cedula" id="cedula" type="text" class="validate" disabled>
+                <label>Cédula</label>
             </div>
             <div class="input-field col s4">
-                <input placeholder="HC" id="hcNumber" type="text" class="validate" disabled>
+                <input placeholder="numero HC" id="hcNumber" type="text" class="validate" disabled>
+                <label>Número historia clínica</label>
             </div>
         </div>
     </div>
@@ -106,38 +108,37 @@
         </table>
     </div>
 
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Agregar Equipo</h4>
-            <br><br>
-            <label>Equipos médicos Disponibles:</label>
-            <select id="type">
-                <option value="" disabled selected>Elija una opción</option>
-            </select>
-        </div>
-        <div class="modal-footer">
-            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a ng-click="aceptarModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
-        </div>
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Agregar Equipo</h4>
+        <br><br>
+        <label>Equipos médicos Disponibles:</label>
+        <select id="type">
+            <option value="" disabled selected>Elija una opción</option>
+        </select>
     </div>
-
-    <div id="modalVinculoDelete" class="modal">
-        <div class="modal-content">
-            <h4>¿Esta securo que desea eliminar?</h4>
-        </div>
-        <div class="modal-footer">
-            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a ng-click ="eliminarVinculo()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
-        </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="aceptarModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
+</div>
 
-    <div id="modalRegistroDelete" class="modal">
-        <div class="modal-content">
-            <h4>¿Esta securo que desea eliminar?</h4>
-        </div>
-        <div class="modal-footer">
-            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a ng-click="eliminarRegistro()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
-        </div>
+<div id="modalVinculoDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarVinculo()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<div id="modalRegistroDelete" class="modal">
+    <div class="modal-content">
+        <h4>¿Esta securo que desea eliminar?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#" onclick="eliminarRegistro()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
 </div>
