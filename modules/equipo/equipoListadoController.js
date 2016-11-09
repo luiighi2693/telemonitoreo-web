@@ -4,6 +4,7 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
+    $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")=="Medico" || sessionStorage.getItem("rol")=="Estudiante"){
         document.getElementById("addMedicalEquip").setAttribute("style", "display:none");

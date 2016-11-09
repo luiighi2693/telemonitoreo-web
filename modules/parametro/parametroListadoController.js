@@ -4,6 +4,7 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
+    $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")!="Administrador"){
         document.getElementById("params").setAttribute("style", "display:none");

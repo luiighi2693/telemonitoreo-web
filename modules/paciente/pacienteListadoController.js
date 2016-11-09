@@ -4,6 +4,7 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
+    $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")=="Administrador" || sessionStorage.getItem("rol")=="Estudiante"){
         document.getElementById("addPatient").setAttribute("style", "display:none");

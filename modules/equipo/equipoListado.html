@@ -1,39 +1,31 @@
-    <div class="container" >
-        <h4 class="header center orange-text">Equipos Médicos</h4>
-        <a id="addMedicalEquip" class="btn-floating btn-small waves-effect waves-light green right" onclick="loadModule('equipo','equipo', 'Nuevo', null)"><i class="material-icons">add</i></a>
-        <br><br>
-        <div class="fix-size">
-            <table class="striped centered">
-                <thead>
-                <tr>
-                    <th id="deleteRow" data-field="delete"></th>
-                    <th id="editRow" data-field="edit"></th>
-                    <th data-field="name">Nombre</th>
-                    <th data-field="serial">Serial</th>
-                    <th data-field="type">Tipo Equipo</th>
-                    <th data-field="typeConnection">Tipo Conexión</th>
-                    <th data-field="url">URL</th>
-                    <th data-field="connectionModule">Módulo conexión</th>
-                </tr>
-                </thead>
+<div class="container" >
+    <h4 class="header center orange-text">Equipos Médicos</h4>
+    <a id="addMedicalEquip" class="btn-floating btn-small waves-effect waves-light green right" onclick="loadModule('equipo','equipo', 'Nuevo', null)"><i class="material-icons">add</i></a>
+    <br><br>
+    <div class="fix-size">
+        <table class="striped centered">
+            <thead>
+            <tr>
+                <th id="deleteRow" data-field="delete"></th>
+                <th id="editRow" data-field="edit"></th>
+                <th data-field="name">Nombre</th>
+                <th data-field="serial">Serial</th>
+                <th data-field="type">Tipo Equipo</th>
+                <th data-field="typeConnection">Tipo Conexión</th>
+                <th data-field="url">URL</th>
+                <th data-field="connectionModule">Módulo conexión</th>
+            </tr>
+            </thead>
 
-                <tbody id="cuerpoTabla"></tbody>
-            </table>
-        </div>
-        <div id="spinner" class="spinnerHidden">
-            <div class="progress">
-                <div class="indeterminate"></div>
-            </div>
-        </div>
+            <tbody id="cuerpoTabla"></tbody>
+        </table>
     </div>
-
-<div id="modalDelete" class="modal">
-    <div class="modal-content">
-        <h4>¿Esta securo que desea eliminar?</h4>
-    </div>
-    <div class="modal-footer">
-        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-        <a href="#" onclick="eliminar()" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    <div id="spinner" class="spinnerHidden">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
     </div>
 </div>
+
+<div id="modalDelete" class="modal"></div>
 
