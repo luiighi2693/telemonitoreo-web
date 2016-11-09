@@ -8,14 +8,14 @@
         <div class="row">
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <a href="paciente/pacienteListado.html"><h2 class="center light-blue-text"><i class="material-icons">group</i></h2></a>
+                    <a onclick="loadModule('paciente','paciente', 'Listado', null)"><h2 class="center light-blue-text"><i class="material-icons">group</i></h2></a>
                     <h5 class="center">Pacientes</h5>
                 </div>
             </div>
 
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <a href="equipoListado.html"><h2 class="center light-blue-text"><i class="material-icons">perm_device_information</i></h2></a>
+                    <a onclick="loadModule('paciente','paciente', 'Listado', null)"><h2 class="center light-blue-text"><i class="material-icons">perm_device_information</i></h2></a>
                     <h5 class="center">Equipos Médicos</h5>
                 </div>
             </div>
@@ -35,12 +35,3 @@
 
     </div>
 </div>
-
-<script>
-    $( document ).ready(function() {
-        if(sessionStorage.getItem("rol")!="Administrador"){
-            document.getElementById("params").setAttribute("style", "display:none");
-            document.getElementById("paramsMobile").setAttribute("style", "display:none");
-        }
-    });
-</script>
