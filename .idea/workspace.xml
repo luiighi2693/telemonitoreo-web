@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e37ce2b-a879-4ef8-86d8-ac643a432923" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/dinamicTemplates.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/submitFormButton.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/init.js" afterPath="$PROJECT_DIR$/js/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/equipo/equipoListado.html" afterPath="$PROJECT_DIR$/modules/equipo/equipoListado.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/equipo/equipoListadoController.js" afterPath="$PROJECT_DIR$/modules/equipo/equipoListadoController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteListado.html" afterPath="$PROJECT_DIR$/modules/paciente/pacienteListado.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/equipo/equipoNuevo.html" afterPath="$PROJECT_DIR$/modules/equipo/equipoNuevo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/equipo/equipoNuevoController.js" afterPath="$PROJECT_DIR$/modules/equipo/equipoNuevoController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" afterPath="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parametro/parametroListado.html" afterPath="$PROJECT_DIR$/modules/parametro/parametroListado.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteNuevo.html" afterPath="$PROJECT_DIR$/modules/paciente/pacienteNuevo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js" afterPath="$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parametro/parametroListadoController.js" afterPath="$PROJECT_DIR$/modules/parametro/parametroListadoController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/variable/variableListado.html" afterPath="$PROJECT_DIR$/modules/variable/variableListado.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parametro/parametroNuevo.html" afterPath="$PROJECT_DIR$/modules/parametro/parametroNuevo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parametro/parametroNuevoController.js" afterPath="$PROJECT_DIR$/modules/parametro/parametroNuevoController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/variable/variableListadoController.js" afterPath="$PROJECT_DIR$/modules/variable/variableListadoController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/variable/variableNuevo.html" afterPath="$PROJECT_DIR$/modules/variable/variableNuevo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/variable/variableNuevoController.js" afterPath="$PROJECT_DIR$/modules/variable/variableNuevoController.js" />
     </list>
     <ignored path="telemonitoreo-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,13 +36,164 @@
     <favorites_list name="telemonitoreo-web" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="pacienteNuevo.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="equipoNuevo.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/equipo/equipoNuevo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="50" column="34" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="34" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="parametroNuevo.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/parametro/parametroNuevo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="306">
+                  <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="variableNuevo.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/variable/variableNuevo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="192">
+                  <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pacienteNuevoController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="equipoNuevoController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/equipo/equipoNuevoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="parametroNuevoController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/parametro/parametroNuevoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="34">
+                  <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="variableNuevoController.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/variable/variableNuevoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="submitFormButton.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/submitFormButton.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="parametroListadoController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListadoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="equipoListadoController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListadoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="variableListadoController.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/variable/variableListadoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="136">
+                  <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pacienteListadoController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListadoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -77,11 +230,8 @@
         <option value="$PROJECT_DIR$/parametro/parametroDetalleController.js" />
         <option value="$PROJECT_DIR$/parametro/parametroDetalle.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/modules/variable/variableNuevo.html" />
-        <option value="$PROJECT_DIR$/modules/variable/variableNuevoController.js" />
         <option value="$PROJECT_DIR$/modules/variable/variableDetalle.html" />
         <option value="$PROJECT_DIR$/modules/variable/variableDetalleController.js" />
-        <option value="$PROJECT_DIR$/modules/paciente/pacienteNuevo.html" />
         <option value="$PROJECT_DIR$/modules/paciente/pacienteDetalleController.js" />
         <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/modalDelete.html" />
@@ -91,12 +241,21 @@
         <option value="$PROJECT_DIR$/modules/variable/variableListado.html" />
         <option value="$PROJECT_DIR$/modules/equipo/equipoListado.html" />
         <option value="$PROJECT_DIR$/modules/paciente/pacienteListado.html" />
-        <option value="$PROJECT_DIR$/modules/variable/variableListadoController.js" />
-        <option value="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
-        <option value="$PROJECT_DIR$/modules/equipo/equipoListadoController.js" />
         <option value="$PROJECT_DIR$/js/dinamicTemplates.js" />
-        <option value="$PROJECT_DIR$/modules/parametro/parametroListadoController.js" />
         <option value="$PROJECT_DIR$/modules/parametro/parametroListado.html" />
+        <option value="$PROJECT_DIR$/submitFormButton.html" />
+        <option value="$PROJECT_DIR$/modules/equipo/equipoNuevo.html" />
+        <option value="$PROJECT_DIR$/modules/paciente/pacienteNuevo.html" />
+        <option value="$PROJECT_DIR$/modules/parametro/parametroNuevo.html" />
+        <option value="$PROJECT_DIR$/modules/variable/variableNuevo.html" />
+        <option value="$PROJECT_DIR$/modules/equipo/equipoListadoController.js" />
+        <option value="$PROJECT_DIR$/modules/parametro/parametroListadoController.js" />
+        <option value="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
+        <option value="$PROJECT_DIR$/modules/variable/variableListadoController.js" />
+        <option value="$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js" />
+        <option value="$PROJECT_DIR$/modules/equipo/equipoNuevoController.js" />
+        <option value="$PROJECT_DIR$/modules/parametro/parametroNuevoController.js" />
+        <option value="$PROJECT_DIR$/modules/variable/variableNuevoController.js" />
       </list>
     </option>
   </component>
@@ -150,13 +309,109 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="variable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parametro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paciente" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="equipo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemonitoreo-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="equi&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;paciente&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteListadoController.js&#10;listado&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableListadoController.js&#10;variable&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableListadoController.js&#10;equipo&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;inde&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/index.html&#10;listad&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroListadoController.js&#10;init&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/js/init.js&#10;pacientenue&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteNuevo.html&#10;pacientelis&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteListadoController.js&#10;pacientede&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteDetalleController.js&#10;equipode&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoDetalleController.js&#10;equiponu&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoNuevoController.js&#10;equipoli&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListado.html&#10;equipol&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;param&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/parametro/parametroDetalleController.js&#10;pacienteli&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/paciente/pacienteListadoController.js&#10;paramet&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/parametro/parametroNuevoController.js&#10;main&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/main.html&#10;pacienteDe&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/paciente/pacienteDetalleController.js" />
+    <property name="SearchEverywhereHistoryKey" value="variable&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableNuevoController.js&#10;parametro&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroNuevoController.js&#10;equipo&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoNuevoController.js&#10;paciente&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteNuevoController.js&#10;varia&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableListadoController.js&#10;equipo}&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;parame&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroListadoController.js&#10;equi&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;listado&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableListadoController.js&#10;inde&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/index.html&#10;listad&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroListadoController.js&#10;init&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/js/init.js&#10;pacientenue&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteNuevo.html&#10;pacientelis&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteListadoController.js&#10;pacientede&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteDetalleController.js&#10;equipode&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoDetalleController.js&#10;equiponu&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoNuevoController.js&#10;equipoli&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListado.html&#10;equipol&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;param&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/parametro/parametroDetalleController.js&#10;pacienteli&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/paciente/pacienteListadoController.js&#10;paramet&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/parametro/parametroNuevoController.js&#10;main&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/main.html&#10;pacienteDe&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/paciente/pacienteDetalleController.js" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -249,7 +504,7 @@
       <workItem from="1478659374032" duration="31000" />
       <workItem from="1478671248731" duration="319000" />
       <workItem from="1478699553206" duration="10913000" />
-      <workItem from="1478721247099" duration="5430000" />
+      <workItem from="1478721247099" duration="6403000" />
     </task>
     <task id="LOCAL-00001" summary="sincronizacion de los selects">
       <created>1476901373962</created>
@@ -314,17 +569,24 @@
       <option name="project" value="LOCAL" />
       <updated>1478722621089</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactorizacion de las tablas">
+      <created>1478726758992</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1478726758992</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25220000" />
+    <option name="totallyTimeSpent" value="26193000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.149375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.155" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1684073" sideWeight="0.52375" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1684073" sideWeight="0.47625" order="7" side_tool="false" content_ui="tabs" />
@@ -365,7 +627,8 @@
     <MESSAGE value="detalles de la plantilla de materialize" />
     <MESSAGE value="refactorizacion de modals" />
     <MESSAGE value="refactorizacion de modals2" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactorizacion de modals2" />
+    <MESSAGE value="refactorizacion de las tablas" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactorizacion de las tablas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -374,13 +637,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoNuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3553">
-          <caret line="209" column="5" selection-start-line="197" selection-start-column="75" selection-end-line="209" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/equipo/equipoDetalle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -401,6 +657,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3553">
           <caret line="209" column="5" selection-start-line="197" selection-start-column="75" selection-end-line="209" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -424,6 +681,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
           <caret line="150" column="5" selection-start-line="113" selection-start-column="4" selection-end-line="150" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -438,6 +696,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
           <caret line="150" column="5" selection-start-line="113" selection-start-column="4" selection-end-line="150" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -452,6 +711,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
           <caret line="150" column="5" selection-start-line="113" selection-start-column="4" selection-end-line="150" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -487,31 +747,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoNuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="44" column="46" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/equipo/equipoDetalle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroNuevoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="57" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroNuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -544,33 +783,6 @@
         <state relative-caret-position="136">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/variable/variableNuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoNuevoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/variable/variableNuevoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -609,22 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -641,14 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modalDelete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/table.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -657,80 +845,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/variable/variableListado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/variable/variableListadoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListadoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListadoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListadoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -750,6 +868,162 @@
         <state relative-caret-position="507">
           <caret line="78" column="1" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="10" selection-start-line="5" selection-start-column="4" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/variable/variableListado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modalDelete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroNuevo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/submitFormButton.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/variable/variableNuevo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoNuevo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="50" column="34" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroListadoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoListadoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListadoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/variable/variableListadoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/equipo/equipoNuevoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/parametro/parametroNuevoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/variable/variableNuevoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

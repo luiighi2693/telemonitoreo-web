@@ -1,53 +1,35 @@
-    <div class="container">
-        <h4 class="header center orange-text">Variable Clínica Nueva</h4>
-        <br><br>
-        <div class="col s12">
-            <div class="row">
-                <div class="input-field col s6">
-                    <select multiple id="pacientes">
-                        <option value="" disabled selected>Elija los pacientes</option>
-                    </select>
-                    <label>Pacientes</label>
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="nombre" id="name" type="text" class="validate">
-                    <label>Nombre</label>
-                </div>
+<div class="container">
+    <h4 class="header center orange-text">Variable Clínica Nueva</h4>
+    <br><br>
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <select multiple id="pacientes">
+                    <option value="" disabled selected>Elija los pacientes</option>
+                </select>
+                <label>Pacientes</label>
             </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="rango" id="range" type="text" class="validate">
-                    <label>Rango</label>
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="rango particular" id="particularRange" type="text" class="validate">
-                    <label>Rango Particular</label>
-                </div>
+            <div class="input-field col s6">
+                <input placeholder="nombre" id="name" type="text" class="validate">
+                <label>Nombre</label>
             </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="rango" id="range" type="text" class="validate">
+                <label>Rango</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="rango particular" id="particularRange" type="text" class="validate">
+                <label>Rango Particular</label>
+            </div>
+        </div>
 
-            <div class="row">
-                <button class="btn waves-effect waves-light" onclick="aceptar()" name="action">Aceptar
-                    <i class="material-icons right">send</i>
-                </button>
-                <button class="btn waves-effect waves-light red" type="button" name="cancel" onclick="cancelar()">cancelar
-                    <i class="material-icons right">cancel</i>
-                </button>
-            </div>
-            <div id="spinner" class="spinnerHidden">
-                <div class="progress">
-                    <div class="indeterminate"></div>
-                </div>
+        <div id="submitFormButtons" class="row"></div>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
             </div>
         </div>
     </div>
-
-<!--  Scripts-->
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/init.js"></script>
-<script>
-
-
-</script>
-</body>
-</html>
+</div>

@@ -9,6 +9,7 @@ $( document ).ready(function() {
     setTable("dinamicTableType", ids, names, "cuerpoTablaTiposEquipo");
     setTable("dinamicTableConnection", ids, names, "cuerpoTablaModuloConexion");
     setTable("dinamicTableVisualization", ids, names, "cuerpoTablaModuloVisualizacion");
+
     $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")!="Administrador"){

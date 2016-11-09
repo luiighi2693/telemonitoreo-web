@@ -2,6 +2,7 @@
  * Created by LRodriguez on 09/11/2016.
  */
 $( document ).ready(function() {
+    $('#submitFormButtons').load('submitFormButton.html');
 
     if(sessionStorage.getItem("rol")!="Administrador"){
         document.getElementById("params").setAttribute("style", "display:none");

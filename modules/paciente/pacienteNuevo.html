@@ -1,33 +1,26 @@
-    <div class="container">
-        <h4 class="header center orange-text">Paciente Nuevo</h4>
-        <br><br>
-        <div class="col s12">
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="name" type="text" class="validate">
-                    <label>Nombre</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="cedula" type="text" class="validate">
-                    <label>Cédula</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="codigo" type="text" class="validate">
-                    <label>Número historia clínica</label>
-                </div>
+<div class="container">
+    <h4 class="header center orange-text">Paciente Nuevo</h4>
+    <br><br>
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="name" type="text" class="validate">
+                <label>Nombre</label>
             </div>
-            <div class="row">
-                <button class="btn waves-effect waves-light" onclick="aceptar()" name="action">Aceptar
-                    <i class="material-icons right">send</i>
-                </button>
-                <button class="btn waves-effect waves-light red" type="button" name="cancel" onclick="cancelar()">cancelar
-                    <i class="material-icons right">cancel</i>
-                </button>
+            <div class="input-field col s4">
+                <input id="cedula" type="text" class="validate">
+                <label>Cédula</label>
             </div>
-            <div id="spinner" class="spinnerHidden">
-                <div class="progress">
-                    <div class="indeterminate"></div>
-                </div>
+            <div class="input-field col s4">
+                <input id="codigo" type="text" class="validate">
+                <label>Número historia clínica</label>
+            </div>
+        </div>
+        <div id="submitFormButtons" class="row"></div>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
             </div>
         </div>
     </div>
+</div>

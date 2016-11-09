@@ -7,6 +7,7 @@ $( document ).ready(function() {
     var ids = ['hcNumber', 'name', 'actualHealth'];
     var names = ['Número historia clínica', 'Nombre', 'Cédula'];
     setTable("dinamicTable", ids, names, "cuerpoTabla");
+
     $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")=="Administrador" || sessionStorage.getItem("rol")=="Estudiante"){

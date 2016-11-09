@@ -7,6 +7,7 @@ $( document ).ready(function() {
     var ids = ['variable', 'pacientes', 'range', 'particularRange'];
     var names = ['Variable Clínica', 'Pacientes', 'Rango', 'rango Particular'];
     setTable("dinamicTable", ids, names, "cuerpoTabla");
+
     $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")=="Administrador" || sessionStorage.getItem("rol")=="Estudiante"){
