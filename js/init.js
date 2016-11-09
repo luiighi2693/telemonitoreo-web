@@ -44,7 +44,7 @@ function save(uri, headers, urlRollBack, type){
     success: function (data) {
       document.getElementById("spinner").setAttribute("class", "spinnerHidden");
       if(urlRollBack!=null){
-        loadModule('paciente',urlRollBack, 'Listado', null);
+        loadModule(urlRollBack,urlRollBack, 'Listado', null);
       }
     },
     error: function (error) {
@@ -76,7 +76,7 @@ function loadModule(modulo,nombre, accion, id) {
   }else{
     idDetail = null;
   }
-  $('#mainContent').load(modulo+"/"+nombre+accion+".html");
-  $.cachedScript(modulo+"/"+nombre+accion+"Controller.js").done(function (script, textStatus) {});
+  $('#mainContent').load("modules/"+modulo+"/"+nombre+accion+".html");
+  $.cachedScript("modules/"+modulo+"/"+nombre+accion+"Controller.js").done(function (script, textStatus) {});
 
 }

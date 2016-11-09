@@ -1,0 +1,30 @@
+<div class="container">
+    <h4 class="header center orange-text">Parámetro Edición</h4>
+    <br><br>
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <input placeholder="nombre" id="name" type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+                <input placeholder="codigo" id="code" type="text" class="validate">
+            </div>
+            <div class="input-field col s4">
+                <input placeholder="valor" id="value" type="text" class="validate">
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" onclick="aceptar()" name="action">Aceptar
+                <i class="material-icons right">send</i>
+            </button>
+            <button class="btn waves-effect waves-light red" type="button" name="cancel" onclick="cancelar()">cancelar
+                <i class="material-icons right">cancel</i>
+            </button>
+        </div>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+    </div>
+</div>

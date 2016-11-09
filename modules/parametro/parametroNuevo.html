@@ -1,0 +1,33 @@
+<div class="container">
+    <h4 class="header center orange-text">Parámetro Nuevo</h4>
+    <br><br>
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="name" type="text" class="validate">
+                <label>Nombre</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="code" type="text" class="validate">
+                <label>Código</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="value" type="text" class="validate">
+                <label>Valor</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" onclick="aceptar()" name="action">Aceptar
+                <i class="material-icons right">send</i>
+            </button>
+            <button class="btn waves-effect waves-light red" type="button" name="cancel" onclick="cancelar()">cancelar
+                <i class="material-icons right">cancel</i>
+            </button>
+        </div>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+    <h4 class="header center orange-text">Equipo Detalle</h4>
+    <br><br>
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="name" type="text" class="validate">
+                <label>Nombre</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="marca" type="text" class="validate">
+                <label>Marca</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="model" type="text" class="validate">
+                <label>Modelo</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <select id="tipo">
+                    <option value="" disabled selected>Elija una opción</option>
+                </select>
+                <label>Tipo</label>
+            </div>
+            <div class="input-field col s4">
+                <select id="typeConnection">
+                    <option value="" disabled selected>Elija una opción</option>
+                    <option value="1">SINCRONA</option>
+                    <option value="2">ASINCRONA</option>
+                </select>
+                <label>Tipo Conexión</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="url" type="text" class="validate">
+                <label>URL</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="serial" type="text" class="validate">
+                <label>Serial</label>
+            </div>
+            <div class="input-field col s8">
+                <select id="connectionModule">
+                    <option value="" disabled selected>Elija una opción</option>
+                </select>
+                <label>Módulo de conexión</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" onclick="aceptar()" name="action">Aceptar
+                <i class="material-icons right">send</i>
+            </button>
+            <button class="btn waves-effect waves-light red" type="button" onclick="cancelar()" name="cancel">cancelar
+                <i class="material-icons right">cancel</i>
+            </button>
+        </div>
+        <div id="spinner" class="spinnerHidden">
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+    </div>
+</div>
