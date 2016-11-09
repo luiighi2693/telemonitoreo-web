@@ -10,21 +10,7 @@
     <h4 class="header center orange-text">Tipos de Equipo</h4>
     <a class="btn-floating btn-small waves-effect waves-light green right" onclick="loadModule('parametro','parametro', 'Nuevo', null);"><i class="material-icons">add</i></a>
     <br><br>
-    <div class="fix-size">
-        <table class="striped centered">
-            <thead>
-            <tr>
-                <th data-field="delete"></th>
-                <th data-field="edit"></th>
-                <th data-field="name">Nombre</th>
-                <th data-field="code">Código</th>
-                <th data-field="value">Valor</th>
-            </tr>
-            </thead>
-
-            <tbody id="cuerpoTablaTiposEquipo"></tbody>
-        </table>
-    </div>
+    <div id="dinamicTableType" class="fix-size"></div>
 </div>
 <br><br>
 
@@ -32,21 +18,7 @@
     <h4 class="header center orange-text">Módulos de Conexión</h4>
     <a class="btn-floating btn-small waves-effect waves-light green right" href="parametroNuevo.html"><i class="material-icons">add</i></a>
     <br><br>
-    <div class="fix-size">
-        <table class="striped centered">
-            <thead>
-            <tr>
-                <th data-field="delete"></th>
-                <th data-field="edit"></th>
-                <th data-field="name">Nombre</th>
-                <th data-field="code">Código</th>
-                <th data-field="value">Valor</th>
-            </tr>
-            </thead>
-
-            <tbody id="cuerpoTablaModuloConexion"></tbody>
-        </table>
-    </div>
+    <div id="dinamicTableConnection" class="fix-size"></div>
 </div>
 <br><br>
 
@@ -54,21 +26,7 @@
     <h4 class="header center orange-text">Módulos de Visualización</h4>
     <a class="btn-floating btn-small waves-effect waves-light green right" href="parametroNuevo.html"><i class="material-icons">add</i></a>
     <br><br>
-    <div class="fix-size">
-        <table class="striped centered">
-            <thead>
-            <tr>
-                <th data-field="delete"></th>
-                <th data-field="edit"></th>
-                <th data-field="name">Nombre</th>
-                <th data-field="code">Código</th>
-                <th data-field="value">Valor</th>
-            </tr>
-            </thead>
-
-            <tbody id="cuerpoTablaModuloVisualizacion"></tbody>
-        </table>
-    </div>
+    <div id="dinamicTableVisualization" class="fix-size"></div>
 </div>
 
 <div id="modalDelete" class="modal"></div>

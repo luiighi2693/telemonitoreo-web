@@ -20,8 +20,8 @@ var idDetail;
     }
 
     idDetail=null;
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+  });
+})(jQuery);
 
 function exit() {
   sessionStorage.removeItem("usuario");
@@ -60,8 +60,6 @@ function save(uri, headers, urlRollBack, type){
  * @returns {*}
  */
 jQuery.cachedScript = function( url, options ) {
-
-  // Allow user to set any option except for dataType, cache, and url
   options = $.extend( options || {}, {
     dataType: "script",
     cache: false,
@@ -78,5 +76,4 @@ function loadModule(modulo,nombre, accion, id) {
   }
   $('#mainContent').load("modules/"+modulo+"/"+nombre+accion+".html");
   $.cachedScript("modules/"+modulo+"/"+nombre+accion+"Controller.js").done(function (script, textStatus) {});
-
 }

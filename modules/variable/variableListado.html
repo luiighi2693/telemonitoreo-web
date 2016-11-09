@@ -2,22 +2,7 @@
     <h4 class="header center orange-text">Variables Clínicas</h4>
     <a id="addVariable" class="btn-floating btn-small waves-effect waves-light green right" onclick="loadModule('variable','variable', 'Nuevo', null)"><i class="material-icons">add</i></a>
     <br><br>
-    <div class="fix-size">
-        <table class="striped centered">
-            <thead>
-            <tr>
-                <th id="deleteRow" data-field="delete"></th>
-                <th id="editRow" data-field="edit"></th>
-                <th data-field="medicalEquipment">Variable Clínica</th>
-                <th data-field="pacientes">Pacientes</th>
-                <th data-field="description">Rango</th>
-                <th data-field="variables">rango Particular</th>
-            </tr>
-            </thead>
-
-            <tbody id="cuerpoTabla"></tbody>
-        </table>
-    </div>
+    <div id="dinamicTable" class="fix-size"></div>
     <div id="spinner" class="spinnerHidden">
         <div class="progress">
             <div class="indeterminate"></div>

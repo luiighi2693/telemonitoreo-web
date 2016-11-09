@@ -4,6 +4,11 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
+    var ids = ['name', 'code', 'value'];
+    var names = ['Nombre', 'Código', 'Valor'];
+    setTable("dinamicTableType", ids, names, "cuerpoTablaTiposEquipo");
+    setTable("dinamicTableConnection", ids, names, "cuerpoTablaModuloConexion");
+    setTable("dinamicTableVisualization", ids, names, "cuerpoTablaModuloVisualizacion");
     $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")!="Administrador"){

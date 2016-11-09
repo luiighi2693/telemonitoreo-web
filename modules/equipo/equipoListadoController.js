@@ -4,6 +4,9 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
+    var ids = ['name', 'serial', 'type', 'typeConnection', 'url', 'connectionModule'];
+    var names = ['Nombre', 'Serial', 'Tipo Equipo', 'Tipo Conexión', 'URL', 'Módulo conexión'];
+    setTable("dinamicTable", ids, names, "cuerpoTabla");
     $('#modalDelete').load('modalDelete.html');
 
     if(sessionStorage.getItem("rol")=="Medico" || sessionStorage.getItem("rol")=="Estudiante"){
