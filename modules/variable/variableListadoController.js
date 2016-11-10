@@ -105,6 +105,7 @@ function eliminar() {
 
 function listarPacientesAsociados(idVariableClinica) {
     document.getElementById("spinner").setAttribute("class", "");
+    document.getElementById("spinnerPacientes").setAttribute("class", "");
     var paciente = document.getElementById("pacientesAsociados");
     paciente.innerHTML = '';
     $.ajax({
@@ -118,6 +119,7 @@ function listarPacientesAsociados(idVariableClinica) {
         success: function (data) {
             if(data.length==0){
                 document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+                document.getElementById("spinnerPacientes").setAttribute("class", "spinnerHidden");
             }
 
             for (var i=0; i<data.length; i++){
@@ -138,6 +140,7 @@ function getPaciente(idPaciente) {
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+            document.getElementById("spinnerPacientes").setAttribute("class", "spinnerHidden");
             console.log(data);
             var paciente = document.getElementById("pacientesAsociados");
             var pacienteLi = document.createElement("li");
