@@ -40,12 +40,6 @@ function listTable() {
                 var object = data[i];
                 var nodo = document.createElement("tr");
 
-                var removeRow = getRemoveButton(object.id);
-                nodo.appendChild(removeRow);
-
-                var editRow = getEditButton("parametro", object.id);
-                nodo.appendChild(editRow);
-
                 var nombre = document.createElement("td");
                 nombre.appendChild(document.createTextNode(object.nombre));
                 nodo.appendChild(nombre);
@@ -57,6 +51,12 @@ function listTable() {
                 var valor = document.createElement("td");
                 valor.appendChild(document.createTextNode(object.valor));
                 nodo.appendChild(valor);
+
+                var removeRow = getRemoveButton(object.id);
+                nodo.appendChild(removeRow);
+
+                var editRow = getEditButton("parametro", object.id);
+                nodo.appendChild(editRow);
 
                 if(object.codigo == "Equipo_Medico"){
                     tablaTiposEquipo.appendChild(nodo);

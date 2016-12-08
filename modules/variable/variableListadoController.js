@@ -39,14 +39,6 @@ function listTable() {
                 var object = data[i];
                 var nodo = document.createElement("tr");
 
-                if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
-                    var removeRow = getRemoveButton(object.id);
-                    nodo.appendChild(removeRow);
-
-                    var editRow = getEditButton("variable", object.id);
-                    nodo.appendChild(editRow);
-                }
-
                 var nombre = document.createElement("td");
                 nombre.appendChild(document.createTextNode(object.nombre));
                 nodo.appendChild(nombre);
@@ -69,6 +61,14 @@ function listTable() {
                     rango_particular.appendChild(document.createTextNode(object.rango_particular));
                 }
                 nodo.appendChild(rango_particular);
+
+                if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
+                    var removeRow = getRemoveButton(object.id);
+                    nodo.appendChild(removeRow);
+
+                    var editRow = getEditButton("variable", object.id);
+                    nodo.appendChild(editRow);
+                }
 
                 tabla.appendChild(nodo);
             }

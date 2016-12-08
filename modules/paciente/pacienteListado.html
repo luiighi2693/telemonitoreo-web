@@ -1,7 +1,7 @@
 <div class="container" >
-    <h4 class="header center orange-text">Pacientes</h4>
-    <a id="addPatient" class="btn-floating btn-small waves-effect waves-light green right" onclick="loadModule('paciente','paciente', 'Nuevo', null)"><i class="material-icons">add</i></a>
-    <a id="historical" class="waves-effect waves-light btn tooltipped left" data-position="top" data-delay="50" data-tooltip="Históricos Anteriores" onclick="loadModule('paciente','paciente', 'Historicos', null)"><i class="material-icons right">info_outline</i>H</a>
+    <h4 class="header center">Pacientes</h4>
+    <a id="addPatient" class="waves-effect waves-light btn right" onclick="loadModule('paciente','paciente', 'Nuevo', null)"><i class="material-icons left">add</i>Nuevo</a>
+    <a id="historical" class="waves-effect waves-light btn left" onclick="loadModule('paciente','paciente', 'Historicos', null)"><i class="material-icons left">info_outline</i>Históricos</a>
     <br><br>
     <div id="dinamicTable" class="fix-size"></div>
     <div id="spinner" class="spinnerHidden">

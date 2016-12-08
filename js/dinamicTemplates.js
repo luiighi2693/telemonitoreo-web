@@ -11,6 +11,14 @@ function setTable(id,ids, names, nameBodyTable) {
 
     var trForm = document.createElement("tr");
 
+    var thForm = null;
+    for(var i=0; i<ids.length; i++){
+        thForm = document.createElement("th");
+        thForm.setAttribute("data-field",ids[i]);
+        thForm.appendChild(document.createTextNode(names[i]));
+        trForm.appendChild(thForm);
+    }
+
     var thFormDelete = document.createElement("th");
     thFormDelete.setAttribute("id", "deleteRow");
     thFormDelete.setAttribute("data-field","delete");
@@ -21,14 +29,6 @@ function setTable(id,ids, names, nameBodyTable) {
 
     trForm.appendChild(thFormDelete);
     trForm.appendChild(thFormEdit);
-
-    var thForm = null;
-    for(var i=0; i<ids.length; i++){
-        thForm = document.createElement("th");
-        thForm.setAttribute("data-field",ids[i]);
-        thForm.appendChild(document.createTextNode(names[i]));
-        trForm.appendChild(thForm);
-    }
 
     theadForm.appendChild(trForm);
     tableForm.appendChild(theadForm);
@@ -57,7 +57,7 @@ function getRemoveButton(id) {
 function getEditButton(module, id) {
     var editRow = document.createElement("td");
     var editLink = document.createElement("a");
-    editLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light blue");
+    editLink.setAttribute("class", "btn-floating btn-small waves-effect cyan");
     editLink.setAttribute("onclick", "loadModule('"+module+"','"+module+"', 'Detalle', "+id+")");
     var editIcon = document.createElement("i");
     editIcon.setAttribute("class", "material-icons");

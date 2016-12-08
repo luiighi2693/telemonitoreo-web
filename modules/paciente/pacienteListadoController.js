@@ -44,14 +44,6 @@ function listTable() {
                 var object = data[i];
                 var nodo = document.createElement("tr");
 
-                if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
-                    var removeRow = getRemoveButton(object.id);
-                    nodo.appendChild(removeRow);
-
-                    var editRow = getEditButton("paciente", object.id);
-                    nodo.appendChild(editRow);
-                }
-
                 var codigo = document.createElement("td");
                 codigo.appendChild(document.createTextNode(object.codigo));
                 nodo.appendChild(codigo);
@@ -63,6 +55,14 @@ function listTable() {
                 var cedula_paciente = document.createElement("td");
                 cedula_paciente.appendChild(document.createTextNode(object.cedula_paciente));
                 nodo.appendChild(cedula_paciente);
+
+                if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
+                    var removeRow = getRemoveButton(object.id);
+                    nodo.appendChild(removeRow);
+
+                    var editRow = getEditButton("paciente", object.id);
+                    nodo.appendChild(editRow);
+                }
 
                 tabla.appendChild(nodo);
             }

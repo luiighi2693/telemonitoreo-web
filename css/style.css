@@ -43,3 +43,7 @@ nav .nav-wrapper form, nav .nav-wrapper form .input-field{
 .spinnerVisible{
     display: flex;
 }
+
+.cursosPointer{
+    cursor: pointer;
+}
