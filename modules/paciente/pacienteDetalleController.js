@@ -53,6 +53,22 @@ $(document).ready(function() {
                 var object = data[i];
                 var nodo = document.createElement("tr");
 
+                var nombre = document.createElement("td");
+                nombre.appendChild(document.createTextNode(object.nombre+" "+object.marca+" "+object.modelo+" "+object.serial));
+                nodo.appendChild(nombre);
+
+                var tipoequipo = document.createElement("td");
+                tipoequipo.appendChild(document.createTextNode(object.tipoequipo));
+                nodo.appendChild(tipoequipo);
+
+                var ip = document.createElement("td");
+                ip.appendChild(document.createTextNode(object.ip));
+                nodo.appendChild(ip);
+
+                var tipoconexion = document.createElement("td");
+                tipoconexion.appendChild(document.createTextNode(object.tipoconexion));
+                nodo.appendChild(tipoconexion);
+
                 var removeRow = document.createElement("td");
                 var removeLink = document.createElement("a");
                 removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
@@ -72,27 +88,11 @@ $(document).ready(function() {
 //                    editLink.setAttribute("href", "equipoDetalle.html?id="+object.id);
                     var editIcon = document.createElement("i");
                     editIcon.setAttribute("class", "material-icons");
-                    editIcon.appendChild(document.createTextNode("visibility"));
+                    editIcon.appendChild(document.createTextNode("settings_remote"));
                     editLink.appendChild(editIcon);
                     editRow.appendChild(editLink);
                 }
                 nodo.appendChild(editRow);
-
-                var nombre = document.createElement("td");
-                nombre.appendChild(document.createTextNode(object.nombre+" "+object.marca+" "+object.modelo+" "+object.serial));
-                nodo.appendChild(nombre);
-
-                var tipoequipo = document.createElement("td");
-                tipoequipo.appendChild(document.createTextNode(object.tipoequipo));
-                nodo.appendChild(tipoequipo);
-
-                var ip = document.createElement("td");
-                ip.appendChild(document.createTextNode(object.ip));
-                nodo.appendChild(ip);
-
-                var tipoconexion = document.createElement("td");
-                tipoconexion.appendChild(document.createTextNode(object.tipoconexion));
-                nodo.appendChild(tipoconexion);
 
                 tablaEquipos.appendChild(nodo);
             }
@@ -263,6 +263,32 @@ function getNombreEquipo(object, nodo, cuerpoTablaRegistros) {
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
+            var nombre = document.createElement("td");
+            nombre.appendChild(document.createTextNode(data.nombre+" "+data.marca+" "+data.modelo+" "+data.serial));
+            nodo.appendChild(nombre);
+
+            var fecha = document.createElement("td");
+            fecha.appendChild(document.createTextNode(object.fecha));
+            nodo.appendChild(fecha);
+
+            var tipoarchivo = document.createElement("td");
+            tipoarchivo.appendChild(document.createTextNode(object.tipoarchivo));
+            nodo.appendChild(tipoarchivo);
+
+            var moduloVisualizacion = document.createElement("td");
+            moduloVisualizacion.appendChild(document.createTextNode(object.modulovisualizacion));
+            nodo.appendChild(moduloVisualizacion);
+
+            var statusRow = document.createElement("td");
+            var statusLink = document.createElement("a");
+            statusLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light green");
+            var statusIcon = document.createElement("i");
+            statusIcon.setAttribute("class", "material-icons");
+            statusIcon.appendChild(document.createTextNode("done"));
+            statusLink.appendChild(statusIcon);
+            statusRow.appendChild(statusLink);
+            nodo.appendChild(statusRow);
+
             var removeRow = document.createElement("td");
             var removeLink = document.createElement("a");
             removeLink.setAttribute("class", "btn-floating btn-small waves-effect waves-light red modal-trigger");
@@ -284,22 +310,6 @@ function getNombreEquipo(object, nodo, cuerpoTablaRegistros) {
             editLink.appendChild(editIcon);
             editRow.appendChild(editLink);
             nodo.appendChild(editRow);
-
-            var nombre = document.createElement("td");
-            nombre.appendChild(document.createTextNode(data.nombre+" "+data.marca+" "+data.modelo+" "+data.serial));
-            nodo.appendChild(nombre);
-
-            var fecha = document.createElement("td");
-            fecha.appendChild(document.createTextNode(object.fecha));
-            nodo.appendChild(fecha);
-
-            var tipoarchivo = document.createElement("td");
-            tipoarchivo.appendChild(document.createTextNode(object.tipoarchivo));
-            nodo.appendChild(tipoarchivo);
-
-            var moduloVisualizacion = document.createElement("td");
-            moduloVisualizacion.appendChild(document.createTextNode(object.modulovisualizacion));
-            nodo.appendChild(moduloVisualizacion);
 
             cuerpoTablaRegistros.appendChild(nodo);
 
