@@ -14,6 +14,7 @@ $(document).ready(function() {
     $('select').material_select();
     id = idDetail;
     var listaPacientes = [];
+    var listaEquipos = [];
     document.getElementById("spinner").setAttribute("class", "");
 
     $.ajax({
@@ -37,6 +38,7 @@ $(document).ready(function() {
 
             $.ajax({
                 url: "/telemonitoreo-core/web/app_dev.php/variablehaspaciente",
+                async:false,
                 type: 'GET',
                 dataType: 'json',
                 headers: {
@@ -51,6 +53,54 @@ $(document).ready(function() {
                     }
                     var $selectDropdown = $("#pacientes");
                     $selectDropdown.val(listaPacientes);
+                    $selectDropdown.trigger('contentChanged');
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/equipomedico",
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            var equipos = document.getElementById("equipos");
+
+            for (var i=0; i<data.length; i++){
+                var object = data[i];
+                var nodo = document.createElement("option");
+                nodo.setAttribute("value", object.id);
+                nodo.appendChild(document.createTextNode(object.nombre +" "+object.marca +" "+object.modelo +" "+ object.serial));
+                equipos.appendChild(nodo);
+            }
+
+            var $selectDropdown = $("#equipos");
+            $selectDropdown.trigger('contentChanged');
+
+            $.ajax({
+                url: "/telemonitoreo-core/web/app_dev.php/variablehasequipo",
+                async:false,
+                type: 'GET',
+                dataType: 'json',
+                headers: {
+                    'idvariableclinica': id
+                },
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    displaySpinner();
+                    console.log(data);
+                    for (var i=0; i<data.length; i++){
+                        listaEquipos.push(data[i].id_equipo_medico);
+                    }
+                    var $selectDropdown = $("#equipos");
+                    $selectDropdown.val(listaEquipos);
                     $selectDropdown.trigger('contentChanged');
                 },
                 error: function (error) {
@@ -108,10 +158,24 @@ function aceptar() {
         success: function (data) {
             var $selectDropdown = $("#pacientes");
             var pacientes = $selectDropdown.val();
-            if(pacientes!=null){
-                for (var i=0; i<pacientes.length; i++){
-                    setVariableToPatient(data.id, pacientes[i]);
+
+            var $selectDropdown2 = $("#equipos");
+            var equipos = $selectDropdown2.val();
+
+            if(pacientes!=null || equipos!=null){
+                var i=0;
+                if(equipos!=null){
+                    for (i=0; i<equipos.length; i++){
+                        setVariableToEquip(data.id, equipos[i]);
+                    }
                 }
+
+                if(pacientes!=null){
+                    for (i=0; i<pacientes.length; i++){
+                        setVariableToPatient(data.id, pacientes[i]);
+                    }
+                }
+
             }else{
                 document.getElementById("spinner").setAttribute("class", "spinnerHidden");
             }
@@ -130,6 +194,26 @@ function setVariableToPatient(idVariableClinica, idHistoriaClinica) {
         dataType: 'json',
         headers: {
             'idhistoriaclinica': idHistoriaClinica,
+            'idvariableclinica': idVariableClinica
+        },
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+            console.log(data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function setVariableToEquip(idVariableClinica, idEquipoMedico) {
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/variablehasequipo/",
+        type: 'POST',
+        dataType: 'json',
+        headers: {
+            'idequipomedico': idEquipoMedico,
             'idvariableclinica': idVariableClinica
         },
         contentType: 'application/json; charset=utf-8',

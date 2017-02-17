@@ -4,8 +4,8 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
-    var ids = ['variable', 'pacientes', 'range', 'particularRange'];
-    var names = ['Variable Clínica', 'Pacientes', 'Rango', 'rango Particular'];
+    var ids = ['variable', 'pacientes', 'equipos', 'range', 'particularRange'];
+    var names = ['Variable Clínica', 'Pacientes', 'Equipos', 'Rango', 'rango Particular'];
     setTable("dinamicTable", ids, names, "cuerpoTabla");
 
     $('#modalDelete').load('modalDelete.html');
@@ -51,6 +51,15 @@ function listTable() {
                 linkPacientes.appendChild(document.createTextNode("Pacientes"));
                 pacientes.appendChild(linkPacientes);
                 nodo.appendChild(pacientes);
+
+                var equipos = document.createElement("td");
+                var linkEquipos = document.createElement("a");
+                linkEquipos.setAttribute("class", "modal-trigger");
+                linkEquipos.setAttribute("href", "#modal2");
+                linkEquipos.setAttribute("onclick", "listarEquiposAsociados("+object.id+")");
+                linkEquipos.appendChild(document.createTextNode("Equipos"));
+                equipos.appendChild(linkEquipos);
+                nodo.appendChild(equipos);
 
                 var rango = document.createElement("td");
                 rango.appendChild(document.createTextNode(object.rango));
@@ -135,6 +144,7 @@ function listarPacientesAsociados(idVariableClinica) {
 function getPaciente(idPaciente) {
     $.ajax({
         url: "/telemonitoreo-core/web/app_dev.php/historiaclinica/"+idPaciente,
+        async:false,
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -147,6 +157,58 @@ function getPaciente(idPaciente) {
             pacienteLi.setAttribute("class", "collection-item");
             pacienteLi.appendChild(document.createTextNode(data.nombre_paciente +" CI:"+data.cedula_paciente));
             paciente.appendChild(pacienteLi);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function listarEquiposAsociados(idVariableClinica) {
+    document.getElementById("spinner").setAttribute("class", "");
+    document.getElementById("spinnerEquipos").setAttribute("class", "");
+    var paciente = document.getElementById("equiposAsociados");
+    paciente.innerHTML = '';
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/variablehasequipo",
+        type: 'GET',
+        dataType: 'json',
+        headers: {
+            'idvariableclinica': idVariableClinica
+        },
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            if(data.length==0){
+                document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+                document.getElementById("spinnerEquipos").setAttribute("class", "spinnerHidden");
+            }
+
+            for (var i=0; i<data.length; i++){
+                getEquipo(data[i].id_equipo_medico);
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function getEquipo(idEquipo) {
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/equipomedico/"+idEquipo,
+        async:false,
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+            document.getElementById("spinnerEquipos").setAttribute("class", "spinnerHidden");
+            console.log(data);
+            var equipo = document.getElementById("equiposAsociados");
+            var equipoLi = document.createElement("li");
+            equipoLi.setAttribute("class", "collection-item");
+            equipoLi.appendChild(document.createTextNode(data.nombre +" "+data.marca +" "+data.modelo +" "+ data.serial));
+            equipo.appendChild(equipoLi);
         },
         error: function (error) {
             console.log(error);
