@@ -47,22 +47,50 @@ $(document).ready(function() {
         type: 'GET',
         dataType: 'json',
         headers: {
-            'codigo': 'Modulo_Conexion'
+            'codigo': 'Modulo_Deteccion_Irregularidades'
         },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             displaySpinner();
-            var moduloConexion = document.getElementById("connectionModule");
+            var moduloDeteccionIrregularidades = document.getElementById("detectionModule");
 
             for (var i=0; i<data.length; i++){
                 var object = data[i];
                 var nodo = document.createElement("option");
                 nodo.setAttribute("value", object.valor);
                 nodo.appendChild(document.createTextNode(object.nombre));
-                moduloConexion.appendChild(nodo);
+                moduloDeteccionIrregularidades.appendChild(nodo);
             }
 
-            var $selectDropdown = $("#connectionModule");
+            var $selectDropdown = $("#detectionModule");
+            $selectDropdown.trigger('contentChanged');
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/parametro",
+        type: 'GET',
+        dataType: 'json',
+        headers: {
+            'codigo': 'Modulo_Visualizacion'
+        },
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            displaySpinner();
+            var moduloVisualizacion = document.getElementById("visualizationModule");
+
+            for (var i=0; i<data.length; i++){
+                var object = data[i];
+                var nodo = document.createElement("option");
+                nodo.setAttribute("value", object.valor);
+                nodo.appendChild(document.createTextNode(object.nombre));
+                moduloVisualizacion.appendChild(nodo);
+            }
+
+            var $selectDropdown = $("#visualizationModule");
             $selectDropdown.trigger('contentChanged');
         },
         error: function (error) {
@@ -86,7 +114,8 @@ $(document).ready(function() {
             document.getElementById("serial").value = data.serial;
 
             setTimeout(function(){
-                getConnectionModule(data.moduloconexion);
+                getDetectionModule(data.modulo_deteccion_irregularidades);
+                getVisualizationModule(data.moduloVisualizacion);
                 getValueMedicalEquipment(data.tipoequipo);
             }, 1500);
 
@@ -122,7 +151,8 @@ function aceptar() {
     var tipoEquipo = document.getElementById("tipo");
     var tipoConexion = document.getElementById("typeConnection");
     var url = document.getElementById("url");
-    var moduloConexion = document.getElementById("connectionModule");
+    var moduloDeteccionIrregularidades = document.getElementById("detectionModule");
+    var moduloVisualizacion = document.getElementById("visualizationModule");
     var serial = document.getElementById("serial");
 
     document.getElementById("spinner").setAttribute("class", "");
@@ -138,7 +168,8 @@ function aceptar() {
             'tipoEquipo': tipoEquipo[tipoEquipo.value].text,
             'tipoConexion': tipoConexion[tipoConexion.value].text,
             'ip': url.value,
-            'moduloConexion': moduloConexion[moduloConexion.value].text,
+            'moduloDeteccionIrregularidades': moduloDeteccionIrregularidades[moduloDeteccionIrregularidades.value].text,
+            'moduloVisualizacion': moduloVisualizacion[moduloVisualizacion.value].text,
             'serial': serial.value
         },
         contentType: 'application/json; charset=utf-8',
@@ -174,18 +205,39 @@ function getValueMedicalEquipment(tipoEquipo) {
     });
 }
 
-function getConnectionModule(moduloConexion) {
+function getDetectionModule(moduloDeteccionIrregularidades) {
     $.ajax({
         url: "/telemonitoreo-core/web/app_dev.php/parametro",
         type: 'GET',
         dataType: 'json',
         headers: {
-            'nombre': moduloConexion
+            'nombre': moduloDeteccionIrregularidades
         },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             displaySpinner();
-            var $selectDropdown = $("#connectionModule");
+            var $selectDropdown = $("#detectionModule");
+            $selectDropdown.val(data[0].valor).change();
+            $selectDropdown.trigger('contentChanged');
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function getVisualizationModule(moduloVisualizacion) {
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/parametro",
+        type: 'GET',
+        dataType: 'json',
+        headers: {
+            'nombre': moduloVisualizacion
+        },
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            displaySpinner();
+            var $selectDropdown = $("#visualizationModule");
             $selectDropdown.val(data[0].valor).change();
             $selectDropdown.trigger('contentChanged');
         },

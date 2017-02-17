@@ -4,8 +4,8 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
-    var ids = ['name', 'serial', 'type', 'typeConnection', 'url', 'connectionModule'];
-    var names = ['Nombre', 'Serial', 'Tipo Equipo', 'Tipo Conexión', 'URL', 'Módulo conexión'];
+    var ids = ['name', 'serial', 'type', 'typeConnection', 'url', 'detectionModule', 'visualizationModule'];
+    var names = ['Nombre', 'Serial', 'Tipo Equipo', 'Tipo Conexión', 'URL', 'Módulo de detección de irregularidades', 'Módulo de Visualización'];
     setTable("dinamicTable", ids, names, "cuerpoTabla");
     
     $('#modalDelete').load('modalDelete.html');
@@ -36,7 +36,6 @@ function listTable() {
             document.getElementById("spinner").setAttribute("class", "spinnerHidden");
             var tabla = document.getElementById("cuerpoTabla");
             tabla.innerHTML = '';
-
             for (var i=0; i<data.length; i++){
                 var object = data[i];
                 var nodo = document.createElement("tr");
@@ -61,9 +60,13 @@ function listTable() {
                 ip.appendChild(document.createTextNode(object.ip));
                 nodo.appendChild(ip);
 
-                var moduloconexion = document.createElement("td");
-                moduloconexion.appendChild(document.createTextNode(object.moduloconexion));
-                nodo.appendChild(moduloconexion);
+                var moduloDeteccionIrregularidades = document.createElement("td");
+                moduloDeteccionIrregularidades.appendChild(document.createTextNode(object.modulo_deteccion_irregularidades));
+                nodo.appendChild(moduloDeteccionIrregularidades);
+
+                var moduloVisualizacion = document.createElement("td");
+                moduloVisualizacion.appendChild(document.createTextNode(object.modulovisualizacion));
+                nodo.appendChild(moduloVisualizacion);
 
                 if(sessionStorage.getItem("rol")!="Medico" && sessionStorage.getItem("rol")!="Estudiante"){
                     var removeRow = getRemoveButton(object.id);

@@ -47,22 +47,50 @@ $(document).ready(function() {
         type: 'GET',
         dataType: 'json',
         headers: {
-            'codigo': 'Modulo_Conexion'
+            'codigo': 'Modulo_Deteccion_Irregularidades'
         },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             displaySpinner();
-            var moduloConexion = document.getElementById("connectionModule");
+            var moduloDeteccionIrregularidades = document.getElementById("detectionModule");
 
             for (var i=0; i<data.length; i++){
                 var object = data[i];
                 var nodo = document.createElement("option");
                 nodo.setAttribute("value", object.valor);
                 nodo.appendChild(document.createTextNode(object.nombre));
-                moduloConexion.appendChild(nodo);
+                moduloDeteccionIrregularidades.appendChild(nodo);
             }
 
-            var $selectDropdown = $("#connectionModule");
+            var $selectDropdown = $("#detectionModule");
+            $selectDropdown.trigger('contentChanged');
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/parametro",
+        type: 'GET',
+        dataType: 'json',
+        headers: {
+            'codigo': 'Modulo_Visualizacion'
+        },
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            displaySpinner();
+            var moduloVisualizacion = document.getElementById("visualizationModule");
+
+            for (var i=0; i<data.length; i++){
+                var object = data[i];
+                var nodo = document.createElement("option");
+                nodo.setAttribute("value", object.valor);
+                nodo.appendChild(document.createTextNode(object.nombre));
+                moduloVisualizacion.appendChild(nodo);
+            }
+
+            var $selectDropdown = $("#visualizationModule");
             $selectDropdown.trigger('contentChanged');
         },
         error: function (error) {
@@ -86,7 +114,7 @@ function aceptar() {
     var tipoEquipo = document.getElementById("type");
     var tipoConexion = document.getElementById("typeConnection");
     var url = document.getElementById("url");
-    var moduloConexion = document.getElementById("connectionModule");
+    var moduloDeteccionIrregularidades = document.getElementById("detectionModule");
     var serial = document.getElementById("serial");
 
     document.getElementById("spinner").setAttribute("class", "");
@@ -99,7 +127,7 @@ function aceptar() {
         'tipoEquipo': tipoEquipo[tipoEquipo.value].text,
         'tipoConexion': tipoConexion[tipoConexion.value].text,
         'ip': url.value,
-        'moduloConexion': moduloConexion[moduloConexion.value].text,
+        'moduloDeteccionIrregularidades': moduloDeteccionIrregularidades[moduloDeteccionIrregularidades.value].text,
         'serial': serial.value
     };
     var urlRollBack = "equipo";

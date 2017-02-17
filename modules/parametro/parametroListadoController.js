@@ -7,7 +7,7 @@ $( document ).ready(function() {
     var ids = ['name', 'code', 'value'];
     var names = ['Nombre', 'Código', 'Valor'];
     setTable("dinamicTableType", ids, names, "cuerpoTablaTiposEquipo");
-    setTable("dinamicTableConnection", ids, names, "cuerpoTablaModuloConexion");
+    setTable("dinamicTableDetection", ids, names, "cuerpoTablaDeteccionIrregularidades");
     setTable("dinamicTableVisualization", ids, names, "cuerpoTablaModuloVisualizacion");
 
     $('#modalDelete').load('modalDelete.html');
@@ -31,8 +31,8 @@ function listTable() {
             document.getElementById("spinner").setAttribute("class", "spinnerHidden");
             var tablaTiposEquipo = document.getElementById("cuerpoTablaTiposEquipo");
             tablaTiposEquipo.innerHTML = '';
-            var tablaModuloConexion = document.getElementById("cuerpoTablaModuloConexion");
-            tablaModuloConexion.innerHTML = '';
+            var tablaDeteccionIrregularidades = document.getElementById("cuerpoTablaDeteccionIrregularidades");
+            tablaDeteccionIrregularidades.innerHTML = '';
             var tablaModuloVisualizacion = document.getElementById("cuerpoTablaModuloVisualizacion");
             tablaModuloVisualizacion.innerHTML = '';
 
@@ -61,8 +61,8 @@ function listTable() {
                 if(object.codigo == "Equipo_Medico"){
                     tablaTiposEquipo.appendChild(nodo);
                 }
-                if(object.codigo == "Modulo_Conexion"){
-                    tablaModuloConexion.appendChild(nodo);
+                if(object.codigo == "Modulo_Deteccion_Irregularidades"){
+                    tablaDeteccionIrregularidades.appendChild(nodo);
                 }
                 if(object.codigo == "Modulo_Visualizacion"){
                     tablaModuloVisualizacion.appendChild(nodo);
