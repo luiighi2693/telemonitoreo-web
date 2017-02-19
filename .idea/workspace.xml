@@ -4,8 +4,7 @@
     <list default="true" id="0e37ce2b-a879-4ef8-86d8-ac643a432923" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.html" afterPath="$PROJECT_DIR$/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteDetalle.html" afterPath="$PROJECT_DIR$/modules/paciente/pacienteDetalle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteDetalleController.js" afterPath="$PROJECT_DIR$/modules/paciente/pacienteDetalleController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" afterPath="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
     </list>
     <ignored path="telemonitoreo-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +28,28 @@
       <file leaf-file-name="pacienteDetalleController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteDetalleController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="286" column="64" lean-forward="false" selection-start-line="286" selection-start-column="64" selection-end-line="286" selection-end-column="64" />
+            <state relative-caret-position="255">
+              <caret line="108" column="25" lean-forward="true" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pacienteListadoController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListadoController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pacienteNuevoController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -39,8 +58,8 @@
       <file leaf-file-name="pacienteDetalle.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteDetalle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="73" column="17" lean-forward="true" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+            <state relative-caret-position="1241">
+              <caret line="73" column="17" lean-forward="false" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -61,6 +80,7 @@
       <find>conne</find>
       <find>moduloc</find>
       <find>conexion</find>
+      <find>historia</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,7 +125,6 @@
         <option value="$PROJECT_DIR$/modules/variable/variableTemplateForm.html" />
         <option value="$PROJECT_DIR$/modules/parametro/parametroDetalleController.js" />
         <option value="$PROJECT_DIR$/modules/parametro/parametroDetalle.html" />
-        <option value="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
         <option value="$PROJECT_DIR$/js/dinamicTemplates.js" />
         <option value="$PROJECT_DIR$/modules/paciente/pacienteListado.html" />
         <option value="$PROJECT_DIR$/modules/equipo/equipoListado.html" />
@@ -128,6 +147,7 @@
         <option value="$PROJECT_DIR$/modules/equipo/equipoDetalleController.js" />
         <option value="$PROJECT_DIR$/modules/paciente/pacienteDetalle.html" />
         <option value="$PROJECT_DIR$/modules/paciente/pacienteDetalleController.js" />
+        <option value="$PROJECT_DIR$/modules/paciente/pacienteListadoController.js" />
       </list>
     </option>
   </component>
@@ -142,10 +162,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -229,7 +249,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="pacientede&#9;FILE&#9;file://C:/xampp/htdocs/telemonitoreo-web/modules/paciente/pacienteDetalleController.js&#10;variab&#9;FILE&#9;file://C:/xampp/htdocs/telemonitoreo-web/modules/variable/variableListado.html&#10;variablel&#9;FILE&#9;file://C:/xampp/htdocs/telemonitoreo-web/modules/variable/variableListadoController.js&#10;listado&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroListadoController.js&#10;lista&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;list&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableListadoController.js&#10;dina&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/js/dinamicTemplates.js&#10;pacienteli&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteListado.html&#10;parametro&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroDetalleController.js&#10;equipodet&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoDetalleController.js&#10;equipode&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoDetalle.html&#10;variable&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableDetalleController.js&#10;varia&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/variable/variableNuevoController.js&#10;equipo&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoNuevoController.js&#10;paciente&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteNuevoController.js&#10;equipo}&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;parame&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroListadoController.js&#10;equi&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;inde&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/index.html&#10;listad&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/parametro/parametroListadoController.js&#10;init&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/js/init.js&#10;pacientenue&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteNuevo.html&#10;pacientelis&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/paciente/pacienteListadoController.js&#10;equiponu&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoNuevoController.js&#10;equipoli&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListado.html&#10;equipol&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/modules/equipo/equipoListadoController.js&#10;param&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/parametro/parametroDetalleController.js&#10;paramet&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/parametro/parametroNuevoController.js&#10;main&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/main.html&#10;pacienteDe&#9;FILE&#9;file://C:/sources/htdocs/telemonitoreo-web/paciente/pacienteDetalleController.js" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../casaDiessel" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -337,7 +357,8 @@
       <workItem from="1478739857286" duration="960000" />
       <workItem from="1487050970518" duration="11000" />
       <workItem from="1487292153469" duration="689000" />
-      <workItem from="1487293852532" duration="14553000" />
+      <workItem from="1487293852532" duration="15123000" />
+      <workItem from="1487459150971" duration="3941000" />
     </task>
     <task id="LOCAL-00001" summary="sincronizacion de los selects">
       <created>1476901373962</created>
@@ -437,34 +458,41 @@
       <option name="project" value="LOCAL" />
       <updated>1487309418658</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="iconos de estatus">
+      <created>1487316646043</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1487316646043</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51175000" />
+    <option name="totallyTimeSpent" value="55686000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19940476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14120126" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1898527" sideWeight="0.5029762" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.489375" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12567714" sideWeight="0.5052687" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16781609" sideWeight="0.47272727" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1898527" sideWeight="0.49702382" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12567714" sideWeight="0.4947313" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.489375" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +524,8 @@
     <MESSAGE value="refactorizacion en Detalle (plantillas)" />
     <MESSAGE value="integracion de variables en relacion con equipos medicos" />
     <MESSAGE value="cambio de contexto de modulo de conexion a modulo de deteccion de irregularidades" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambio de contexto de modulo de conexion a modulo de deteccion de irregularidades" />
+    <MESSAGE value="iconos de estatus" />
+    <option name="LAST_COMMIT_MESSAGE" value="iconos de estatus" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -637,13 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/parametro/parametroDetalle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -666,18 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListadoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="51" column="91" lean-forward="false" selection-start-line="51" selection-start-column="91" selection-end-line="51" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -685,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="22" column="151" lean-forward="false" selection-start-line="22" selection-start-column="113" selection-end-line="22" selection-end-column="151" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -693,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
           <caret line="47" column="19" lean-forward="false" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -701,7 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -709,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -725,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="34" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -733,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
           <caret line="215" column="27" lean-forward="false" selection-start-line="215" selection-start-column="13" selection-end-line="215" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -741,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1130">
           <caret line="130" column="1" lean-forward="true" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -749,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -757,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -797,7 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,7 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="50" column="47" lean-forward="false" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -821,7 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,22 +830,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteDetalle.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="73" column="17" lean-forward="true" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+        <state relative-caret-position="1241">
+          <caret line="73" column="17" lean-forward="false" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteListadoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteNuevoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/paciente/pacienteDetalleController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="286" column="64" lean-forward="false" selection-start-line="286" selection-start-column="64" selection-end-line="286" selection-end-column="64" />
+        <state relative-caret-position="255">
+          <caret line="108" column="25" lean-forward="true" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
           <folding />
         </state>
       </provider>

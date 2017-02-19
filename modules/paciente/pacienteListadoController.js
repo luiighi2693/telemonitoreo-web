@@ -34,6 +34,9 @@ function listTable() {
         url: "/telemonitoreo-core/web/app_dev.php/historiaclinica",
         type: 'GET',
         dataType: 'json',
+        headers: {
+            'usuario': sessionStorage.getItem("usuario")
+        },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             document.getElementById("spinner").setAttribute("class", "spinnerHidden");
