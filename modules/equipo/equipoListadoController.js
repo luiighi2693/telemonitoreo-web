@@ -4,8 +4,8 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
-    var ids = ['name', 'serial', 'type', 'typeConnection', 'url', 'detectionModule', 'visualizationModule'];
-    var names = ['Nombre', 'Serial', 'Tipo Equipo', 'Tipo Conexión', 'URL', 'Módulo de detección de irregularidades', 'Módulo de Visualización'];
+    var ids = ['name', 'serial', 'type', 'typeConnection', 'ubicacion', 'detectionModule', 'visualizationModule'];
+    var names = ['Nombre', 'Serial', 'Tipo Equipo', 'Tipo Conexión', 'Ubicación', 'Módulo de detección de irregularidades', 'Módulo de Visualización'];
     setTable("dinamicTable", ids, names, "cuerpoTabla");
     
     $('#modalDelete').load('modalDelete.html');
@@ -56,9 +56,9 @@ function listTable() {
                 tipoconexion.appendChild(document.createTextNode(object.tipoconexion));
                 nodo.appendChild(tipoconexion);
 
-                var ip = document.createElement("td");
-                ip.appendChild(document.createTextNode(object.ip));
-                nodo.appendChild(ip);
+                var ubicacion = document.createElement("td");
+                ubicacion.appendChild(document.createTextNode(object.ubicacion));
+                nodo.appendChild(ubicacion);
 
                 var moduloDeteccionIrregularidades = document.createElement("td");
                 moduloDeteccionIrregularidades.appendChild(document.createTextNode(object.modulo_deteccion_irregularidades));

@@ -112,6 +112,7 @@ $(document).ready(function() {
             document.getElementById("model").value = data.modelo;
             document.getElementById("url").value = data.ip;
             document.getElementById("serial").value = data.serial;
+            document.getElementById("location").value = data.ubicacion;
 
             setTimeout(function(){
                 getDetectionModule(data.modulo_deteccion_irregularidades);
@@ -154,6 +155,7 @@ function aceptar() {
     var moduloDeteccionIrregularidades = document.getElementById("detectionModule");
     var moduloVisualizacion = document.getElementById("visualizationModule");
     var serial = document.getElementById("serial");
+    var ubicacion = document.getElementById("location");
 
     document.getElementById("spinner").setAttribute("class", "");
 
@@ -170,7 +172,8 @@ function aceptar() {
             'ip': url.value,
             'moduloDeteccionIrregularidades': moduloDeteccionIrregularidades[moduloDeteccionIrregularidades.value].text,
             'moduloVisualizacion': moduloVisualizacion[moduloVisualizacion.value].text,
-            'serial': serial.value
+            'serial': serial.value,
+            'ubicacion': ubicacion.value
         },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {

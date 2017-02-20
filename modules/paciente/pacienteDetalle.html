@@ -21,11 +21,12 @@
                 <label class="active">Número HC</label>
             </div>
         </div>
+        <a id="historical" class="waves-effect waves-light btn left" onclick="displayHistorical()"><i class="material-icons left">info_outline</i>Históricos</a>
     </div>
     <br><br>
     <div class="container" >
         <h4 class="header center">Equipos Médicos</h4>
-        <a class="btn-floating btn-small waves-effect waves-light green right modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+        <a class="waves-effect waves-light btn right modal-trigger" href="#modal1"><i class="material-icons left">add</i>Nuevo</a>
         <br><br>
         <table class="striped centered">
             <thead>
@@ -93,21 +94,6 @@
     </div>
 
     <br><br>
-
-    <div class="container" >
-        <h4 class="header center">Históricos</h4>
-        <table class="striped centered">
-            <thead>
-            <tr>
-                <th data-field="name">Nombre de Usuario</th>
-                <th data-field="action">Acción</th>
-                <th data-field="date">Fecha</th>
-                <th data-field="observation">Observaciones</th>
-            </tr>
-            </thead>
-            <tbody id="cuerpoTablaHistoricos"></tbody>
-        </table>
-    </div>
 
 <div id="modal1" class="modal">
     <div class="modal-content">

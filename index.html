@@ -14,17 +14,19 @@
     <div class="nav-wrapper container"><a id="logo-container" onclick="$('#mainContent').load('main.html');" class="brand-logo cursosPointer"><img class="responsive-img" src="images/UC_logo_transparente_min.png"></a>
         <ul id="nav-desktop" class="right hide-on-med-and-down">
             <li><a onclick="loadModule('paciente','paciente', 'Listado', null)"><i class="material-icons left">group</i>Pacientes</a></li>
-            <li><a onclick="loadModule('equipo','equipo', 'Listado', null)"><i class="material-icons left">perm_device_information</i>Equipos Medicos</a></li>
-        <li><a onclick="loadModule('variable','variable', 'Listado', null)"><i class="material-icons left">settings</i>Variables Clínicas</a></li>
-        <li id="params"><a onclick="loadModule('parametro','parametro', 'Listado', null)"><i class="material-icons left">phonelink_setup</i>Parámetros</a></li>
-        <li><a href="#" onclick="exit()">Salir</a></li>
+            <li><a onclick="loadModule('equipo','equipo', 'Listado', null)"><i class="material-icons left">perm_device_information</i>Equipos Médicos</a></li>
+            <li><a onclick="loadModule('variable','variable', 'Listado', null)"><i class="material-icons left">settings</i>Variables Clínicas</a></li>
+            <li id="params"><a onclick="loadModule('parametro','parametro', 'Listado', null)"><i class="material-icons left">phonelink_setup</i>Parámetros</a></li>
+            <li><a onclick="loadModule('ayuda','ayuda', 'Listado', null)"><i class="material-icons">help</i></a></li>
+            <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
             <li><a onclick="loadModule('paciente','paciente', 'Listado', null)">Pacientes</a></li>
-            <li><a onclick="loadModule('equipo','equipo', 'Listado', null)">Equipos Medicos</a></li>
+            <li><a onclick="loadModule('equipo','equipo', 'Listado', null)">Equipos Médicos</a></li>
             <li><a onclick="loadModule('variable','variable', 'Listado', null)">Variables Clínicas</a></li>
             <li id="paramsMobile"><a onclick="loadModule('parametro','parametro', 'Listado', null)">Parámetros</a></li>
+            <li><a onclick="loadModule('ayuda','ayuda', 'Listado', null)">Ayuda</a></li>
             <li><a href="#" onclick="exit()">Salir</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>

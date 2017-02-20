@@ -116,6 +116,8 @@ function aceptar() {
     var url = document.getElementById("url");
     var moduloDeteccionIrregularidades = document.getElementById("detectionModule");
     var serial = document.getElementById("serial");
+    var ubicacion = document.getElementById("location");
+    var moduloVisualizacion = document.getElementById("visualizationModule");
 
     document.getElementById("spinner").setAttribute("class", "");
 
@@ -128,7 +130,9 @@ function aceptar() {
         'tipoConexion': tipoConexion[tipoConexion.value].text,
         'ip': url.value,
         'moduloDeteccionIrregularidades': moduloDeteccionIrregularidades[moduloDeteccionIrregularidades.value].text,
-        'serial': serial.value
+        'serial': serial.value,
+        'ubicacion': ubicacion.value,
+        'moduloVisualizacion': moduloVisualizacion[moduloVisualizacion.value].text
     };
     var urlRollBack = "equipo";
 

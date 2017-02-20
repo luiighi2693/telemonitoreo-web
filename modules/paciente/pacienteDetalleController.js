@@ -157,48 +157,6 @@ $(document).ready(function() {
             console.log(error);
         }
     });
-
-    $.ajax({
-        url: "/telemonitoreo-core/web/app_dev.php/historicos",
-        type: 'GET',
-        dataType: 'json',
-        headers: {
-            'idhistoriaclinica': id
-        },
-        contentType: 'application/json; charset=utf-8',
-        success: function (data) {
-            displaySpinner();
-
-            var tablaHistoricos = document.getElementById("cuerpoTablaHistoricos");
-            tablaHistoricos.innerHTML = '';
-
-            for (var i=0; i<data.length; i++){
-                var object = data[i];
-                var nodo = document.createElement("tr");
-
-                var nombreusuario = document.createElement("td");
-                nombreusuario.appendChild(document.createTextNode(object.nombreusuario));
-                nodo.appendChild(nombreusuario);
-
-                var accion = document.createElement("td");
-                accion.appendChild(document.createTextNode(object.accion));
-                nodo.appendChild(accion);
-
-                var fecha = document.createElement("td");
-                fecha.appendChild(document.createTextNode(object.fecha));
-                nodo.appendChild(fecha);
-
-                var observacion_paciente = document.createElement("td");
-                observacion_paciente.appendChild(document.createTextNode(object.observacion_paciente));
-                nodo.appendChild(observacion_paciente);
-
-                tablaHistoricos.appendChild(nodo);
-            }
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
 });
 
 $('select').on('contentChanged', function() {
@@ -349,7 +307,12 @@ function eliminarRegistro() {
 
 function displaySpinner() {
     contDisplaySpinner++;
-    if (contDisplaySpinner==5){
+    if (contDisplaySpinner==4){
         document.getElementById("spinner").setAttribute("class", "spinnerHidden");
     }
+}
+
+function displayHistorical() {
+    window.sessionStorage.setItem("cedulaPaciente", document.getElementById("cedula").value);
+    loadModule('paciente','paciente', 'Historicos', null);
 }

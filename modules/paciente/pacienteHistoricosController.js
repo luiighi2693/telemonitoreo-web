@@ -10,10 +10,15 @@ $( document ).ready(function() {
 
     $('.modal-trigger').leanModal();
 
-    if (sessionStorage.getItem("rol")=="Administrador"){
-        listTableAllAdministrator();
+    if(window.sessionStorage.getItem("cedulaPaciente")!=null){
+        listTableDetailed(window.sessionStorage.getItem("cedulaPaciente"));
+        window.sessionStorage.removeItem("cedulaPaciente");
     }else{
-        listTableAll();
+        if (sessionStorage.getItem("rol")=="Administrador"){
+            listTableAllAdministrator();
+        }else{
+            listTableAll();
+        }
     }
 });
 
@@ -43,6 +48,27 @@ function listTableAllAdministrator() {
         url: "/telemonitoreo-core/web/app_dev.php/historicos",
         type: 'GET',
         dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            document.getElementById("spinner").setAttribute("class", "spinnerHidden");
+            listTable(data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function listTableDetailed(cedula) {
+    document.getElementById("spinner").setAttribute("class", "");
+    $.ajax({
+        url: "/telemonitoreo-core/web/app_dev.php/historicos",
+        type: 'GET',
+        dataType: 'json',
+        headers: {
+            'nombreusuario': sessionStorage.getItem("usuario"),
+            'cedulapaciente': cedula
+        },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             document.getElementById("spinner").setAttribute("class", "spinnerHidden");
@@ -136,7 +162,11 @@ function buscarForAdministrador() {
             }
         });
     }else{
-        listTableAll();
+        if (sessionStorage.getItem("rol")=="Administrador"){
+            listTableAllAdministrator();
+        }else{
+            listTableAll();
+        }
     }
     document.getElementById("cedula").value = "";
 }
