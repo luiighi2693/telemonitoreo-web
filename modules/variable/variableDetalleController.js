@@ -13,28 +13,49 @@ $(document).ready(function() {
 
     $('select').material_select();
     id = idDetail;
-    var listaPacientes = [];
     var listaEquipos = [];
     document.getElementById("spinner").setAttribute("class", "");
+    $('.modal-trigger').leanModal();
 
     $.ajax({
         url: "/telemonitoreo-core/web/app_dev.php/historiaclinica",
         type: 'GET',
         dataType: 'json',
+        headers: {
+            'usuario': sessionStorage.getItem("usuario")
+        },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-            var pacientes = document.getElementById("pacientes");
+            var tabla = document.getElementById("cuerpoTabla");
+            tabla.innerHTML = '';
 
             for (var i=0; i<data.length; i++){
                 var object = data[i];
-                var nodo = document.createElement("option");
-                nodo.setAttribute("value", object.id);
-                nodo.appendChild(document.createTextNode(object.nombre_paciente+" C.I:"+object.cedula_paciente));
-                pacientes.appendChild(nodo);
-            }
+                var nodo = document.createElement("tr");
 
-            var $selectDropdown = $("#pacientes");
-            $selectDropdown.trigger('contentChanged');
+                var paciente = document.createElement("td");
+                var inputPaciente = document.createElement("input");
+                inputPaciente.setAttribute("type", "checkbox");
+                inputPaciente.setAttribute("id", object.id);
+
+                var labelPaciente = document.createElement("label");
+                labelPaciente.setAttribute("for", object.id);
+                labelPaciente.appendChild(document.createTextNode(object.nombre_paciente));
+
+                paciente.appendChild(inputPaciente);
+                paciente.appendChild(labelPaciente);
+
+                nodo.appendChild(paciente);
+
+                var rangoParticular = document.createElement("td");
+                var inputRangoParticular = document.createElement("input");
+                inputRangoParticular.setAttribute("placeholder", "rangoParticular");
+                inputRangoParticular.setAttribute("type", "text");
+                rangoParticular.appendChild(inputRangoParticular);
+                nodo.appendChild(rangoParticular);
+
+                tabla.appendChild(nodo);
+            }
 
             $.ajax({
                 url: "/telemonitoreo-core/web/app_dev.php/variablehaspaciente",
@@ -48,12 +69,15 @@ $(document).ready(function() {
                 success: function (data) {
                     displaySpinner();
                     console.log(data);
+
                     for (var i=0; i<data.length; i++){
-                        listaPacientes.push(data[i].id_historia_clinica);
+                        for(var j=0; j<document.getElementById("cuerpoTabla").childNodes.length;j++){
+                            if(data[i].id_historia_clinica==document.getElementById("cuerpoTabla").childNodes[j].childNodes[0].childNodes[0].id){
+                                document.getElementById("cuerpoTabla").childNodes[j].childNodes[0].childNodes[0].checked = true;
+                                document.getElementById("cuerpoTabla").childNodes[j].childNodes[1].childNodes[0].value = data[i].rango_particular;
+                            }
+                        }
                     }
-                    var $selectDropdown = $("#pacientes");
-                    $selectDropdown.val(listaPacientes);
-                    $selectDropdown.trigger('contentChanged');
                 },
                 error: function (error) {
                     console.log(error);
@@ -122,7 +146,6 @@ $(document).ready(function() {
             displaySpinner();
             document.getElementById("name").value = data.nombre;
             document.getElementById("range").value = data.rango;
-            document.getElementById("particularRange").value = data.rango_particular;
         },
         error: function (error) {
             console.log(error);
@@ -141,7 +164,6 @@ function cancelar() {
 function aceptar() {
     var nombre =document.getElementById("name");
     var rango =document.getElementById("range");
-    var rangoParticular =document.getElementById("particularRange");
 
     document.getElementById("spinner").setAttribute("class", "");
 
@@ -151,16 +173,20 @@ function aceptar() {
         dataType: 'json',
         headers: {
             'nombre': nombre.value,
-            'rango': rango.value,
-            'rangoparticular': rangoParticular.value
+            'rango': rango.value
         },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-            var $selectDropdown = $("#pacientes");
-            var pacientes = $selectDropdown.val();
+            var $selectDropdown = $("#equipos");
+            var equipos = $selectDropdown.val();
+            var pacientes  = null;
 
-            var $selectDropdown2 = $("#equipos");
-            var equipos = $selectDropdown2.val();
+            for(var j=0; j<document.getElementById("cuerpoTabla").childNodes.length;j++){
+                if(document.getElementById("cuerpoTabla").childNodes[j].childNodes[0].childNodes[0].checked){
+                    pacientes = true;
+                }
+            }
+
 
             if(pacientes!=null || equipos!=null){
                 var i=0;
@@ -171,8 +197,10 @@ function aceptar() {
                 }
 
                 if(pacientes!=null){
-                    for (i=0; i<pacientes.length; i++){
-                        setVariableToPatient(data.id, pacientes[i]);
+                    for(j=0; j<document.getElementById("cuerpoTabla").childNodes.length;j++){
+                        if(document.getElementById("cuerpoTabla").childNodes[j].childNodes[0].childNodes[0].checked){
+                            setVariableToPatient(data.id, document.getElementById("cuerpoTabla").childNodes[j].childNodes[0].childNodes[0].id, document.getElementById("cuerpoTabla").childNodes[j].childNodes[1].childNodes[0].value);
+                        }
                     }
                 }
 
@@ -187,14 +215,15 @@ function aceptar() {
     });
 }
 
-function setVariableToPatient(idVariableClinica, idHistoriaClinica) {
+function setVariableToPatient(idVariableClinica, idHistoriaClinica, rangoParticular) {
     $.ajax({
         url: "/telemonitoreo-core/web/app_dev.php/variablehaspaciente/",
         type: 'POST',
         dataType: 'json',
         headers: {
             'idhistoriaclinica': idHistoriaClinica,
-            'idvariableclinica': idVariableClinica
+            'idvariableclinica': idVariableClinica,
+            'rangoParticular' : rangoParticular
         },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {

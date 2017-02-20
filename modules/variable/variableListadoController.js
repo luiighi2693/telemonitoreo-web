@@ -4,8 +4,8 @@
 var idSelectedForDelete;
 
 $( document ).ready(function() {
-    var ids = ['variable', 'pacientes', 'equipos', 'range', 'particularRange'];
-    var names = ['Variable Clínica', 'Pacientes', 'Equipos', 'Rango', 'rango Particular'];
+    var ids = ['variable', 'equipos', 'range', 'particularRange'];
+    var names = ['Variable Clínica', 'Equipos asociados', 'Rango', 'rango Particular'];
     setTable("dinamicTable", ids, names, "cuerpoTabla");
 
     $('#modalDelete').load('modalDelete.html');
@@ -43,15 +43,6 @@ function listTable() {
                 nombre.appendChild(document.createTextNode(object.nombre));
                 nodo.appendChild(nombre);
 
-                var pacientes = document.createElement("td");
-                var linkPacientes = document.createElement("a");
-                linkPacientes.setAttribute("class", "modal-trigger");
-                linkPacientes.setAttribute("href", "#modal1");
-                linkPacientes.setAttribute("onclick", "listarPacientesAsociados("+object.id+")");
-                linkPacientes.appendChild(document.createTextNode("Pacientes"));
-                pacientes.appendChild(linkPacientes);
-                nodo.appendChild(pacientes);
-
                 var equipos = document.createElement("td");
                 var linkEquipos = document.createElement("a");
                 linkEquipos.setAttribute("class", "modal-trigger");
@@ -65,11 +56,14 @@ function listTable() {
                 rango.appendChild(document.createTextNode(object.rango));
                 nodo.appendChild(rango);
 
-                var rango_particular = document.createElement("td");
-                if(object.rango_particular!=undefined){
-                    rango_particular.appendChild(document.createTextNode(object.rango_particular));
-                }
-                nodo.appendChild(rango_particular);
+                var pacientes = document.createElement("td");
+                var linkPacientes = document.createElement("a");
+                linkPacientes.setAttribute("class", "modal-trigger");
+                linkPacientes.setAttribute("href", "#modal1");
+                linkPacientes.setAttribute("onclick", "listarPacientesAsociados("+object.id+")");
+                linkPacientes.appendChild(document.createTextNode("Pacientes"));
+                pacientes.appendChild(linkPacientes);
+                nodo.appendChild(pacientes);
 
                 if(sessionStorage.getItem("rol")!="Administrador" && sessionStorage.getItem("rol")!="Estudiante"){
                     var removeRow = getRemoveButton(object.id);
@@ -132,7 +126,7 @@ function listarPacientesAsociados(idVariableClinica) {
             }
 
             for (var i=0; i<data.length; i++){
-                getPaciente(data[i].id_historia_clinica);
+                getPaciente(data[i].id_historia_clinica, data[i].rango_particular);
             }
         },
         error: function (error) {
@@ -141,7 +135,7 @@ function listarPacientesAsociados(idVariableClinica) {
     });
 }
 
-function getPaciente(idPaciente) {
+function getPaciente(idPaciente, rangoParticular) {
     $.ajax({
         url: "/telemonitoreo-core/web/app_dev.php/historiaclinica/"+idPaciente,
         async:false,
@@ -155,7 +149,7 @@ function getPaciente(idPaciente) {
             var paciente = document.getElementById("pacientesAsociados");
             var pacienteLi = document.createElement("li");
             pacienteLi.setAttribute("class", "collection-item");
-            pacienteLi.appendChild(document.createTextNode(data.nombre_paciente +" CI:"+data.cedula_paciente));
+            pacienteLi.appendChild(document.createTextNode(data.nombre_paciente +" ,CI:"+data.cedula_paciente + " ,Rango: "+rangoParticular));
             paciente.appendChild(pacienteLi);
         },
         error: function (error) {

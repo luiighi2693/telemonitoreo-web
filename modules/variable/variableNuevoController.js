@@ -11,26 +11,48 @@ $(document).ready(function() {
 
     $('select').material_select();
     document.getElementById("spinner").setAttribute("class", "");
+    $('.modal-trigger').leanModal();
 
     $.ajax({
         url: "/telemonitoreo-core/web/app_dev.php/historiaclinica",
         type: 'GET',
         dataType: 'json',
+        headers: {
+            'usuario': sessionStorage.getItem("usuario")
+        },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             document.getElementById("spinner").setAttribute("class", "spinnerHidden");
-            var pacientes = document.getElementById("pacientes");
+            var tabla = document.getElementById("cuerpoTabla");
+            tabla.innerHTML = '';
 
             for (var i=0; i<data.length; i++){
                 var object = data[i];
-                var nodo = document.createElement("option");
-                nodo.setAttribute("value", object.id);
-                nodo.appendChild(document.createTextNode(object.nombre_paciente+" C.I:"+object.cedula_paciente));
-                pacientes.appendChild(nodo);
-            }
+                var nodo = document.createElement("tr");
 
-            var $selectDropdown = $("#pacientes");
-            $selectDropdown.trigger('contentChanged');
+                var paciente = document.createElement("td");
+                var inputPaciente = document.createElement("input");
+                inputPaciente.setAttribute("type", "checkbox");
+                inputPaciente.setAttribute("id", object.id);
+
+                var labelPaciente = document.createElement("label");
+                labelPaciente.setAttribute("for", object.id);
+                labelPaciente.appendChild(document.createTextNode(object.nombre_paciente));
+
+                paciente.appendChild(inputPaciente);
+                paciente.appendChild(labelPaciente);
+
+                nodo.appendChild(paciente);
+
+                var rangoParticular = document.createElement("td");
+                var inputRangoParticular = document.createElement("input");
+                inputRangoParticular.setAttribute("placeholder", "rangoParticular");
+                inputRangoParticular.setAttribute("type", "text");
+                rangoParticular.appendChild(inputRangoParticular);
+                nodo.appendChild(rangoParticular);
+
+                tabla.appendChild(nodo);
+            }
         },
         error: function (error) {
             console.log(error);
@@ -83,16 +105,16 @@ function aceptar() {
         dataType: 'json',
         headers: {
             'nombre': nombre.value,
-            'rango': rango.value,
-            'rangoparticular': rangoParticular.value
+            'rango': rango.value
         },
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             document.getElementById("spinner").setAttribute("class", "spinnerHidden");
-            var $selectDropdown = $("#pacientes");
-            var pacientes = $selectDropdown.val();
-            for (var i=0; i<pacientes.length; i++){
-                setVariableToPatient(data.id, pacientes[i]);
+
+            for(j=0; j<document.getElementById("cuerpoTabla").childNodes.length;j++){
+                if(document.getElementById("cuerpoTabla").childNodes[j].childNodes[0].childNodes[0].checked){
+                    setVariableToPatient(data.id, document.getElementById("cuerpoTabla").childNodes[j].childNodes[0].childNodes[0].id, document.getElementById("cuerpoTabla").childNodes[j].childNodes[1].childNodes[0].value);
+                }
             }
 
             var $selectDropdown2 = $("#equipos");
@@ -108,11 +130,12 @@ function aceptar() {
     });
 }
 
-function setVariableToPatient(idVariableClinica, idHistoriaClinica) {
+function setVariableToPatient(idVariableClinica, idHistoriaClinica, rangoParticular) {
     var uri = "/telemonitoreo-core/web/app_dev.php/variablehaspaciente/";
     var headers = {
         'idhistoriaclinica': idHistoriaClinica,
-        'idvariableclinica': idVariableClinica
+        'idvariableclinica': idVariableClinica,
+        'rangoParticular' : rangoParticular
     };
     var urlRollBack = 'variable';
 

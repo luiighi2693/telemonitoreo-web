@@ -4,33 +4,23 @@
     <div class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <select multiple id="pacientes">
-                    <option value="" disabled selected>Elija los pacientes</option>
-                </select>
-                <label>Pacientes</label>
-            </div>
-            <div class="input-field col s6">
                 <input id="name" type="text" class="validate">
                 <label class="active">Nombre</label>
             </div>
-        </div>
-        <div class="row">
             <div class="input-field col s6">
                 <input id="range" type="text" class="validate">
                 <label class="active">Rango</label>
             </div>
-            <div class="input-field col s6">
-                <input id="particularRange" type="text" class="validate">
-                <label class="active">Rango Particular</label>
-            </div>
         </div>
-
         <div class="row">
             <div class="input-field col s6">
                 <select multiple id="equipos">
                     <option value="" disabled selected>Elija los equipos</option>
                 </select>
                 <label>Equipos</label>
+            </div>
+            <div class="input-field col s6 center">
+                <a href="#modal" class="modal-trigger">Rango Particular</a>
             </div>
         </div>
 
@@ -40,5 +30,25 @@
                 <div class="indeterminate"></div>
             </div>
         </div>
+    </div>
+</div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h4>Rango Particular</h4>
+        <br><br>
+        <div id="dinamicTable" class="fix-size">
+            <table class="striped centered">
+                <thead>
+                    <tr>
+                        <th data-field="paciente">Paciente</th>
+                        <th data-field="particularRange">Rango Particular</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTabla"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
 </div>
